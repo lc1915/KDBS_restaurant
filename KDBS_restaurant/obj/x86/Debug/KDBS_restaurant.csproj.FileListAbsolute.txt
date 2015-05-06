@@ -1,0 +1,7 @@
+D:\vs\KDBS_restaurant\KDBS_restaurant\bin\Debug\KDBS_restaurant.exe
+D:\vs\KDBS_restaurant\KDBS_restaurant\bin\Debug\KDBS_restaurant.pdb
+D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.Form1.resources
+D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.Properties.Resources.resources
+D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.csproj.GenerateResource.Cache
+D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.exe
+D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.pdb
