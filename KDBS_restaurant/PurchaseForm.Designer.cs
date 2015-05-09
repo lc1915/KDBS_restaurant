@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // PurchaseForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "PurchaseForm";
+            this.ClientSize = new System.Drawing.Size(836, 510);
+            this.Name = "PurchaseForm";
+            this.Text = "入库单";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

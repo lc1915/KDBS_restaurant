@@ -42,11 +42,11 @@
             this.哼唧ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.没啦ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
@@ -126,19 +126,19 @@
             this.你猜啊ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem2});
             this.你猜啊ToolStripMenuItem.Name = "你猜啊ToolStripMenuItem";
-            this.你猜啊ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.你猜啊ToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
             this.你猜啊ToolStripMenuItem.Text = "你猜啊";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 24);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(114, 24);
             this.toolStripMenuItem2.Text = "2333";
             // 
             // 哼唧ToolStripMenuItem
             // 
             this.哼唧ToolStripMenuItem.Name = "哼唧ToolStripMenuItem";
-            this.哼唧ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.哼唧ToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
             this.哼唧ToolStripMenuItem.Text = "哼唧";
             // 
             // 没啦ToolStripMenuItem
@@ -149,6 +149,9 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.statusStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripProgressBar1,
             this.toolStripStatusLabel1,
@@ -157,9 +160,15 @@
             this.toolStripStatusLabel4});
             this.statusStrip1.Location = new System.Drawing.Point(0, 485);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(836, 25);
+            this.statusStrip1.Size = new System.Drawing.Size(807, 25);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(84, 20);
+            this.toolStripProgressBar1.Text = "通知！！！";
             // 
             // toolStripStatusLabel1
             // 
@@ -187,14 +196,9 @@
             this.toolStripStatusLabel4.Size = new System.Drawing.Size(89, 20);
             this.toolStripStatusLabel4.Text = "2015.05.08";
             // 
-            // toolStripProgressBar1
-            // 
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(84, 20);
-            this.toolStripProgressBar1.Text = "通知！！！";
-            // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(102, 492);
             this.label1.Name = "label1";
@@ -205,6 +209,9 @@
             // 
             // splitContainer1
             // 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer1.Location = new System.Drawing.Point(0, 31);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -235,7 +242,7 @@
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
-            // Main
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -244,9 +251,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "Main";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KDBS门店客户端";
             this.Load += new System.EventHandler(this.Form1_Load);
