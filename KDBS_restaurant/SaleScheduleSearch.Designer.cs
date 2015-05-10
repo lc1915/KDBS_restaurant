@@ -1,6 +1,6 @@
 ﻿namespace KDBS_restaurant
 {
-    partial class PurchaseForm
+    partial class SaleScheduleSearch
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // PurchaseForm
+            // SaleScheduleSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 510);
-            this.Name = "PurchaseForm";
-            this.Text = "入库单";
+            this.ClientSize = new System.Drawing.Size(282, 253);
+            this.Name = "SaleScheduleSearch";
+            this.Text = "销售计划查询";
             this.ResumeLayout(false);
 
         }

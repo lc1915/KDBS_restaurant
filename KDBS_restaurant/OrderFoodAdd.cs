@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace KDBS_restaurant
 {
-    public partial class PurchaseForm : Form
+    public partial class OrderFoodAdd : Form
     {
-        public PurchaseForm()
+        public OrderFoodAdd()
         {
             InitializeComponent();
         }

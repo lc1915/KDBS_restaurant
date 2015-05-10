@@ -33,12 +33,8 @@
             this.菜单1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.打开ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.保存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.另存为ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.c盘ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.d盘ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.菜单2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.你猜啊ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.哼唧ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.没啦ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -50,6 +46,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.导入Excel文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -74,43 +71,22 @@
             this.菜单1ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.打开ToolStripMenuItem,
             this.保存ToolStripMenuItem,
-            this.另存为ToolStripMenuItem});
+            this.导入Excel文件ToolStripMenuItem});
             this.菜单1ToolStripMenuItem.Name = "菜单1ToolStripMenuItem";
-            this.菜单1ToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
-            this.菜单1ToolStripMenuItem.Text = "菜单1";
+            this.菜单1ToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
+            this.菜单1ToolStripMenuItem.Text = "文件";
             // 
             // 打开ToolStripMenuItem
             // 
             this.打开ToolStripMenuItem.Name = "打开ToolStripMenuItem";
-            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
-            this.打开ToolStripMenuItem.Text = "打开";
+            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
+            this.打开ToolStripMenuItem.Text = "保存";
             // 
             // 保存ToolStripMenuItem
             // 
             this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
-            this.保存ToolStripMenuItem.Text = "保存";
-            // 
-            // 另存为ToolStripMenuItem
-            // 
-            this.另存为ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.c盘ToolStripMenuItem,
-            this.d盘ToolStripMenuItem});
-            this.另存为ToolStripMenuItem.Name = "另存为ToolStripMenuItem";
-            this.另存为ToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
-            this.另存为ToolStripMenuItem.Text = "另存为";
-            // 
-            // c盘ToolStripMenuItem
-            // 
-            this.c盘ToolStripMenuItem.Name = "c盘ToolStripMenuItem";
-            this.c盘ToolStripMenuItem.Size = new System.Drawing.Size(103, 24);
-            this.c盘ToolStripMenuItem.Text = "c盘";
-            // 
-            // d盘ToolStripMenuItem
-            // 
-            this.d盘ToolStripMenuItem.Name = "d盘ToolStripMenuItem";
-            this.d盘ToolStripMenuItem.Size = new System.Drawing.Size(103, 24);
-            this.d盘ToolStripMenuItem.Text = "d盘";
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
+            this.保存ToolStripMenuItem.Text = "导出到Excel";
             // 
             // 菜单2ToolStripMenuItem
             // 
@@ -118,34 +94,26 @@
             this.你猜啊ToolStripMenuItem,
             this.哼唧ToolStripMenuItem});
             this.菜单2ToolStripMenuItem.Name = "菜单2ToolStripMenuItem";
-            this.菜单2ToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
-            this.菜单2ToolStripMenuItem.Text = "菜单2";
+            this.菜单2ToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
+            this.菜单2ToolStripMenuItem.Text = "选项";
             // 
             // 你猜啊ToolStripMenuItem
             // 
-            this.你猜啊ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2});
             this.你猜啊ToolStripMenuItem.Name = "你猜啊ToolStripMenuItem";
-            this.你猜啊ToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
-            this.你猜啊ToolStripMenuItem.Text = "你猜啊";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(114, 24);
-            this.toolStripMenuItem2.Text = "2333";
+            this.你猜啊ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.你猜啊ToolStripMenuItem.Text = "审核";
             // 
             // 哼唧ToolStripMenuItem
             // 
             this.哼唧ToolStripMenuItem.Name = "哼唧ToolStripMenuItem";
-            this.哼唧ToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
-            this.哼唧ToolStripMenuItem.Text = "哼唧";
+            this.哼唧ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.哼唧ToolStripMenuItem.Text = "反审核";
             // 
             // 没啦ToolStripMenuItem
             // 
             this.没啦ToolStripMenuItem.Name = "没啦ToolStripMenuItem";
             this.没啦ToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
-            this.没啦ToolStripMenuItem.Text = "没啦";
+            this.没啦ToolStripMenuItem.Text = "退出";
             // 
             // statusStrip1
             // 
@@ -242,6 +210,12 @@
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
+            // 导入Excel文件ToolStripMenuItem
+            // 
+            this.导入Excel文件ToolStripMenuItem.Name = "导入Excel文件ToolStripMenuItem";
+            this.导入Excel文件ToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
+            this.导入Excel文件ToolStripMenuItem.Text = "导入Excel文件";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -273,12 +247,8 @@
         private System.Windows.Forms.ToolStripMenuItem 菜单1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 打开ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 保存ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 另存为ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem c盘ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem d盘ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 菜单2ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 你猜啊ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem 哼唧ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 没啦ToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
@@ -290,6 +260,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.ToolStripMenuItem 导入Excel文件ToolStripMenuItem;
 
 
     }

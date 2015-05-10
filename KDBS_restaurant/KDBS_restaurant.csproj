@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InsideSale.cs">
+    <Compile Include="BillSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InsideSale.Designer.cs">
-      <DependentUpon>InsideSale.cs</DependentUpon>
+    <Compile Include="BillSearch.Designer.cs">
+      <DependentUpon>BillSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -58,19 +64,115 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PurchaseForm.cs">
+    <Compile Include="OrderFoodAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PurchaseForm.Designer.cs">
-      <DependentUpon>PurchaseForm.cs</DependentUpon>
+    <Compile Include="OrderFoodAdd.Designer.cs">
+      <DependentUpon>OrderFoodAdd.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="InsideSale.resx">
-      <DependentUpon>InsideSale.cs</DependentUpon>
+    <Compile Include="OrderFoodSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderFoodSearch.Designer.cs">
+      <DependentUpon>OrderFoodSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainProcessSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainProcessSearch.Designer.cs">
+      <DependentUpon>MainProcessSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PermissionSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PermissionSetting.Designer.cs">
+      <DependentUpon>PermissionSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PreProcessSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PreProcessSearch.Designer.cs">
+      <DependentUpon>PreProcessSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReceiveGoodsAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReceiveGoodsAdd.Designer.cs">
+      <DependentUpon>ReceiveGoodsAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReceiveGoodsSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReceiveGoodsSearch.Designer.cs">
+      <DependentUpon>ReceiveGoodsSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SaleScheduleSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaleScheduleSearch.Designer.cs">
+      <DependentUpon>SaleScheduleSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServeFoodSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServeFoodSearch.Designer.cs">
+      <DependentUpon>ServeFoodSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StorageReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StorageReport.Designer.cs">
+      <DependentUpon>StorageReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableStatus.Designer.cs">
+      <DependentUpon>TableStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UrgentPurchaseAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UrgentPurchaseAdd.Designer.cs">
+      <DependentUpon>UrgentPurchaseAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UrgentPurchaseSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UrgentPurchaseSearch.Designer.cs">
+      <DependentUpon>UrgentPurchaseSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaitingStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitingStatus.Designer.cs">
+      <DependentUpon>WaitingStatus.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BillSearch.resx">
+      <DependentUpon>BillSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderFoodAdd.resx">
+      <DependentUpon>OrderFoodAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderFoodSearch.resx">
+      <DependentUpon>OrderFoodSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainProcessSearch.resx">
+      <DependentUpon>MainProcessSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PermissionSetting.resx">
+      <DependentUpon>PermissionSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreProcessSearch.resx">
+      <DependentUpon>PreProcessSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -81,8 +183,32 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="PurchaseForm.resx">
-      <DependentUpon>PurchaseForm.cs</DependentUpon>
+    <EmbeddedResource Include="ReceiveGoodsAdd.resx">
+      <DependentUpon>ReceiveGoodsAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReceiveGoodsSearch.resx">
+      <DependentUpon>ReceiveGoodsSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaleScheduleSearch.resx">
+      <DependentUpon>SaleScheduleSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServeFoodSearch.resx">
+      <DependentUpon>ServeFoodSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StorageReport.resx">
+      <DependentUpon>StorageReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TableStatus.resx">
+      <DependentUpon>TableStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UrgentPurchaseAdd.resx">
+      <DependentUpon>UrgentPurchaseAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UrgentPurchaseSearch.resx">
+      <DependentUpon>UrgentPurchaseSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitingStatus.resx">
+      <DependentUpon>WaitingStatus.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
