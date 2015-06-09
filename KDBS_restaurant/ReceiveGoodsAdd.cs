@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
@@ -15,6 +16,18 @@ namespace KDBS_restaurant
         public ReceiveGoodsAdd()
         {
             InitializeComponent();
+        }
+
+        DataSet ds = new DataSet();
+        /*SqlDataAdapter da = new SqlDataAdapter();
+        SqlCommandBuilder cb = new SqlCommandBuilder();
+        SqlCommand cmd = new SqlCommand();
+        private string sql = "select * from TEST_Table";
+        private string connString = "Data Source=.;User ID=sa;Password=123;Initial Catalog=Test;";*/
+
+        private void ReceiveGoodsAdd_Load(object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=B;Integrated Security=True");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -52,5 +65,6 @@ namespace KDBS_restaurant
             myCommand.Fill(ds, "table1");
             dataGridView1.DataSource = ds.Tables[0].DefaultView;
         }
+
     }
 }

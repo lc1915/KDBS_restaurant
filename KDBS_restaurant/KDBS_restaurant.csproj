@@ -52,6 +52,11 @@
     <Compile Include="BillSearch.Designer.cs">
       <DependentUpon>BillSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="KDBSDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KDBSDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +215,18 @@
     <EmbeddedResource Include="WaitingStatus.resx">
       <DependentUpon>WaitingStatus.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="KDBSDataSet.xsc">
+      <DependentUpon>KDBSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="KDBSDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KDBSDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KDBSDataSet.xss">
+      <DependentUpon>KDBSDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

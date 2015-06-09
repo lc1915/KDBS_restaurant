@@ -196,11 +196,13 @@ namespace KDBS_restaurant
                     UrgentPurchaseAdd urgentPurchaseAdd = new UrgentPurchaseAdd();
                     urgentPurchaseAdd.Show();
                     this.WindowState = FormWindowState.Minimized;
+                    //this.Enabled = false;
                     break;
                 case "紧急订货单查询":
                     UrgentPurchaseSearch urgentPurchaseSearch = new UrgentPurchaseSearch();
                     urgentPurchaseSearch.Show();
                     this.WindowState = FormWindowState.Minimized;
+                    //this.Enabled = false;
                     break;
                 case "收货单新增":
                     ReceiveGoodsAdd receiveGoodsAdd = new ReceiveGoodsAdd();

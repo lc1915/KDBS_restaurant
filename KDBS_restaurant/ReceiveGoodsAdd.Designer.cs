@@ -254,6 +254,7 @@
             this.Name = "ReceiveGoodsAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "收货单新增";
+            this.Load += new System.EventHandler(this.ReceiveGoodsAdd_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);

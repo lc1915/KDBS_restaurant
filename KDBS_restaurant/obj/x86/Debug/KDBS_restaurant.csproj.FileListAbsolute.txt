@@ -22,3 +22,4 @@ D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.UrgentPurcha
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.WaitingStatus.resources
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.Login.resources
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.PermissionSetting.resources
+D:\vs\KDBS_restaurant\KDBS_restaurant\bin\Debug\KDBS_restaurant.exe.config
