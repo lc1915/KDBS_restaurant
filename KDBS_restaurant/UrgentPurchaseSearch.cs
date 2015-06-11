@@ -12,7 +12,278 @@ namespace KDBS_restaurant
 {
     public partial class UrgentPurchaseSearch : Form
     {
-        static String EmercyOrderPrimaryID = "";
+
+        DataSet dataset;
+        DataView mainView;
+        String[] args;
+        int[] headmerge;
+
+
+        List<Int64> changedRowIndex = new List<Int64>();
+
+        SqlConnection conn;
+
+
+        public UrgentPurchaseSearch(string[] argss)
+        {
+            InitializeComponent();
+            args = new String[7];
+            headmerge = new int[3];
+            this.args = argss;
+
+        }
+
+        private void UrgentPurchaseSearch_Load(object sender, EventArgs e)
+        {
+            conn = new SqlConnection("Data Source=A\\B;Initial Catalog=KDBS;Integrated Security=True");//args[4]
+            dataset = new DataSet();
+            this.refreshdatagridview();
+            dataGridView1.DataSource = mainView;
+            headmerge[0] = 0;
+            headmerge[1] = 1;
+            headmerge[2] = 2;
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            //打开紧急订货单详细查询界面（可以不用紧急订货单新增界面）
+            UrgentPurchaseAdd urgentPurchaseAdd = new UrgentPurchaseAdd(null);
+            urgentPurchaseAdd.Show();
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+
+
+        private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            SolidBrush b = new SolidBrush(this.dataGridView1.RowHeadersDefaultCellStyle.ForeColor);
+            e.Graphics.DrawString((e.RowIndex + 1).ToString(System.Globalization.CultureInfo.CurrentUICulture), this.dataGridView1.DefaultCellStyle.Font, b, e.RowBounds.Location.X + 20, e.RowBounds.Location.Y + 4);
+
+        }
+
+        public void refreshdatagridview()
+        {
+
+            //DataTable   dd =dataGridView1.DataSource as DataTable;
+            //  dd.Rows.Clear();
+            //  dataGridView1.DataSource = dd;
+            SqlCommand sqc = new SqlCommand("Select_EmercyOrder", conn);
+            SqlDataAdapter sda = new SqlDataAdapter(sqc);
+            sqc.CommandType = System.Data.CommandType.StoredProcedure;
+
+            SqlParameter sqlparme;
+
+            sqlparme = sqc.Parameters.Add("@district", SqlDbType.Char);
+            sqlparme.Direction = ParameterDirection.Input;
+            sqlparme.Value = "01";
+
+
+            conn.Open();
+            if (dataset.Tables.Count > 0)
+                dataset.Tables[0].Rows.Clear();
+            sda.Fill(dataset, "EmercyOrder");
+            conn.Close();
+            mainView = new DataView(dataset.Tables[0]);
+            //dataGridView1.Columns.Clear();
+            //   dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.Columns[0].DataPropertyName = "EmercyOrderPrimaryID";
+            dataGridView1.Columns[1].DataPropertyName = "Date";
+            dataGridView1.Columns[2].DataPropertyName = "MaterialID";
+            dataGridView1.Columns[3].DataPropertyName = "MaterialName";
+            dataGridView1.Columns[4].DataPropertyName = "Number";
+            dataGridView1.Columns[5].DataPropertyName = "Unit";
+
+            mainView.Sort = "Date DESC";
+        }
+
+        private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {//
+            for (int i = 0; i < 3; i++)
+            {
+                if (e.ColumnIndex == i && e.RowIndex != -1)
+                {
+                    using
+                        (
+                        Brush gridBrush = new SolidBrush(this.dataGridView1.GridColor),
+                        backColorBrush = new SolidBrush(e.CellStyle.BackColor)
+                        )
+                    {
+                        using (Pen gridLinePen = new Pen(gridBrush))
+                        {
+                            e.Graphics.FillRectangle(backColorBrush, e.CellBounds);
+                            if (e.RowIndex < dataGridView1.Rows.Count - 1 && dataGridView1.Rows[e.RowIndex + 1].Cells[e.ColumnIndex].Value.ToString() != e.Value.ToString())
+                                e.Graphics.DrawLine(gridLinePen, e.CellBounds.Left,
+                                e.CellBounds.Bottom - 1, e.CellBounds.Right - 1,
+                                e.CellBounds.Bottom - 1);
+                            e.Graphics.DrawLine(gridLinePen, e.CellBounds.Right - 1,
+                                e.CellBounds.Top, e.CellBounds.Right - 1,
+                                e.CellBounds.Bottom);
+                            if (e.Value != null)
+                            {
+                                if (e.RowIndex > 0 &&
+                                dataGridView1.Rows[e.RowIndex - 1].Cells[e.ColumnIndex].Value.ToString() ==
+                                e.Value.ToString())
+                                { }
+                                else
+                                {
+
+                                    e.Graphics.DrawString(Convert.ToString(e.Value), e.CellStyle.Font, Brushes.Black, e.CellBounds.X + 2, e.CellBounds.Y + 5, StringFormat.GenericDefault);
+                                }
+                            }
+                            e.Handled = true;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        private void dataGridView1_RowPostPaint_1(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            SolidBrush b = new SolidBrush(this.dataGridView1.RowHeadersDefaultCellStyle.ForeColor);
+            e.Graphics.DrawString((e.RowIndex + 1).ToString(System.Globalization.CultureInfo.CurrentUICulture), this.dataGridView1.DefaultCellStyle.Font, b, e.RowBounds.Location.X + 20, e.RowBounds.Location.Y + 4);
+
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            //if (changedID.Contains(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString()) == false || changedWare.Contains(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value.ToString()) == false || changedMate.Contains(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[6].Value.ToString()) == false)
+            //{
+            //    changedID.Add(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString());
+            //    changedWare.Add(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value.ToString());
+            //    changedMate.Add(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[6].Value.ToString());
+            //}
+            //changedID.Add(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString());
+            if (!changedRowIndex.Contains(dataGridView1.CurrentCell.RowIndex))
+                changedRowIndex.Add(dataGridView1.CurrentCell.RowIndex);
+            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[3].Value = 1;
+        }
+
+        private void toolStripButton7_Click(object sender, EventArgs e)
+        {
+            //if (changedID.Contains(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString()) == false || changedWare.Contains(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value.ToString()) == false || changedMate.Contains(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[6].Value.ToString()) == false)
+            //{
+            //    changedID.Add(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString());
+            //    changedWare.Add(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value.ToString());
+            //    changedMate.Add(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[6].Value.ToString());
+            //}
+            if (!changedRowIndex.Contains(dataGridView1.CurrentCell.RowIndex))
+                changedRowIndex.Add(dataGridView1.CurrentCell.RowIndex);
+            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[3].Value = 0;
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            Boolean i = true;
+            conn.Open();
+            foreach (int ri in changedRowIndex)
+            {
+                Console.Write(Convert.ToString(ri));
+
+                DataGridViewRow dgvr = dataGridView1.Rows[ri];
+
+                Boolean r = alter_checked(dgvr.Cells[0].Value.ToString(), dgvr.Cells[4].Value.ToString(), dgvr.Cells[6].Value.ToString(), Convert.ToBoolean(dataGridView1.Rows[ri].Cells[3].Value));
+                i = (r == true ? true : false);
+
+                Console.WriteLine(dgvr.Cells[0].Value.ToString() + dgvr.Cells[4].Value.ToString() + dgvr.Cells[6].Value.ToString() + Convert.ToBoolean(dataGridView1.Rows[ri].Cells[3].Value));
+
+
+
+            }
+            if (i == true)
+                MessageBox.Show("保存成功！");
+            else
+            {
+                MessageBox.Show("保存失败！");
+            }
+            conn.Close();
+        }//
+
+        public bool alter_checked(String planid, String ware, String materialid, Boolean checke)
+        {
+            SqlCommand sqc = new SqlCommand("Alter_ProcurePlan_Checked", conn);
+            sqc.CommandType = System.Data.CommandType.StoredProcedure;
+
+            SqlParameter sqlparme;
+
+            sqlparme = sqc.Parameters.Add("@ProcurePlanPrimaryID", SqlDbType.Char);
+            sqlparme.Direction = ParameterDirection.Input;
+            sqlparme.Value = planid;
+
+            sqlparme = sqc.Parameters.Add("@WareHouseID", SqlDbType.Char);
+            sqlparme.Direction = ParameterDirection.Input;
+            sqlparme.Value = ware;
+
+            sqlparme = sqc.Parameters.Add("@material", SqlDbType.Char);
+            sqlparme.Direction = ParameterDirection.Input;
+            sqlparme.Value = materialid;
+
+            sqlparme = sqc.Parameters.Add("@checked", SqlDbType.Bit);
+            sqlparme.Direction = ParameterDirection.Input;
+            sqlparme.Value = checke;
+
+
+            int effect = sqc.ExecuteNonQuery();
+            if (effect > 0)
+                return true;
+            else
+                return false;
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine(dataset.Tables[0].Rows.Count);
+            if (MessageBox.Show("Will you Delete it?", "Confirm Message", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                SqlCommand sqc = new SqlCommand("Alter_ProcurePlan_Deleted", conn);
+                sqc.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlParameter sqlparme;
+
+                sqlparme = sqc.Parameters.Add("@EmercyOrderPrimaryID", SqlDbType.Char);
+                sqlparme.Direction = ParameterDirection.Input;
+                sqlparme.Value = dataGridView1.CurrentCell.OwningRow.Cells[0].Value.ToString();
+
+                sqlparme = sqc.Parameters.Add("@WareHouseID", SqlDbType.Char);
+                sqlparme.Direction = ParameterDirection.Input;
+                sqlparme.Value = dataGridView1.CurrentCell.OwningRow.Cells[4].Value.ToString();
+
+                sqlparme = sqc.Parameters.Add("@material", SqlDbType.Char);
+                sqlparme.Direction = ParameterDirection.Input;
+                sqlparme.Value = dataGridView1.CurrentCell.OwningRow.Cells[6].Value.ToString();
+
+                conn.Open();
+                int effect = sqc.ExecuteNonQuery();
+                conn.Close();
+                dataGridView1.Rows.RemoveAt(dataGridView1.CurrentCell.RowIndex);
+                this.refreshdatagridview();
+                dataGridView1.Refresh();
+                dataGridView1.DataSource = mainView;
+                Console.WriteLine(dataset.Tables[0].Rows.Count + "**");
+                if (effect > 0)
+                    MessageBox.Show("删除成功！");
+                else
+                    MessageBox.Show("删除失败！ 请检查被删除项目是否处于未审核状态！");
+
+            }
+        }
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            MessageBox.Show("点击了" + ((dataGridView1.CurrentCell.RowIndex) + 1) + "行");
+            String orderid = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString();
+            DataTable ddt = dataset.Tables[0];
+            DataView ddv = new DataView(ddt);
+            ddv.RowFilter = "EmercyOrderPrimaryID=" + "\'" + orderid + "\'";
+            UrgentPurchaseAdd urgentPurchaseAdd = new UrgentPurchaseAdd(ddv.ToTable());
+            urgentPurchaseAdd.Owner = this;
+            this.WindowState = FormWindowState.Minimized;
+            urgentPurchaseAdd.Show();
+
+        }
+
+        /*static String EmercyOrderPrimaryID = "";
         SqlConnection sqlConn;
         DataTable dataTab;
 
@@ -86,5 +357,7 @@ namespace KDBS_restaurant
             //this.Enabled = false;
 
         }
+    }*/
+
     }
 }

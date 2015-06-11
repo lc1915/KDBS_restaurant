@@ -3187,6 +3187,10 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
       <xs:selector xpath=".//mstns:EmercyOrderDetail" />
       <xs:field xpath="mstns:EmercyOrderPrimaryID" />
     </xs:unique>
+    <xs:unique name="Constraint2">
+      <xs:selector xpath=".//mstns:EmercyOrderDetail" />
+      <xs:field xpath="mstns:MaterialID" />
+    </xs:unique>
     <xs:unique name="EmercyOrderPrimary_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:EmercyOrderPrimary" />
       <xs:field xpath="mstns:EmercyOrderPrimaryID" />
@@ -3291,6 +3295,18 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
       <xs:selector xpath=".//mstns:Select_WareHouseList" />
       <xs:field xpath="mstns:WareHouseID" />
     </xs:unique>
+    <xs:keyref name="FK_RecipePrimary_RecipeDetail" refer="RecipePrimary_Constraint1" msdata:ConstraintOnly="true">
+      <xs:selector xpath=".//mstns:RecipeDetail" />
+      <xs:field xpath="mstns:RecipePrimaryID" />
+    </xs:keyref>
+    <xs:keyref name="FK_EmercyOrderDetail_Material" refer="Constraint2" msdata:ConstraintOnly="true">
+      <xs:selector xpath=".//mstns:Material" />
+      <xs:field xpath="mstns:MaterialID" />
+    </xs:keyref>
+    <xs:keyref name="FK_EmercyOrderPrimary_EmercyOrderDetail" refer="EmercyOrderPrimary_Constraint1" msdata:ConstraintOnly="true">
+      <xs:selector xpath=".//mstns:EmercyOrderDetail" />
+      <xs:field xpath="mstns:EmercyOrderPrimaryID" />
+    </xs:keyref>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>

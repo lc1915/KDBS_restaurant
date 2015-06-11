@@ -178,6 +178,8 @@ namespace KDBS_restaurant
             t51.Nodes.Add(t511);
             TreeNode t512 = new TreeNode("门店桌号信息初始化");
             t51.Nodes.Add(t512);
+            TreeNode t513 = new TreeNode("原材料信息初始化");
+            t51.Nodes.Add(t513);
             TreeNode t52 = new TreeNode("权限设置/用户管理"); //这两个可以在一起吧？对用户组、用户的增删查改
             node5.Nodes.Add(t52);
             TreeNode t54 = new TreeNode("通知管理"); // 发送各种通知
@@ -193,13 +195,15 @@ namespace KDBS_restaurant
             switch (treenodeStr)
             {
                 case "紧急订货单新增":
-                    UrgentPurchaseAdd urgentPurchaseAdd = new UrgentPurchaseAdd();
+                    UrgentPurchaseAdd urgentPurchaseAdd = new UrgentPurchaseAdd(null);
                     urgentPurchaseAdd.Show();
                     this.WindowState = FormWindowState.Minimized;
                     //this.Enabled = false;
                     break;
                 case "紧急订货单查询":
-                    UrgentPurchaseSearch urgentPurchaseSearch = new UrgentPurchaseSearch();
+                    String a = "a b c";
+                    String[] args_str = a.Split(new char[] { ' ' });
+                    UrgentPurchaseSearch urgentPurchaseSearch = new UrgentPurchaseSearch(args_str);
                     urgentPurchaseSearch.Show();
                     this.WindowState = FormWindowState.Minimized;
                     //this.Enabled = false;
@@ -264,10 +268,20 @@ namespace KDBS_restaurant
                     permissionSetting.Show();
                     this.WindowState = FormWindowState.Minimized;
                     break;
-                case "销售管理":
+                case "菜品信息初始化":
+                    InitialRecipePrimary initialRecipePrimary = new InitialRecipePrimary();
+                    initialRecipePrimary.Show();
+                    this.WindowState = FormWindowState.Minimized;
+                    break;
+                case "原材料信息初始化":
+                    InitialMaterial initialMaterial = new InitialMaterial();
+                    initialMaterial.Show();
+                    this.WindowState = FormWindowState.Minimized;
+                    break;
+                /*case "销售管理":
                     splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(22, 155, 233);
                     splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(22, 155, 233);
-                    break;
+                    break;*/
                 default:
                     //ccc
                     break;

@@ -52,6 +52,28 @@
     <Compile Include="BillSearch.Designer.cs">
       <DependentUpon>BillSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="InitialMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InitialMaterial.Designer.cs">
+      <DependentUpon>InitialMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InitialRecipeDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InitialRecipeDetail.Designer.cs">
+      <DependentUpon>InitialRecipeDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InitialRecipePrimary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InitialRecipePrimary.Designer.cs">
+      <DependentUpon>InitialRecipePrimary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KDBSDataSet.cs">
+      <DependentUpon>KDBSDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="KDBSDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -157,6 +179,15 @@
     </Compile>
     <EmbeddedResource Include="BillSearch.resx">
       <DependentUpon>BillSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InitialMaterial.resx">
+      <DependentUpon>InitialMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InitialRecipeDetail.resx">
+      <DependentUpon>InitialRecipeDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InitialRecipePrimary.resx">
+      <DependentUpon>InitialRecipePrimary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

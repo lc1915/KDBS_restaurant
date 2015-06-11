@@ -23,3 +23,6 @@ D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.WaitingStatu
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.Login.resources
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.PermissionSetting.resources
 D:\vs\KDBS_restaurant\KDBS_restaurant\bin\Debug\KDBS_restaurant.exe.config
+D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.InitialMaterial.resources
+D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.InitialRecipePrimary.resources
+D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.InitialRecipeDetail.resources

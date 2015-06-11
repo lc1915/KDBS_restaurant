@@ -39,10 +39,16 @@
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.emercyOrderPrimaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.kDBSDataSet = new KDBS_restaurant.KDBSDataSet();
-            this.emercyOrderPrimaryTableAdapter = new KDBS_restaurant.KDBSDataSetTableAdapters.EmercyOrderPrimaryTableAdapter();
-            this.kDBSDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.EmercyOrderPrimaryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaterialID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaterialName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            //this.emercyOrderPrimaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            //this.kDBSDataSet = new KDBS_restaurant.KDBSDataSet();
+            //this.emercyOrderPrimaryTableAdapter = new KDBS_restaurant.KDBSDataSetTableAdapters.EmercyOrderPrimaryTableAdapter();
+            //this.kDBSDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -53,9 +59,6 @@
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emercyOrderPrimaryBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kDBSDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kDBSDataSetBindingSource)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -128,6 +131,13 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.EmercyOrderPrimaryID,
+            this.Date,
+            this.MaterialID,
+            this.MaterialName,
+            this.Number,
+            this.Unit});
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -136,26 +146,64 @@
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(836, 424);
             this.dataGridView1.TabIndex = 2;
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(dataGridView1_CellMouseDoubleClick);
+            // 
+            // EmercyOrderPrimaryID
+            // 
+            this.EmercyOrderPrimaryID.HeaderText = "紧急订货单编号";
+            this.EmercyOrderPrimaryID.Name = "EmercyOrderPrimaryID";
+            this.EmercyOrderPrimaryID.ReadOnly = true;
+            this.EmercyOrderPrimaryID.Width = 120;
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "时间";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            // 
+            // MaterialID
+            // 
+            this.MaterialID.HeaderText = "原材料编号";
+            this.MaterialID.Name = "MaterialID";
+            this.MaterialID.ReadOnly = true;
+            // 
+            // MaterialName
+            // 
+            this.MaterialName.HeaderText = "原材料名称";
+            this.MaterialName.Name = "MaterialName";
+            this.MaterialName.ReadOnly = true;
+            // 
+            // Number
+            // 
+            this.Number.HeaderText = "数量";
+            this.Number.Name = "Number";
+            this.Number.ReadOnly = true;
+            // 
+            // Unit
+            // 
+            this.Unit.HeaderText = "单位";
+            this.Unit.Name = "Unit";
+            this.Unit.ReadOnly = true;
+            
             // 
             // emercyOrderPrimaryBindingSource
             // 
-            this.emercyOrderPrimaryBindingSource.DataMember = "EmercyOrderPrimary";
-            this.emercyOrderPrimaryBindingSource.DataSource = this.kDBSDataSet;
+            //this.emercyOrderPrimaryBindingSource.DataMember = "EmercyOrderPrimary";
+            //this.emercyOrderPrimaryBindingSource.DataSource = this.kDBSDataSet;
             // 
             // kDBSDataSet
             // 
-            this.kDBSDataSet.DataSetName = "KDBSDataSet";
-            this.kDBSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            //this.kDBSDataSet.DataSetName = "KDBSDataSet";
+            //this.kDBSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // emercyOrderPrimaryTableAdapter
             // 
-            this.emercyOrderPrimaryTableAdapter.ClearBeforeFill = true;
+            //this.emercyOrderPrimaryTableAdapter.ClearBeforeFill = true;
             // 
             // kDBSDataSetBindingSource
             // 
-            this.kDBSDataSetBindingSource.DataSource = this.kDBSDataSet;
-            this.kDBSDataSetBindingSource.Position = 0;
+            //this.kDBSDataSetBindingSource.DataSource = this.kDBSDataSet;
+            //this.kDBSDataSetBindingSource.Position = 0;
             // 
             // toolStrip1
             // 
@@ -179,6 +227,7 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(59, 24);
             this.toolStripButton1.Text = "新增";
+            this.toolStripButton1.Click +=new System.EventHandler(toolStripButton1_Click);
             // 
             // toolStripButton2
             // 
@@ -239,9 +288,6 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emercyOrderPrimaryBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kDBSDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kDBSDataSetBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -260,10 +306,16 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private KDBSDataSet kDBSDataSet;
-        private System.Windows.Forms.BindingSource emercyOrderPrimaryBindingSource;
-        private KDBSDataSetTableAdapters.EmercyOrderPrimaryTableAdapter emercyOrderPrimaryTableAdapter;
-        private System.Windows.Forms.BindingSource kDBSDataSetBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmercyOrderPrimaryID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaterialID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaterialName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
+        //private KDBSDataSet kDBSDataSet;
+        //private System.Windows.Forms.BindingSource emercyOrderPrimaryBindingSource;
+        //private KDBSDataSetTableAdapters.EmercyOrderPrimaryTableAdapter emercyOrderPrimaryTableAdapter;
+        //private System.Windows.Forms.BindingSource kDBSDataSetBindingSource;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;

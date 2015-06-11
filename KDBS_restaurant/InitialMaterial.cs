@@ -10,23 +10,21 @@ using System.Windows.Forms;
 
 namespace KDBS_restaurant
 {
-    public partial class UrgentPurchaseAdd : Form
+    public partial class InitialMaterial : Form
     {
-        String databaseConn = "Data Source=A\\B;Initial Catalog=KDBS;Integrated Security=True";
-        String sql = "select * from EmercyOrderDetail join EmercyOrderPrimary on EmercyOrderDetail.EmercyOrderPrimaryID=EmercyOrderPrimary,EmercyOrderPrimaryID";
-        //String sql = "select MaterialID, Name, Unit from Material";
         SqlConnection sqlConn;
+        DataTable dataTab;
         DataSet ds = new DataSet();
-        List<Int64> changedRowIndex = new List<Int64>();
-        //List<KeyValue> material = new List<KeyValue>();
 
+        String databaseConn = "Data Source=A\\B;Initial Catalog=KDBS;Integrated Security=True";
+        String sql = "select * from Material";
 
-        public UrgentPurchaseAdd(DataTable dt)
+        public InitialMaterial()
         {
             InitializeComponent();
         }
 
-        private void UrgentPurchaseAdd_Load(object sender, EventArgs e)
+        private void InitialMaterial_Load(object sender, EventArgs e)
         {
             sqlConn = new SqlConnection(databaseConn);
             try
@@ -36,9 +34,6 @@ namespace KDBS_restaurant
                 DataSet ds = new DataSet(); //创建数据集对象
                 sqlAdap.Fill(ds); //填充数据集
 
-                
-                //DataColumn dc_1 = new DataColumn("审核", System.Type.GetType("System.String"));
-                //ds.Tables[0].Columns.Add(dc_1);
                 dataGridView1.DataSource = ds.Tables[0]; //绑定到数据表
                 ds.Dispose(); //释放资源
 
@@ -49,10 +44,9 @@ namespace KDBS_restaurant
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //列宽设为fill
 
                 //改变datagridview标题的文字
-
-
-                // TODO: 这行代码将数据加载到表“kDBSDataSet.EmercyOrderPrimary”中。您可以根据需要移动或删除它。
-                //this.emercyOrderPrimaryTableAdapter.Fill(this.kDBSDataSet.EmercyOrderPrimary);
+                dataGridView1.Columns[0].HeaderCell.Value = "原材料编号";
+                dataGridView1.Columns[1].HeaderCell.Value = "原材料名称";
+                dataGridView1.Columns[2].HeaderCell.Value = "单位";
             }
             catch (SqlException sqlEx)
             {
@@ -62,24 +56,10 @@ namespace KDBS_restaurant
             {
                 sqlConn.Close();
             }
-            
-
-            // TODO: 这行代码将数据加载到表“kDBSDataSet.Material”中。您可以根据需要移动或删除它。
-            //this.materialTableAdapter.Fill(this.kDBSDataSet.Material);
-            // TODO: 这行代码将数据加载到表“kDBSDataSet.MaterialListID”中。您可以根据需要移动或删除它。
-            //this.materialListIDTableAdapter.Fill(this.kDBSDataSet.MaterialListID);
-            // TODO: 这行代码将数据加载到表“kDBSDataSet.EmercyOrderDetail”中。您可以根据需要移动或删除它。
-            //sthis.emercyOrderDetailTableAdapter.Fill(this.kDBSDataSet.EmercyOrderDetail);
-
-        
         }
 
-        //保存到数据库
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            //dataGridView1.AllowUserToAddRows = false;
-            //dataGridView1.Rows.RemoveAt(dataGridView1.Rows.Count - 2); //删除最后一行
-
             DataTable table = new DataTable();
             table = (DataTable)this.dataGridView1.DataSource;
 
@@ -98,38 +78,10 @@ namespace KDBS_restaurant
 
             sqlConnection.Close();
 
-            MessageBox.Show("保存成功！");
+            MessageBox.Show("原材料信息初始化成功！");
         }
 
-        public bool alter_checked(String planid, String ware, String materialid)
-        {
-            SqlCommand sqc = new SqlCommand("update EmercyOrderDetail.EmercyOrderPrimaryID, EmercyOrderDetail.MaterialID, EmercyOrderDetail.Number from EmercyOrderDetail, Material where EmercyOrderDetail.MaterialID=Material.MaterialID", sqlConn);
-            sqc.CommandType = System.Data.CommandType.StoredProcedure;
-
-            SqlParameter sqlparme;
-
-            sqlparme = sqc.Parameters.Add("@EmercyOrderPrimaryID", SqlDbType.Char);
-            sqlparme.Direction = ParameterDirection.Input;
-            sqlparme.Value = planid;
-
-            sqlparme = sqc.Parameters.Add("@MaterialID", SqlDbType.Char);
-            sqlparme.Direction = ParameterDirection.Input;
-            sqlparme.Value = ware;
-
-            sqlparme = sqc.Parameters.Add("@Number", SqlDbType.Char);
-            sqlparme.Direction = ParameterDirection.Input;
-            sqlparme.Value = materialid;
-
-
-            int effect = sqc.ExecuteNonQuery();
-            if (effect > 0)
-                return true;
-            else
-                return false;
-        }
-
-        //删除记录
-        private void toolStripButton7_Click(object sender, EventArgs e)
+        private void toolStripButton6_Click(object sender, EventArgs e)
         {
             DataTable table = new DataTable();
             table = (DataTable)this.dataGridView1.DataSource;
@@ -145,7 +97,7 @@ namespace KDBS_restaurant
             sqlConnection.Open();
             //sqlAdap.Fill(table);
 
-            //testB表中必须存在主键，否则无法更新  
+            //表中必须存在主键，否则无法更新  
             sqlAdap.Update(table);
             ds.AcceptChanges();
 

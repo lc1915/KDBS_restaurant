@@ -1036,6 +1036,28 @@ namespace KDBS_restaurant {
             base.Tables.Add(this.tableSelect_ProcurePlan);
             this.tableSelect_WareHouseList = new Select_WareHouseListDataTable();
             base.Tables.Add(this.tableSelect_WareHouseList);
+            global::System.Data.ForeignKeyConstraint fkc;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_EmercyOrderPrimary_EmercyOrderDetail", new global::System.Data.DataColumn[] {
+                        this.tableEmercyOrderPrimary.EmercyOrderPrimaryIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableEmercyOrderDetail.EmercyOrderPrimaryIDColumn});
+            this.tableEmercyOrderDetail.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_EmercyOrderDetail_Material", new global::System.Data.DataColumn[] {
+                        this.tableEmercyOrderDetail.MaterialIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableMaterial.MaterialIDColumn});
+            this.tableMaterial.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_RecipePrimary_RecipeDetail", new global::System.Data.DataColumn[] {
+                        this.tableRecipePrimary.RecipePrimaryIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableRecipeDetail.RecipePrimaryIDColumn});
+            this.tableRecipeDetail.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             this.relationFK_MaterialListID_Material = new global::System.Data.DataRelation("FK_MaterialListID_Material", new global::System.Data.DataColumn[] {
                         this.tableSupplier.SupplierIdColumn}, new global::System.Data.DataColumn[] {
                         this.tableMaterialListID.SupplierIDColumn}, false);
@@ -2243,9 +2265,12 @@ namespace KDBS_restaurant {
                 base.Columns.Add(this.columnUnit);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnEmercyOrderPrimaryID}, true));
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
+                                this.columnMaterialID}, false));
                 this.columnEmercyOrderPrimaryID.AllowDBNull = false;
                 this.columnEmercyOrderPrimaryID.Unique = true;
                 this.columnEmercyOrderPrimaryID.MaxLength = 50;
+                this.columnMaterialID.Unique = true;
                 this.columnMaterialID.MaxLength = 50;
                 this.columnUnit.MaxLength = 50;
             }
@@ -31346,12 +31371,30 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(KDBSDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._emercyOrderPrimaryTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.EmercyOrderPrimary.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._emercyOrderPrimaryTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._supplierTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Supplier.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._supplierTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._emercyOrderDetailTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.EmercyOrderDetail.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._emercyOrderDetailTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -31364,12 +31407,12 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._materialTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Material.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._materialListIDTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.MaterialListID.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._materialTableAdapter.Update(updatedRows));
+                    result = (result + this._materialListIDTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -31391,21 +31434,30 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._materialListIDTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.MaterialListID.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._recipePrimaryTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.RecipePrimary.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._materialListIDTableAdapter.Update(updatedRows));
+                    result = (result + this._recipePrimaryTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._supplyOrderDetailTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.SupplyOrderDetail.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._materialTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Material.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._supplyOrderDetailTableAdapter.Update(updatedRows));
+                    result = (result + this._materialTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._tableTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Table.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._tableTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -31418,12 +31470,12 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._supplementPlanDetailTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.SupplementPlanDetail.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._supplyOrderDetailTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.SupplyOrderDetail.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._supplementPlanDetailTableAdapter.Update(updatedRows));
+                    result = (result + this._supplyOrderDetailTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -31433,24 +31485,6 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._supplementPlanPrimaryTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._storeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Store.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._storeTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._tableTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Table.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._tableTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -31472,21 +31506,12 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._justForTestTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.JustForTest.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._supplementPlanDetailTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.SupplementPlanDetail.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._justForTestTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._orderDetailTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.OrderDetail.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._orderDetailTableAdapter.Update(updatedRows));
+                    result = (result + this._supplementPlanDetailTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -31496,78 +31521,6 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._orderPrimaryTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._employeeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Employee.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._employeeTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._departmentTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Department.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._departmentTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._emercyOrderDetailTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.EmercyOrderDetail.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._emercyOrderDetailTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._emercyOrderPrimaryTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.EmercyOrderPrimary.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._emercyOrderPrimaryTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._recipePrimaryTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.RecipePrimary.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._recipePrimaryTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._stockCountDetailTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.StockCountDetail.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._stockCountDetailTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._stockCountPrimaryTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.StockCountPrimary.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._stockCountPrimaryTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._recipeDetailTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.RecipeDetail.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._recipeDetailTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -31589,12 +31542,84 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._employeeTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Employee.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._employeeTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._justForTestTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.JustForTest.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._justForTestTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._orderDetailTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.OrderDetail.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._orderDetailTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._stockCountDetailTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.StockCountDetail.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._stockCountDetailTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._stockCountPrimaryTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.StockCountPrimary.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._stockCountPrimaryTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._storeTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Store.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._storeTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._procurePlanDetailTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.ProcurePlanDetail.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._procurePlanDetailTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._recipeDetailTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.RecipeDetail.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._recipeDetailTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._departmentTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Department.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._departmentTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -31608,11 +31633,27 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(KDBSDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._emercyOrderPrimaryTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.EmercyOrderPrimary.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._emercyOrderPrimaryTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._supplierTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Supplier.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._supplierTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._emercyOrderDetailTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.EmercyOrderDetail.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._emercyOrderDetailTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -31624,11 +31665,11 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._materialTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Material.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._materialListIDTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.MaterialListID.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._materialTableAdapter.Update(addedRows));
+                    result = (result + this._materialListIDTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -31648,19 +31689,27 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._materialListIDTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.MaterialListID.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._recipePrimaryTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.RecipePrimary.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._materialListIDTableAdapter.Update(addedRows));
+                    result = (result + this._recipePrimaryTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._supplyOrderDetailTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.SupplyOrderDetail.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._materialTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Material.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._supplyOrderDetailTableAdapter.Update(addedRows));
+                    result = (result + this._materialTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._tableTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Table.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._tableTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -31672,11 +31721,11 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._supplementPlanDetailTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.SupplementPlanDetail.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._supplyOrderDetailTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.SupplyOrderDetail.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._supplementPlanDetailTableAdapter.Update(addedRows));
+                    result = (result + this._supplyOrderDetailTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -31685,22 +31734,6 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._supplementPlanPrimaryTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._storeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Store.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._storeTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._tableTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Table.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._tableTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -31720,19 +31753,11 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._justForTestTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.JustForTest.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._supplementPlanDetailTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.SupplementPlanDetail.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._justForTestTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._orderDetailTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.OrderDetail.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._orderDetailTableAdapter.Update(addedRows));
+                    result = (result + this._supplementPlanDetailTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -31741,70 +31766,6 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._orderPrimaryTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._employeeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Employee.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._employeeTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._departmentTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Department.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._departmentTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._emercyOrderDetailTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.EmercyOrderDetail.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._emercyOrderDetailTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._emercyOrderPrimaryTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.EmercyOrderPrimary.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._emercyOrderPrimaryTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._recipePrimaryTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.RecipePrimary.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._recipePrimaryTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._stockCountDetailTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.StockCountDetail.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._stockCountDetailTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._stockCountPrimaryTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.StockCountPrimary.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._stockCountPrimaryTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._recipeDetailTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.RecipeDetail.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._recipeDetailTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -31824,11 +31785,75 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._employeeTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Employee.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._employeeTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._justForTestTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.JustForTest.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._justForTestTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._orderDetailTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.OrderDetail.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._orderDetailTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._stockCountDetailTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.StockCountDetail.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._stockCountDetailTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._stockCountPrimaryTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.StockCountPrimary.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._stockCountPrimaryTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._storeTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Store.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._storeTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._procurePlanDetailTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.ProcurePlanDetail.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._procurePlanDetailTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._recipeDetailTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.RecipeDetail.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._recipeDetailTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._departmentTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Department.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._departmentTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -31842,27 +31867,11 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(KDBSDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._procurePlanDetailTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ProcurePlanDetail.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._departmentTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Department.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._procurePlanDetailTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._procureOrderPrimaryTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ProcureOrderPrimary.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._procureOrderPrimaryTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._procureOrderDetailTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ProcureOrderDetail.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._procureOrderDetailTableAdapter.Update(deletedRows));
+                    result = (result + this._departmentTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -31871,6 +31880,22 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._recipeDetailTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._procurePlanDetailTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ProcurePlanDetail.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._procurePlanDetailTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._storeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Store.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._storeTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -31890,54 +31915,6 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._recipePrimaryTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.RecipePrimary.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._recipePrimaryTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._emercyOrderPrimaryTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.EmercyOrderPrimary.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._emercyOrderPrimaryTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._emercyOrderDetailTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.EmercyOrderDetail.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._emercyOrderDetailTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._departmentTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Department.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._departmentTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._employeeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Employee.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._employeeTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._orderPrimaryTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.OrderPrimary.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._orderPrimaryTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._orderDetailTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.OrderDetail.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -31951,6 +31928,46 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._justForTestTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._employeeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Employee.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._employeeTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._procureOrderPrimaryTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ProcureOrderPrimary.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._procureOrderPrimaryTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._procureOrderDetailTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ProcureOrderDetail.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._procureOrderDetailTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._orderPrimaryTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.OrderPrimary.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._orderPrimaryTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._supplementPlanDetailTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.SupplementPlanDetail.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._supplementPlanDetailTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -31970,43 +31987,11 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._tableTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Table.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._tableTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._storeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Store.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._storeTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._supplementPlanPrimaryTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.SupplementPlanPrimary.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._supplementPlanPrimaryTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._supplementPlanDetailTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.SupplementPlanDetail.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._supplementPlanDetailTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._supplyOrderPrimaryTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.SupplyOrderPrimary.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._supplyOrderPrimaryTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -32018,11 +32003,35 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._materialListIDTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.MaterialListID.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._supplyOrderPrimaryTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.SupplyOrderPrimary.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._materialListIDTableAdapter.Update(deletedRows));
+                    result = (result + this._supplyOrderPrimaryTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._tableTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Table.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._tableTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._materialTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Material.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._materialTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._recipePrimaryTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.RecipePrimary.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._recipePrimaryTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -32042,11 +32051,11 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._materialTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Material.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._materialListIDTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.MaterialListID.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._materialTableAdapter.Update(deletedRows));
+                    result = (result + this._materialListIDTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -32058,11 +32067,27 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._emercyOrderDetailTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.EmercyOrderDetail.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._emercyOrderDetailTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._supplierTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Supplier.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._supplierTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._emercyOrderPrimaryTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.EmercyOrderPrimary.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._emercyOrderPrimaryTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
