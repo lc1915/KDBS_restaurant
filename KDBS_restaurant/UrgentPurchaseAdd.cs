@@ -12,23 +12,44 @@ namespace KDBS_restaurant
 {
     public partial class UrgentPurchaseAdd : Form
     {
-        String databaseConn = "Data Source=A\\B;Initial Catalog=KDBS;Integrated Security=True";
+        /*String databaseConn = "Data Source=A\\B;Initial Catalog=KDBS;Integrated Security=True";
         String sql = "select * from EmercyOrderDetail join EmercyOrderPrimary on EmercyOrderDetail.EmercyOrderPrimaryID=EmercyOrderPrimary,EmercyOrderPrimaryID";
         //String sql = "select MaterialID, Name, Unit from Material";
         SqlConnection sqlConn;
         DataSet ds = new DataSet();
         List<Int64> changedRowIndex = new List<Int64>();
-        //List<KeyValue> material = new List<KeyValue>();
+        //List<KeyValue> material = new List<KeyValue>();*/
+        DataSet ds = new DataSet();
+        DataTable maintable = new DataTable();
+        SqlConnection conn;
+        SqlDataAdapter sda;
+        SqlDataAdapter sda2;
+        List<KeyValue> warehouse = new List<KeyValue>();
+        List<KeyValue> material = new List<KeyValue>();
 
 
         public UrgentPurchaseAdd(DataTable dt)
         {
             InitializeComponent();
+            if (dt == null)
+            {
+                MessageBox.Show("参数是空");
+            }
+            else
+            {
+                MessageBox.Show("参数正常");
+                maintable = dt;
+                DataRow dr = maintable.Rows[0];
+                textBox2.Text = dr[0].ToString();
+                textBox1.Text = dr[2].ToString();
+                dateTimePicker1.Value = Convert.ToDateTime(dr[1].ToString());
+
+            }
         }
 
         private void UrgentPurchaseAdd_Load(object sender, EventArgs e)
         {
-            sqlConn = new SqlConnection(databaseConn);
+            /*sqlConn = new SqlConnection(databaseConn);
             try
             {
                 //将数据库中的数据绑定到DataGridView控件
@@ -61,21 +82,68 @@ namespace KDBS_restaurant
             finally
             {
                 sqlConn.Close();
+            }*/
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.Columns[1].DataPropertyName = "MaterialName";
+            dataGridView1.DataSource = maintable.DefaultView;
+            fillgridview();
+            conn = new SqlConnection("Data Source=A\\B;Initial Catalog=KDBS;Integrated Security=True");//args[4]
+            getList();
+        }
+
+        public void fillgridview()
+        {
+            DataGridViewComboBoxCell ddc;
+            DataGridViewRow dgvr;
+            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+            {
+                dgvr = dataGridView1.Rows[i];
+                ddc = dgvr.Cells[0] as DataGridViewComboBoxCell;
+                ddc.Items.Add("aaaaa");
+                //ddc.Items.Add(material[0].getvalue("RD01001"));
             }
-            
+        }
 
-            // TODO: 这行代码将数据加载到表“kDBSDataSet.Material”中。您可以根据需要移动或删除它。
-            //this.materialTableAdapter.Fill(this.kDBSDataSet.Material);
-            // TODO: 这行代码将数据加载到表“kDBSDataSet.MaterialListID”中。您可以根据需要移动或删除它。
-            //this.materialListIDTableAdapter.Fill(this.kDBSDataSet.MaterialListID);
-            // TODO: 这行代码将数据加载到表“kDBSDataSet.EmercyOrderDetail”中。您可以根据需要移动或删除它。
-            //sthis.emercyOrderDetailTableAdapter.Fill(this.kDBSDataSet.EmercyOrderDetail);
+        public void getList()
+        {
+            SqlCommand sqc = new SqlCommand("Select_MaterialList", conn);
 
-        
+            sda = new SqlDataAdapter(sqc);
+
+            sqc.CommandType = System.Data.CommandType.StoredProcedure;
+
+            conn.Open();
+
+            sda.Fill(ds, "Material");
+            // 
+
+            /*SqlCommand sqc2 = new SqlCommand("Select_WareHouseList", conn);
+            sda2 = new SqlDataAdapter(sqc2);
+            sqc2.CommandType = CommandType.StoredProcedure;
+            SqlParameter sqlparme;
+            sqlparme = sqc2.Parameters.Add("@districtid", SqlDbType.Char);
+            sqlparme.Direction = ParameterDirection.Input;
+            sqlparme.Value = "01";
+
+            sda2.Fill(ds, "Material");*/
+
+            conn.Close();
+
+            /*foreach (DataRow dr in ds.Tables["WareHouse"].Rows)
+            {
+                warehouse.Add(new KeyValue(dr[0].ToString(), dr[1].ToString()));
+                Console.Write(dr[0].ToString() + dr[1].ToString());
+            }*/
+
+            foreach (DataRow dr in ds.Tables["Material"].Rows)
+            {
+                material.Add(new KeyValue(dr[0].ToString(), dr[1].ToString()));
+                Console.Write(" " + dr[0].ToString() + " " + dr[1].ToString());
+            }
         }
 
         //保存到数据库
-        private void toolStripButton3_Click(object sender, EventArgs e)
+        /*private void toolStripButton3_Click(object sender, EventArgs e)
         {
             //dataGridView1.AllowUserToAddRows = false;
             //dataGridView1.Rows.RemoveAt(dataGridView1.Rows.Count - 2); //删除最后一行
@@ -151,23 +219,29 @@ namespace KDBS_restaurant
 
             sqlConnection.Close();
             MessageBox.Show("删除成功！");
-        }
+        }*/
+    }
 
-        //在datagridview每一行最左端显示行号
-        private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            Rectangle rectangle = new Rectangle(e.RowBounds.Location.X, e.RowBounds.Location.Y, dataGridView1.RowHeadersWidth - 4, e.RowBounds.Height);
-            TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(),
-                dataGridView1.RowHeadersDefaultCellStyle.Font, rectangle,
-                dataGridView1.RowHeadersDefaultCellStyle.ForeColor,
-                TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
-        }
+    public class KeyValue
+    {
+        public KeyValue()
+        { }
 
-        //数据类型验证
-        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        public KeyValue(String k, String v)
         {
-            MessageBox.Show(e.Exception.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            e.Cancel = true;
+            key = k;
+            value = v;
         }
+        public void setvalue(String k, String v)
+        {
+            key = k;
+            value = v;
+        }
+        public String getvalue(String k)
+        {
+            return value;
+        }
+        String key;
+        String value;
     }
 }

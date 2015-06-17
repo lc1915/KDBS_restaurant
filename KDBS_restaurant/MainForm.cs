@@ -101,11 +101,11 @@ namespace KDBS_restaurant
             t200.Nodes.Add(t2000);
             t200.Nodes.Add(t2001);
             //t200.Nodes.Add(t2002);
-            TreeNode t2010 = new TreeNode("点菜单新增");
+            //TreeNode t2010 = new TreeNode("点菜单新增");
             TreeNode t2011 = new TreeNode("点菜单查询"); // 这里可以结账（对一个单或多个单）
                                                          // 可以更改各个单据的状态，比如已下达（给生产管理），已生产（分出去的几个做菜单都已完成（这个好像有点麻烦））
             TreeNode t2012 = new TreeNode("结账单查询");
-            t201.Nodes.Add(t2010);  
+            //t201.Nodes.Add(t2010);  
             t201.Nodes.Add(t2011);
             t201.Nodes.Add(t2012);
             TreeNode t21 = new TreeNode("外卖"); // 1.新增外卖订单（可生成结账单，配送成功则顾客确认结账） 
@@ -228,11 +228,11 @@ namespace KDBS_restaurant
                     waitingStatus.Show();
                     this.WindowState = FormWindowState.Minimized;
                     break;
-                case "点菜单新增":
+                /*case "点菜单新增":
                     OrderFoodAdd orderFoodAdd = new OrderFoodAdd();
                     orderFoodAdd.Show();
                     this.WindowState = FormWindowState.Minimized;
-                    break;
+                    break;*/
                 case "点菜单查询":
                     OrderFoodSearch orderFoodSearch = new OrderFoodSearch();
                     orderFoodSearch.Show();
@@ -271,6 +271,11 @@ namespace KDBS_restaurant
                 case "菜品信息初始化":
                     InitialRecipePrimary initialRecipePrimary = new InitialRecipePrimary();
                     initialRecipePrimary.Show();
+                    this.WindowState = FormWindowState.Minimized;
+                    break;
+                case "门店桌号信息初始化":
+                    InitialTable initialTable = new InitialTable();
+                    initialTable.Show();
                     this.WindowState = FormWindowState.Minimized;
                     break;
                 case "原材料信息初始化":

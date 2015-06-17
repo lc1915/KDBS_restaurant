@@ -93,84 +93,24 @@ namespace KDBS_restaurant
             dataGridView1.Columns[3].DataPropertyName = "MaterialName";
             dataGridView1.Columns[4].DataPropertyName = "Number";
             dataGridView1.Columns[5].DataPropertyName = "Unit";
+            //dataGridView1.Columns[6].DataPropertyName = "Checked";
 
             mainView.Sort = "Date DESC";
         }
 
-        private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
-        {//
-            for (int i = 0; i < 3; i++)
-            {
-                if (e.ColumnIndex == i && e.RowIndex != -1)
-                {
-                    using
-                        (
-                        Brush gridBrush = new SolidBrush(this.dataGridView1.GridColor),
-                        backColorBrush = new SolidBrush(e.CellStyle.BackColor)
-                        )
-                    {
-                        using (Pen gridLinePen = new Pen(gridBrush))
-                        {
-                            e.Graphics.FillRectangle(backColorBrush, e.CellBounds);
-                            if (e.RowIndex < dataGridView1.Rows.Count - 1 && dataGridView1.Rows[e.RowIndex + 1].Cells[e.ColumnIndex].Value.ToString() != e.Value.ToString())
-                                e.Graphics.DrawLine(gridLinePen, e.CellBounds.Left,
-                                e.CellBounds.Bottom - 1, e.CellBounds.Right - 1,
-                                e.CellBounds.Bottom - 1);
-                            e.Graphics.DrawLine(gridLinePen, e.CellBounds.Right - 1,
-                                e.CellBounds.Top, e.CellBounds.Right - 1,
-                                e.CellBounds.Bottom);
-                            if (e.Value != null)
-                            {
-                                if (e.RowIndex > 0 &&
-                                dataGridView1.Rows[e.RowIndex - 1].Cells[e.ColumnIndex].Value.ToString() ==
-                                e.Value.ToString())
-                                { }
-                                else
-                                {
-
-                                    e.Graphics.DrawString(Convert.ToString(e.Value), e.CellStyle.Font, Brushes.Black, e.CellBounds.X + 2, e.CellBounds.Y + 5, StringFormat.GenericDefault);
-                                }
-                            }
-                            e.Handled = true;
-                        }
-                    }
-                }
-            }
-
-        }
-
-        private void dataGridView1_RowPostPaint_1(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            SolidBrush b = new SolidBrush(this.dataGridView1.RowHeadersDefaultCellStyle.ForeColor);
-            e.Graphics.DrawString((e.RowIndex + 1).ToString(System.Globalization.CultureInfo.CurrentUICulture), this.dataGridView1.DefaultCellStyle.Font, b, e.RowBounds.Location.X + 20, e.RowBounds.Location.Y + 4);
-
-        }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            //if (changedID.Contains(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString()) == false || changedWare.Contains(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value.ToString()) == false || changedMate.Contains(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[6].Value.ToString()) == false)
-            //{
-            //    changedID.Add(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString());
-            //    changedWare.Add(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value.ToString());
-            //    changedMate.Add(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[6].Value.ToString());
-            //}
-            //changedID.Add(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString());
             if (!changedRowIndex.Contains(dataGridView1.CurrentCell.RowIndex))
                 changedRowIndex.Add(dataGridView1.CurrentCell.RowIndex);
-            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[3].Value = 1;
+            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[6].Value = 1;
         }
 
-        private void toolStripButton7_Click(object sender, EventArgs e)
+        private void toolStripButton5_Click(object sender, EventArgs e)
         {
-            //if (changedID.Contains(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString()) == false || changedWare.Contains(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value.ToString()) == false || changedMate.Contains(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[6].Value.ToString()) == false)
-            //{
-            //    changedID.Add(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString());
-            //    changedWare.Add(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value.ToString());
-            //    changedMate.Add(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[6].Value.ToString());
-            //}
             if (!changedRowIndex.Contains(dataGridView1.CurrentCell.RowIndex))
                 changedRowIndex.Add(dataGridView1.CurrentCell.RowIndex);
-            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[3].Value = 0;
+            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[6].Value = 0;
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -183,10 +123,10 @@ namespace KDBS_restaurant
 
                 DataGridViewRow dgvr = dataGridView1.Rows[ri];
 
-                Boolean r = alter_checked(dgvr.Cells[0].Value.ToString(), dgvr.Cells[4].Value.ToString(), dgvr.Cells[6].Value.ToString(), Convert.ToBoolean(dataGridView1.Rows[ri].Cells[3].Value));
+                Boolean r = alter_checked(dgvr.Cells[0].Value.ToString(), dgvr.Cells[4].Value.ToString(), dgvr.Cells[5].Value.ToString(), Convert.ToBoolean(dataGridView1.Rows[ri].Cells[7].Value));
                 i = (r == true ? true : false);
 
-                Console.WriteLine(dgvr.Cells[0].Value.ToString() + dgvr.Cells[4].Value.ToString() + dgvr.Cells[6].Value.ToString() + Convert.ToBoolean(dataGridView1.Rows[ri].Cells[3].Value));
+                Console.WriteLine(dgvr.Cells[0].Value.ToString() + dgvr.Cells[4].Value.ToString() + dgvr.Cells[5].Value.ToString() + Convert.ToBoolean(dataGridView1.Rows[ri].Cells[7].Value));
 
 
 
@@ -277,7 +217,6 @@ namespace KDBS_restaurant
             DataView ddv = new DataView(ddt);
             ddv.RowFilter = "EmercyOrderPrimaryID=" + "\'" + orderid + "\'";
             UrgentPurchaseAdd urgentPurchaseAdd = new UrgentPurchaseAdd(ddv.ToTable());
-            urgentPurchaseAdd.Owner = this;
             this.WindowState = FormWindowState.Minimized;
             urgentPurchaseAdd.Show();
 

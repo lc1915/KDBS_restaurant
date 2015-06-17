@@ -28,6 +28,7 @@ namespace KDBS_restaurant
         {
             InitializeComponent();
             recipePrimaryID = str;
+            textBox1.Text = recipePrimaryID;
             Console.WriteLine("recipePrimaryID = " + recipePrimaryID);
         }
 
@@ -54,6 +55,7 @@ namespace KDBS_restaurant
                 //改变datagridview标题的文字
                 dataGridView1.Columns[0].HeaderCell.Value = "菜品编号";
                 dataGridView1.Columns[1].HeaderCell.Value = "原材料编号";
+                //dataGridView1.Columns[1] = new DataGridViewComboBoxCell();
                 //dataGridView1.Columns[2].HeaderCell.Value = "原材料名称";
                 dataGridView1.Columns[2].HeaderCell.Value = "单位";
                 dataGridView1.Columns[3].HeaderCell.Value = "数量";

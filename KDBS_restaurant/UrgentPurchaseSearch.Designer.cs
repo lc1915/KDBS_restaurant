@@ -45,6 +45,7 @@
             this.MaterialName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            //this.Checked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             //this.emercyOrderPrimaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             //this.kDBSDataSet = new KDBS_restaurant.KDBSDataSet();
             //this.emercyOrderPrimaryTableAdapter = new KDBS_restaurant.KDBSDataSetTableAdapters.EmercyOrderPrimaryTableAdapter();
@@ -184,7 +185,14 @@
             this.Unit.HeaderText = "单位";
             this.Unit.Name = "Unit";
             this.Unit.ReadOnly = true;
-            
+            // 
+            // Checked
+            // 
+            //this.Checked.HeaderText = "审核";
+            //this.Checked.Name = "Checked";
+            //this.Checked.ReadOnly = true;
+            //this.Checked.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            //this.Checked.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // emercyOrderPrimaryBindingSource
             // 
@@ -252,6 +260,7 @@
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(59, 24);
             this.toolStripButton4.Text = "审核";
+            this.toolStripButton4.Click +=new System.EventHandler(toolStripButton4_Click);
             // 
             // toolStripButton5
             // 
@@ -260,6 +269,7 @@
             this.toolStripButton5.Name = "toolStripButton5";
             this.toolStripButton5.Size = new System.Drawing.Size(74, 24);
             this.toolStripButton5.Text = "反审核";
+            this.toolStripButton5.Click +=new System.EventHandler(toolStripButton5_Click);
             // 
             // toolStripButton6
             // 
@@ -312,6 +322,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MaterialName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Number;
         private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
+        //private System.Windows.Forms.DataGridViewCheckBoxColumn Checked;
         //private KDBSDataSet kDBSDataSet;
         //private System.Windows.Forms.BindingSource emercyOrderPrimaryBindingSource;
         //private KDBSDataSetTableAdapters.EmercyOrderPrimaryTableAdapter emercyOrderPrimaryTableAdapter;

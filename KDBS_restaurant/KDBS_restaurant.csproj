@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BillDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BillDetail.Designer.cs">
+      <DependentUpon>BillDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="BillSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,18 @@
     </Compile>
     <Compile Include="InitialRecipePrimary.Designer.cs">
       <DependentUpon>InitialRecipePrimary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InitialTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InitialTable.Designer.cs">
+      <DependentUpon>InitialTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputMoney.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputMoney.Designer.cs">
+      <DependentUpon>InputMoney.cs</DependentUpon>
     </Compile>
     <Compile Include="KDBSDataSet.cs">
       <DependentUpon>KDBSDataSet.xsd</DependentUpon>
@@ -96,6 +114,12 @@
     </Compile>
     <Compile Include="OrderFoodAdd.Designer.cs">
       <DependentUpon>OrderFoodAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderFoodNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderFoodNew.Designer.cs">
+      <DependentUpon>OrderFoodNew.cs</DependentUpon>
     </Compile>
     <Compile Include="OrderFoodSearch.cs">
       <SubType>Form</SubType>
@@ -177,6 +201,9 @@
     <Compile Include="WaitingStatus.Designer.cs">
       <DependentUpon>WaitingStatus.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BillDetail.resx">
+      <DependentUpon>BillDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BillSearch.resx">
       <DependentUpon>BillSearch.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +216,12 @@
     <EmbeddedResource Include="InitialRecipePrimary.resx">
       <DependentUpon>InitialRecipePrimary.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InitialTable.resx">
+      <DependentUpon>InitialTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputMoney.resx">
+      <DependentUpon>InputMoney.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OrderFoodAdd.resx">
       <DependentUpon>OrderFoodAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderFoodNew.resx">
+      <DependentUpon>OrderFoodNew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OrderFoodSearch.resx">
       <DependentUpon>OrderFoodSearch.cs</DependentUpon>

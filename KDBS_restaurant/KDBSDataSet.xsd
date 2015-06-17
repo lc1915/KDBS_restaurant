@@ -551,8 +551,8 @@ SELECT OrderID, ReceipePrimaryID, Number, Price FROM OrderDetail WHERE (OrderID 
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="OrderID" DataSetColumn="OrderID" />
-              <Mapping SourceColumn="ReceipePrimaryID" DataSetColumn="ReceipePrimaryID" />
+              <Mapping SourceColumn="OrderID" DataSetColumn="OrderPrimaryID" />
+              <Mapping SourceColumn="ReceipePrimaryID" DataSetColumn="RecipePrimaryID" />
               <Mapping SourceColumn="Number" DataSetColumn="Number" />
               <Mapping SourceColumn="Price" DataSetColumn="Price" />
             </Mappings>
@@ -2071,7 +2071,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
   <xs:element name="KDBSDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="KDBSDataSet" msprop:Generator_UserDSName="KDBSDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Department" msprop:Generator_TableClassName="DepartmentDataTable" msprop:Generator_TableVarName="tableDepartment" msprop:Generator_TablePropName="Department" msprop:Generator_RowDeletingName="DepartmentRowDeleting" msprop:Generator_RowChangingName="DepartmentRowChanging" msprop:Generator_RowEvHandlerName="DepartmentRowChangeEventHandler" msprop:Generator_RowDeletedName="DepartmentRowDeleted" msprop:Generator_UserTableName="Department" msprop:Generator_RowChangedName="DepartmentRowChanged" msprop:Generator_RowEvArgName="DepartmentRowChangeEvent" msprop:Generator_RowClassName="DepartmentRow">
+        <xs:element name="Department" msprop:Generator_TableClassName="DepartmentDataTable" msprop:Generator_TableVarName="tableDepartment" msprop:Generator_RowChangedName="DepartmentRowChanged" msprop:Generator_TablePropName="Department" msprop:Generator_RowDeletingName="DepartmentRowDeleting" msprop:Generator_RowChangingName="DepartmentRowChanging" msprop:Generator_RowEvHandlerName="DepartmentRowChangeEventHandler" msprop:Generator_RowDeletedName="DepartmentRowDeleted" msprop:Generator_RowClassName="DepartmentRow" msprop:Generator_UserTableName="Department" msprop:Generator_RowEvArgName="DepartmentRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="DepartmentId" msprop:Generator_ColumnVarNameInTable="columnDepartmentId" msprop:Generator_ColumnPropNameInRow="DepartmentId" msprop:Generator_ColumnPropNameInTable="DepartmentIdColumn" msprop:Generator_UserColumnName="DepartmentId">
@@ -2098,7 +2098,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="District" msprop:Generator_TableClassName="DistrictDataTable" msprop:Generator_TableVarName="tableDistrict" msprop:Generator_TablePropName="District" msprop:Generator_RowDeletingName="DistrictRowDeleting" msprop:Generator_RowChangingName="DistrictRowChanging" msprop:Generator_RowEvHandlerName="DistrictRowChangeEventHandler" msprop:Generator_RowDeletedName="DistrictRowDeleted" msprop:Generator_UserTableName="District" msprop:Generator_RowChangedName="DistrictRowChanged" msprop:Generator_RowEvArgName="DistrictRowChangeEvent" msprop:Generator_RowClassName="DistrictRow">
+        <xs:element name="District" msprop:Generator_TableClassName="DistrictDataTable" msprop:Generator_TableVarName="tableDistrict" msprop:Generator_RowChangedName="DistrictRowChanged" msprop:Generator_TablePropName="District" msprop:Generator_RowDeletingName="DistrictRowDeleting" msprop:Generator_RowChangingName="DistrictRowChanging" msprop:Generator_RowEvHandlerName="DistrictRowChangeEventHandler" msprop:Generator_RowDeletedName="DistrictRowDeleted" msprop:Generator_RowClassName="DistrictRow" msprop:Generator_UserTableName="District" msprop:Generator_RowEvArgName="DistrictRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="DistrictId" msprop:Generator_ColumnVarNameInTable="columnDistrictId" msprop:Generator_ColumnPropNameInRow="DistrictId" msprop:Generator_ColumnPropNameInTable="DistrictIdColumn" msprop:Generator_UserColumnName="DistrictId">
@@ -2154,7 +2154,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="EmercyOrderDetail" msprop:Generator_TableClassName="EmercyOrderDetailDataTable" msprop:Generator_TableVarName="tableEmercyOrderDetail" msprop:Generator_TablePropName="EmercyOrderDetail" msprop:Generator_RowDeletingName="EmercyOrderDetailRowDeleting" msprop:Generator_RowChangingName="EmercyOrderDetailRowChanging" msprop:Generator_RowEvHandlerName="EmercyOrderDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="EmercyOrderDetailRowDeleted" msprop:Generator_UserTableName="EmercyOrderDetail" msprop:Generator_RowChangedName="EmercyOrderDetailRowChanged" msprop:Generator_RowEvArgName="EmercyOrderDetailRowChangeEvent" msprop:Generator_RowClassName="EmercyOrderDetailRow">
+        <xs:element name="EmercyOrderDetail" msprop:Generator_TableClassName="EmercyOrderDetailDataTable" msprop:Generator_TableVarName="tableEmercyOrderDetail" msprop:Generator_RowChangedName="EmercyOrderDetailRowChanged" msprop:Generator_TablePropName="EmercyOrderDetail" msprop:Generator_RowDeletingName="EmercyOrderDetailRowDeleting" msprop:Generator_RowChangingName="EmercyOrderDetailRowChanging" msprop:Generator_RowEvHandlerName="EmercyOrderDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="EmercyOrderDetailRowDeleted" msprop:Generator_RowClassName="EmercyOrderDetailRow" msprop:Generator_UserTableName="EmercyOrderDetail" msprop:Generator_RowEvArgName="EmercyOrderDetailRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="EmercyOrderPrimaryID" msprop:Generator_ColumnVarNameInTable="columnEmercyOrderPrimaryID" msprop:Generator_ColumnPropNameInRow="EmercyOrderPrimaryID" msprop:Generator_ColumnPropNameInTable="EmercyOrderPrimaryIDColumn" msprop:Generator_UserColumnName="EmercyOrderPrimaryID">
@@ -2182,7 +2182,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="EmercyOrderPrimary" msprop:Generator_TableClassName="EmercyOrderPrimaryDataTable" msprop:Generator_TableVarName="tableEmercyOrderPrimary" msprop:Generator_TablePropName="EmercyOrderPrimary" msprop:Generator_RowDeletingName="EmercyOrderPrimaryRowDeleting" msprop:Generator_RowChangingName="EmercyOrderPrimaryRowChanging" msprop:Generator_RowEvHandlerName="EmercyOrderPrimaryRowChangeEventHandler" msprop:Generator_RowDeletedName="EmercyOrderPrimaryRowDeleted" msprop:Generator_UserTableName="EmercyOrderPrimary" msprop:Generator_RowChangedName="EmercyOrderPrimaryRowChanged" msprop:Generator_RowEvArgName="EmercyOrderPrimaryRowChangeEvent" msprop:Generator_RowClassName="EmercyOrderPrimaryRow">
+        <xs:element name="EmercyOrderPrimary" msprop:Generator_TableClassName="EmercyOrderPrimaryDataTable" msprop:Generator_TableVarName="tableEmercyOrderPrimary" msprop:Generator_RowChangedName="EmercyOrderPrimaryRowChanged" msprop:Generator_TablePropName="EmercyOrderPrimary" msprop:Generator_RowDeletingName="EmercyOrderPrimaryRowDeleting" msprop:Generator_RowChangingName="EmercyOrderPrimaryRowChanging" msprop:Generator_RowEvHandlerName="EmercyOrderPrimaryRowChangeEventHandler" msprop:Generator_RowDeletedName="EmercyOrderPrimaryRowDeleted" msprop:Generator_RowClassName="EmercyOrderPrimaryRow" msprop:Generator_UserTableName="EmercyOrderPrimary" msprop:Generator_RowEvArgName="EmercyOrderPrimaryRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="EmercyOrderPrimaryID" msprop:Generator_ColumnVarNameInTable="columnEmercyOrderPrimaryID" msprop:Generator_ColumnPropNameInRow="EmercyOrderPrimaryID" msprop:Generator_ColumnPropNameInTable="EmercyOrderPrimaryIDColumn" msprop:Generator_UserColumnName="EmercyOrderPrimaryID">
@@ -2210,7 +2210,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Employee" msprop:Generator_TableClassName="EmployeeDataTable" msprop:Generator_TableVarName="tableEmployee" msprop:Generator_TablePropName="Employee" msprop:Generator_RowDeletingName="EmployeeRowDeleting" msprop:Generator_RowChangingName="EmployeeRowChanging" msprop:Generator_RowEvHandlerName="EmployeeRowChangeEventHandler" msprop:Generator_RowDeletedName="EmployeeRowDeleted" msprop:Generator_UserTableName="Employee" msprop:Generator_RowChangedName="EmployeeRowChanged" msprop:Generator_RowEvArgName="EmployeeRowChangeEvent" msprop:Generator_RowClassName="EmployeeRow">
+        <xs:element name="Employee" msprop:Generator_TableClassName="EmployeeDataTable" msprop:Generator_TableVarName="tableEmployee" msprop:Generator_RowChangedName="EmployeeRowChanged" msprop:Generator_TablePropName="Employee" msprop:Generator_RowDeletingName="EmployeeRowDeleting" msprop:Generator_RowChangingName="EmployeeRowChanging" msprop:Generator_RowEvHandlerName="EmployeeRowChangeEventHandler" msprop:Generator_RowDeletedName="EmployeeRowDeleted" msprop:Generator_RowClassName="EmployeeRow" msprop:Generator_UserTableName="Employee" msprop:Generator_RowEvArgName="EmployeeRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="EmployeeId" msprop:Generator_ColumnVarNameInTable="columnEmployeeId" msprop:Generator_ColumnPropNameInRow="EmployeeId" msprop:Generator_ColumnPropNameInTable="EmployeeIdColumn" msprop:Generator_UserColumnName="EmployeeId" minOccurs="0">
@@ -2263,7 +2263,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="JustForTest" msprop:Generator_TableClassName="JustForTestDataTable" msprop:Generator_TableVarName="tableJustForTest" msprop:Generator_TablePropName="JustForTest" msprop:Generator_RowDeletingName="JustForTestRowDeleting" msprop:Generator_RowChangingName="JustForTestRowChanging" msprop:Generator_RowEvHandlerName="JustForTestRowChangeEventHandler" msprop:Generator_RowDeletedName="JustForTestRowDeleted" msprop:Generator_UserTableName="JustForTest" msprop:Generator_RowChangedName="JustForTestRowChanged" msprop:Generator_RowEvArgName="JustForTestRowChangeEvent" msprop:Generator_RowClassName="JustForTestRow">
+        <xs:element name="JustForTest" msprop:Generator_TableClassName="JustForTestDataTable" msprop:Generator_TableVarName="tableJustForTest" msprop:Generator_RowChangedName="JustForTestRowChanged" msprop:Generator_TablePropName="JustForTest" msprop:Generator_RowDeletingName="JustForTestRowDeleting" msprop:Generator_RowChangingName="JustForTestRowChanging" msprop:Generator_RowEvHandlerName="JustForTestRowChangeEventHandler" msprop:Generator_RowDeletedName="JustForTestRowDeleted" msprop:Generator_RowClassName="JustForTestRow" msprop:Generator_UserTableName="JustForTest" msprop:Generator_RowEvArgName="JustForTestRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="JustForTest" msprop:Generator_ColumnVarNameInTable="columnJustForTest" msprop:Generator_ColumnPropNameInRow="JustForTest" msprop:Generator_ColumnPropNameInTable="JustForTestColumn" msprop:Generator_UserColumnName="JustForTest" minOccurs="0">
@@ -2276,7 +2276,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Material" msprop:Generator_TableClassName="MaterialDataTable" msprop:Generator_TableVarName="tableMaterial" msprop:Generator_TablePropName="Material" msprop:Generator_RowDeletingName="MaterialRowDeleting" msprop:Generator_RowChangingName="MaterialRowChanging" msprop:Generator_RowEvHandlerName="MaterialRowChangeEventHandler" msprop:Generator_RowDeletedName="MaterialRowDeleted" msprop:Generator_UserTableName="Material" msprop:Generator_RowChangedName="MaterialRowChanged" msprop:Generator_RowEvArgName="MaterialRowChangeEvent" msprop:Generator_RowClassName="MaterialRow">
+        <xs:element name="Material" msprop:Generator_TableClassName="MaterialDataTable" msprop:Generator_TableVarName="tableMaterial" msprop:Generator_RowChangedName="MaterialRowChanged" msprop:Generator_TablePropName="Material" msprop:Generator_RowDeletingName="MaterialRowDeleting" msprop:Generator_RowChangingName="MaterialRowChanging" msprop:Generator_RowEvHandlerName="MaterialRowChangeEventHandler" msprop:Generator_RowDeletedName="MaterialRowDeleted" msprop:Generator_RowClassName="MaterialRow" msprop:Generator_UserTableName="Material" msprop:Generator_RowEvArgName="MaterialRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MaterialID" msprop:Generator_ColumnVarNameInTable="columnMaterialID" msprop:Generator_ColumnPropNameInRow="MaterialID" msprop:Generator_ColumnPropNameInTable="MaterialIDColumn" msprop:Generator_UserColumnName="MaterialID">
@@ -2317,7 +2317,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MaterialListID" msprop:Generator_TableClassName="MaterialListIDDataTable" msprop:Generator_TableVarName="tableMaterialListID" msprop:Generator_TablePropName="MaterialListID" msprop:Generator_RowDeletingName="MaterialListIDRowDeleting" msprop:Generator_RowChangingName="MaterialListIDRowChanging" msprop:Generator_RowEvHandlerName="MaterialListIDRowChangeEventHandler" msprop:Generator_RowDeletedName="MaterialListIDRowDeleted" msprop:Generator_UserTableName="MaterialListID" msprop:Generator_RowChangedName="MaterialListIDRowChanged" msprop:Generator_RowEvArgName="MaterialListIDRowChangeEvent" msprop:Generator_RowClassName="MaterialListIDRow">
+        <xs:element name="MaterialListID" msprop:Generator_TableClassName="MaterialListIDDataTable" msprop:Generator_TableVarName="tableMaterialListID" msprop:Generator_RowChangedName="MaterialListIDRowChanged" msprop:Generator_TablePropName="MaterialListID" msprop:Generator_RowDeletingName="MaterialListIDRowDeleting" msprop:Generator_RowChangingName="MaterialListIDRowChanging" msprop:Generator_RowEvHandlerName="MaterialListIDRowChangeEventHandler" msprop:Generator_RowDeletedName="MaterialListIDRowDeleted" msprop:Generator_RowClassName="MaterialListIDRow" msprop:Generator_UserTableName="MaterialListID" msprop:Generator_RowEvArgName="MaterialListIDRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MaterialID" msprop:Generator_ColumnVarNameInTable="columnMaterialID" msprop:Generator_ColumnPropNameInRow="MaterialID" msprop:Generator_ColumnPropNameInTable="MaterialIDColumn" msprop:Generator_UserColumnName="MaterialID">
@@ -2358,17 +2358,17 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="OrderDetail" msprop:Generator_TableClassName="OrderDetailDataTable" msprop:Generator_TableVarName="tableOrderDetail" msprop:Generator_TablePropName="OrderDetail" msprop:Generator_RowDeletingName="OrderDetailRowDeleting" msprop:Generator_RowChangingName="OrderDetailRowChanging" msprop:Generator_RowEvHandlerName="OrderDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="OrderDetailRowDeleted" msprop:Generator_UserTableName="OrderDetail" msprop:Generator_RowChangedName="OrderDetailRowChanged" msprop:Generator_RowEvArgName="OrderDetailRowChangeEvent" msprop:Generator_RowClassName="OrderDetailRow">
+        <xs:element name="OrderDetail" msprop:Generator_TableClassName="OrderDetailDataTable" msprop:Generator_TableVarName="tableOrderDetail" msprop:Generator_RowChangedName="OrderDetailRowChanged" msprop:Generator_TablePropName="OrderDetail" msprop:Generator_RowDeletingName="OrderDetailRowDeleting" msprop:Generator_RowChangingName="OrderDetailRowChanging" msprop:Generator_RowEvHandlerName="OrderDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="OrderDetailRowDeleted" msprop:Generator_RowClassName="OrderDetailRow" msprop:Generator_UserTableName="OrderDetail" msprop:Generator_RowEvArgName="OrderDetailRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="OrderID" msprop:Generator_ColumnVarNameInTable="columnOrderID" msprop:Generator_ColumnPropNameInRow="OrderID" msprop:Generator_ColumnPropNameInTable="OrderIDColumn" msprop:Generator_UserColumnName="OrderID">
+              <xs:element name="OrderPrimaryID" msprop:Generator_ColumnVarNameInTable="columnOrderPrimaryID" msprop:Generator_ColumnPropNameInRow="OrderPrimaryID" msprop:Generator_ColumnPropNameInTable="OrderPrimaryIDColumn" msprop:Generator_UserColumnName="OrderPrimaryID">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ReceipePrimaryID" msprop:Generator_ColumnVarNameInTable="columnReceipePrimaryID" msprop:Generator_ColumnPropNameInRow="ReceipePrimaryID" msprop:Generator_ColumnPropNameInTable="ReceipePrimaryIDColumn" msprop:Generator_UserColumnName="ReceipePrimaryID" minOccurs="0">
+              <xs:element name="RecipePrimaryID" msprop:Generator_ColumnVarNameInTable="columnRecipePrimaryID" msprop:Generator_ColumnPropNameInRow="RecipePrimaryID" msprop:Generator_ColumnPropNameInTable="RecipePrimaryIDColumn" msprop:Generator_UserColumnName="RecipePrimaryID" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -2380,7 +2380,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="OrderPrimary" msprop:Generator_TableClassName="OrderPrimaryDataTable" msprop:Generator_TableVarName="tableOrderPrimary" msprop:Generator_TablePropName="OrderPrimary" msprop:Generator_RowDeletingName="OrderPrimaryRowDeleting" msprop:Generator_RowChangingName="OrderPrimaryRowChanging" msprop:Generator_RowEvHandlerName="OrderPrimaryRowChangeEventHandler" msprop:Generator_RowDeletedName="OrderPrimaryRowDeleted" msprop:Generator_UserTableName="OrderPrimary" msprop:Generator_RowChangedName="OrderPrimaryRowChanged" msprop:Generator_RowEvArgName="OrderPrimaryRowChangeEvent" msprop:Generator_RowClassName="OrderPrimaryRow">
+        <xs:element name="OrderPrimary" msprop:Generator_TableClassName="OrderPrimaryDataTable" msprop:Generator_TableVarName="tableOrderPrimary" msprop:Generator_RowChangedName="OrderPrimaryRowChanged" msprop:Generator_TablePropName="OrderPrimary" msprop:Generator_RowDeletingName="OrderPrimaryRowDeleting" msprop:Generator_RowChangingName="OrderPrimaryRowChanging" msprop:Generator_RowEvHandlerName="OrderPrimaryRowChangeEventHandler" msprop:Generator_RowDeletedName="OrderPrimaryRowDeleted" msprop:Generator_RowClassName="OrderPrimaryRow" msprop:Generator_UserTableName="OrderPrimary" msprop:Generator_RowEvArgName="OrderPrimaryRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="OrderPrimaryID" msprop:Generator_ColumnVarNameInTable="columnOrderPrimaryID" msprop:Generator_ColumnPropNameInRow="OrderPrimaryID" msprop:Generator_ColumnPropNameInTable="OrderPrimaryIDColumn" msprop:Generator_UserColumnName="OrderPrimaryID">
@@ -2423,7 +2423,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ProcureOrderDetail" msprop:Generator_TableClassName="ProcureOrderDetailDataTable" msprop:Generator_TableVarName="tableProcureOrderDetail" msprop:Generator_TablePropName="ProcureOrderDetail" msprop:Generator_RowDeletingName="ProcureOrderDetailRowDeleting" msprop:Generator_RowChangingName="ProcureOrderDetailRowChanging" msprop:Generator_RowEvHandlerName="ProcureOrderDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="ProcureOrderDetailRowDeleted" msprop:Generator_UserTableName="ProcureOrderDetail" msprop:Generator_RowChangedName="ProcureOrderDetailRowChanged" msprop:Generator_RowEvArgName="ProcureOrderDetailRowChangeEvent" msprop:Generator_RowClassName="ProcureOrderDetailRow">
+        <xs:element name="ProcureOrderDetail" msprop:Generator_TableClassName="ProcureOrderDetailDataTable" msprop:Generator_TableVarName="tableProcureOrderDetail" msprop:Generator_RowChangedName="ProcureOrderDetailRowChanged" msprop:Generator_TablePropName="ProcureOrderDetail" msprop:Generator_RowDeletingName="ProcureOrderDetailRowDeleting" msprop:Generator_RowChangingName="ProcureOrderDetailRowChanging" msprop:Generator_RowEvHandlerName="ProcureOrderDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="ProcureOrderDetailRowDeleted" msprop:Generator_RowClassName="ProcureOrderDetailRow" msprop:Generator_UserTableName="ProcureOrderDetail" msprop:Generator_RowEvArgName="ProcureOrderDetailRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ProcureOrderPrimaryID" msprop:Generator_ColumnVarNameInTable="columnProcureOrderPrimaryID" msprop:Generator_ColumnPropNameInRow="ProcureOrderPrimaryID" msprop:Generator_ColumnPropNameInTable="ProcureOrderPrimaryIDColumn" msprop:Generator_UserColumnName="ProcureOrderPrimaryID" minOccurs="0">
@@ -2458,7 +2458,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ProcureOrderPrimary" msprop:Generator_TableClassName="ProcureOrderPrimaryDataTable" msprop:Generator_TableVarName="tableProcureOrderPrimary" msprop:Generator_TablePropName="ProcureOrderPrimary" msprop:Generator_RowDeletingName="ProcureOrderPrimaryRowDeleting" msprop:Generator_RowChangingName="ProcureOrderPrimaryRowChanging" msprop:Generator_RowEvHandlerName="ProcureOrderPrimaryRowChangeEventHandler" msprop:Generator_RowDeletedName="ProcureOrderPrimaryRowDeleted" msprop:Generator_UserTableName="ProcureOrderPrimary" msprop:Generator_RowChangedName="ProcureOrderPrimaryRowChanged" msprop:Generator_RowEvArgName="ProcureOrderPrimaryRowChangeEvent" msprop:Generator_RowClassName="ProcureOrderPrimaryRow">
+        <xs:element name="ProcureOrderPrimary" msprop:Generator_TableClassName="ProcureOrderPrimaryDataTable" msprop:Generator_TableVarName="tableProcureOrderPrimary" msprop:Generator_RowChangedName="ProcureOrderPrimaryRowChanged" msprop:Generator_TablePropName="ProcureOrderPrimary" msprop:Generator_RowDeletingName="ProcureOrderPrimaryRowDeleting" msprop:Generator_RowChangingName="ProcureOrderPrimaryRowChanging" msprop:Generator_RowEvHandlerName="ProcureOrderPrimaryRowChangeEventHandler" msprop:Generator_RowDeletedName="ProcureOrderPrimaryRowDeleted" msprop:Generator_RowClassName="ProcureOrderPrimaryRow" msprop:Generator_UserTableName="ProcureOrderPrimary" msprop:Generator_RowEvArgName="ProcureOrderPrimaryRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ProcureOrderPrimaryID" msprop:Generator_ColumnVarNameInTable="columnProcureOrderPrimaryID" msprop:Generator_ColumnPropNameInRow="ProcureOrderPrimaryID" msprop:Generator_ColumnPropNameInTable="ProcureOrderPrimaryIDColumn" msprop:Generator_UserColumnName="ProcureOrderPrimaryID">
@@ -2507,7 +2507,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ProcurePlanDetail" msprop:Generator_TableClassName="ProcurePlanDetailDataTable" msprop:Generator_TableVarName="tableProcurePlanDetail" msprop:Generator_TablePropName="ProcurePlanDetail" msprop:Generator_RowDeletingName="ProcurePlanDetailRowDeleting" msprop:Generator_RowChangingName="ProcurePlanDetailRowChanging" msprop:Generator_RowEvHandlerName="ProcurePlanDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="ProcurePlanDetailRowDeleted" msprop:Generator_UserTableName="ProcurePlanDetail" msprop:Generator_RowChangedName="ProcurePlanDetailRowChanged" msprop:Generator_RowEvArgName="ProcurePlanDetailRowChangeEvent" msprop:Generator_RowClassName="ProcurePlanDetailRow">
+        <xs:element name="ProcurePlanDetail" msprop:Generator_TableClassName="ProcurePlanDetailDataTable" msprop:Generator_TableVarName="tableProcurePlanDetail" msprop:Generator_RowChangedName="ProcurePlanDetailRowChanged" msprop:Generator_TablePropName="ProcurePlanDetail" msprop:Generator_RowDeletingName="ProcurePlanDetailRowDeleting" msprop:Generator_RowChangingName="ProcurePlanDetailRowChanging" msprop:Generator_RowEvHandlerName="ProcurePlanDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="ProcurePlanDetailRowDeleted" msprop:Generator_RowClassName="ProcurePlanDetailRow" msprop:Generator_UserTableName="ProcurePlanDetail" msprop:Generator_RowEvArgName="ProcurePlanDetailRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ProcurePlanPrimaryID" msprop:Generator_ColumnVarNameInTable="columnProcurePlanPrimaryID" msprop:Generator_ColumnPropNameInRow="ProcurePlanPrimaryID" msprop:Generator_ColumnPropNameInTable="ProcurePlanPrimaryIDColumn" msprop:Generator_UserColumnName="ProcurePlanPrimaryID">
@@ -2545,7 +2545,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ProcurePlanPrimary" msprop:Generator_TableClassName="ProcurePlanPrimaryDataTable" msprop:Generator_TableVarName="tableProcurePlanPrimary" msprop:Generator_TablePropName="ProcurePlanPrimary" msprop:Generator_RowDeletingName="ProcurePlanPrimaryRowDeleting" msprop:Generator_RowChangingName="ProcurePlanPrimaryRowChanging" msprop:Generator_RowEvHandlerName="ProcurePlanPrimaryRowChangeEventHandler" msprop:Generator_RowDeletedName="ProcurePlanPrimaryRowDeleted" msprop:Generator_UserTableName="ProcurePlanPrimary" msprop:Generator_RowChangedName="ProcurePlanPrimaryRowChanged" msprop:Generator_RowEvArgName="ProcurePlanPrimaryRowChangeEvent" msprop:Generator_RowClassName="ProcurePlanPrimaryRow">
+        <xs:element name="ProcurePlanPrimary" msprop:Generator_TableClassName="ProcurePlanPrimaryDataTable" msprop:Generator_TableVarName="tableProcurePlanPrimary" msprop:Generator_RowChangedName="ProcurePlanPrimaryRowChanged" msprop:Generator_TablePropName="ProcurePlanPrimary" msprop:Generator_RowDeletingName="ProcurePlanPrimaryRowDeleting" msprop:Generator_RowChangingName="ProcurePlanPrimaryRowChanging" msprop:Generator_RowEvHandlerName="ProcurePlanPrimaryRowChangeEventHandler" msprop:Generator_RowDeletedName="ProcurePlanPrimaryRowDeleted" msprop:Generator_RowClassName="ProcurePlanPrimaryRow" msprop:Generator_UserTableName="ProcurePlanPrimary" msprop:Generator_RowEvArgName="ProcurePlanPrimaryRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ProcurePlanPrimaryID" msprop:Generator_ColumnVarNameInTable="columnProcurePlanPrimaryID" msprop:Generator_ColumnPropNameInRow="ProcurePlanPrimaryID" msprop:Generator_ColumnPropNameInTable="ProcurePlanPrimaryIDColumn" msprop:Generator_UserColumnName="ProcurePlanPrimaryID">
@@ -2594,7 +2594,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="RecipeDetail" msprop:Generator_TableClassName="RecipeDetailDataTable" msprop:Generator_TableVarName="tableRecipeDetail" msprop:Generator_TablePropName="RecipeDetail" msprop:Generator_RowDeletingName="RecipeDetailRowDeleting" msprop:Generator_RowChangingName="RecipeDetailRowChanging" msprop:Generator_RowEvHandlerName="RecipeDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="RecipeDetailRowDeleted" msprop:Generator_UserTableName="RecipeDetail" msprop:Generator_RowChangedName="RecipeDetailRowChanged" msprop:Generator_RowEvArgName="RecipeDetailRowChangeEvent" msprop:Generator_RowClassName="RecipeDetailRow">
+        <xs:element name="RecipeDetail" msprop:Generator_TableClassName="RecipeDetailDataTable" msprop:Generator_TableVarName="tableRecipeDetail" msprop:Generator_RowChangedName="RecipeDetailRowChanged" msprop:Generator_TablePropName="RecipeDetail" msprop:Generator_RowDeletingName="RecipeDetailRowDeleting" msprop:Generator_RowChangingName="RecipeDetailRowChanging" msprop:Generator_RowEvHandlerName="RecipeDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="RecipeDetailRowDeleted" msprop:Generator_RowClassName="RecipeDetailRow" msprop:Generator_UserTableName="RecipeDetail" msprop:Generator_RowEvArgName="RecipeDetailRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="RecipePrimaryID" msprop:Generator_ColumnVarNameInTable="columnRecipePrimaryID" msprop:Generator_ColumnPropNameInRow="RecipePrimaryID" msprop:Generator_ColumnPropNameInTable="RecipePrimaryIDColumn" msprop:Generator_UserColumnName="RecipePrimaryID">
@@ -2622,7 +2622,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="RecipePrimary" msprop:Generator_TableClassName="RecipePrimaryDataTable" msprop:Generator_TableVarName="tableRecipePrimary" msprop:Generator_TablePropName="RecipePrimary" msprop:Generator_RowDeletingName="RecipePrimaryRowDeleting" msprop:Generator_RowChangingName="RecipePrimaryRowChanging" msprop:Generator_RowEvHandlerName="RecipePrimaryRowChangeEventHandler" msprop:Generator_RowDeletedName="RecipePrimaryRowDeleted" msprop:Generator_UserTableName="RecipePrimary" msprop:Generator_RowChangedName="RecipePrimaryRowChanged" msprop:Generator_RowEvArgName="RecipePrimaryRowChangeEvent" msprop:Generator_RowClassName="RecipePrimaryRow">
+        <xs:element name="RecipePrimary" msprop:Generator_TableClassName="RecipePrimaryDataTable" msprop:Generator_TableVarName="tableRecipePrimary" msprop:Generator_RowChangedName="RecipePrimaryRowChanged" msprop:Generator_TablePropName="RecipePrimary" msprop:Generator_RowDeletingName="RecipePrimaryRowDeleting" msprop:Generator_RowChangingName="RecipePrimaryRowChanging" msprop:Generator_RowEvHandlerName="RecipePrimaryRowChangeEventHandler" msprop:Generator_RowDeletedName="RecipePrimaryRowDeleted" msprop:Generator_RowClassName="RecipePrimaryRow" msprop:Generator_UserTableName="RecipePrimary" msprop:Generator_RowEvArgName="RecipePrimaryRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="RecipePrimaryID" msprop:Generator_ColumnVarNameInTable="columnRecipePrimaryID" msprop:Generator_ColumnPropNameInRow="RecipePrimaryID" msprop:Generator_ColumnPropNameInTable="RecipePrimaryIDColumn" msprop:Generator_UserColumnName="RecipePrimaryID">
@@ -2677,7 +2677,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="StockCountDetail" msprop:Generator_TableClassName="StockCountDetailDataTable" msprop:Generator_TableVarName="tableStockCountDetail" msprop:Generator_TablePropName="StockCountDetail" msprop:Generator_RowDeletingName="StockCountDetailRowDeleting" msprop:Generator_RowChangingName="StockCountDetailRowChanging" msprop:Generator_RowEvHandlerName="StockCountDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="StockCountDetailRowDeleted" msprop:Generator_UserTableName="StockCountDetail" msprop:Generator_RowChangedName="StockCountDetailRowChanged" msprop:Generator_RowEvArgName="StockCountDetailRowChangeEvent" msprop:Generator_RowClassName="StockCountDetailRow">
+        <xs:element name="StockCountDetail" msprop:Generator_TableClassName="StockCountDetailDataTable" msprop:Generator_TableVarName="tableStockCountDetail" msprop:Generator_RowChangedName="StockCountDetailRowChanged" msprop:Generator_TablePropName="StockCountDetail" msprop:Generator_RowDeletingName="StockCountDetailRowDeleting" msprop:Generator_RowChangingName="StockCountDetailRowChanging" msprop:Generator_RowEvHandlerName="StockCountDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="StockCountDetailRowDeleted" msprop:Generator_RowClassName="StockCountDetailRow" msprop:Generator_UserTableName="StockCountDetail" msprop:Generator_RowEvArgName="StockCountDetailRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="StockCountPrimaryID" msprop:Generator_ColumnVarNameInTable="columnStockCountPrimaryID" msprop:Generator_ColumnPropNameInRow="StockCountPrimaryID" msprop:Generator_ColumnPropNameInTable="StockCountPrimaryIDColumn" msprop:Generator_UserColumnName="StockCountPrimaryID">
@@ -2705,7 +2705,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="StockCountPrimary" msprop:Generator_TableClassName="StockCountPrimaryDataTable" msprop:Generator_TableVarName="tableStockCountPrimary" msprop:Generator_TablePropName="StockCountPrimary" msprop:Generator_RowDeletingName="StockCountPrimaryRowDeleting" msprop:Generator_RowChangingName="StockCountPrimaryRowChanging" msprop:Generator_RowEvHandlerName="StockCountPrimaryRowChangeEventHandler" msprop:Generator_RowDeletedName="StockCountPrimaryRowDeleted" msprop:Generator_UserTableName="StockCountPrimary" msprop:Generator_RowChangedName="StockCountPrimaryRowChanged" msprop:Generator_RowEvArgName="StockCountPrimaryRowChangeEvent" msprop:Generator_RowClassName="StockCountPrimaryRow">
+        <xs:element name="StockCountPrimary" msprop:Generator_TableClassName="StockCountPrimaryDataTable" msprop:Generator_TableVarName="tableStockCountPrimary" msprop:Generator_RowChangedName="StockCountPrimaryRowChanged" msprop:Generator_TablePropName="StockCountPrimary" msprop:Generator_RowDeletingName="StockCountPrimaryRowDeleting" msprop:Generator_RowChangingName="StockCountPrimaryRowChanging" msprop:Generator_RowEvHandlerName="StockCountPrimaryRowChangeEventHandler" msprop:Generator_RowDeletedName="StockCountPrimaryRowDeleted" msprop:Generator_RowClassName="StockCountPrimaryRow" msprop:Generator_UserTableName="StockCountPrimary" msprop:Generator_RowEvArgName="StockCountPrimaryRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="StockCountPrimaryID" msprop:Generator_ColumnVarNameInTable="columnStockCountPrimaryID" msprop:Generator_ColumnPropNameInRow="StockCountPrimaryID" msprop:Generator_ColumnPropNameInTable="StockCountPrimaryIDColumn" msprop:Generator_UserColumnName="StockCountPrimaryID">
@@ -2732,7 +2732,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Store" msprop:Generator_TableClassName="StoreDataTable" msprop:Generator_TableVarName="tableStore" msprop:Generator_TablePropName="Store" msprop:Generator_RowDeletingName="StoreRowDeleting" msprop:Generator_RowChangingName="StoreRowChanging" msprop:Generator_RowEvHandlerName="StoreRowChangeEventHandler" msprop:Generator_RowDeletedName="StoreRowDeleted" msprop:Generator_UserTableName="Store" msprop:Generator_RowChangedName="StoreRowChanged" msprop:Generator_RowEvArgName="StoreRowChangeEvent" msprop:Generator_RowClassName="StoreRow">
+        <xs:element name="Store" msprop:Generator_TableClassName="StoreDataTable" msprop:Generator_TableVarName="tableStore" msprop:Generator_RowChangedName="StoreRowChanged" msprop:Generator_TablePropName="Store" msprop:Generator_RowDeletingName="StoreRowDeleting" msprop:Generator_RowChangingName="StoreRowChanging" msprop:Generator_RowEvHandlerName="StoreRowChangeEventHandler" msprop:Generator_RowDeletedName="StoreRowDeleted" msprop:Generator_RowClassName="StoreRow" msprop:Generator_UserTableName="Store" msprop:Generator_RowEvArgName="StoreRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="StoreId" msprop:Generator_ColumnVarNameInTable="columnStoreId" msprop:Generator_ColumnPropNameInRow="StoreId" msprop:Generator_ColumnPropNameInTable="StoreIdColumn" msprop:Generator_UserColumnName="StoreId">
@@ -2788,7 +2788,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SupplementPlanDetail" msprop:Generator_TableClassName="SupplementPlanDetailDataTable" msprop:Generator_TableVarName="tableSupplementPlanDetail" msprop:Generator_TablePropName="SupplementPlanDetail" msprop:Generator_RowDeletingName="SupplementPlanDetailRowDeleting" msprop:Generator_RowChangingName="SupplementPlanDetailRowChanging" msprop:Generator_RowEvHandlerName="SupplementPlanDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="SupplementPlanDetailRowDeleted" msprop:Generator_UserTableName="SupplementPlanDetail" msprop:Generator_RowChangedName="SupplementPlanDetailRowChanged" msprop:Generator_RowEvArgName="SupplementPlanDetailRowChangeEvent" msprop:Generator_RowClassName="SupplementPlanDetailRow">
+        <xs:element name="SupplementPlanDetail" msprop:Generator_TableClassName="SupplementPlanDetailDataTable" msprop:Generator_TableVarName="tableSupplementPlanDetail" msprop:Generator_RowChangedName="SupplementPlanDetailRowChanged" msprop:Generator_TablePropName="SupplementPlanDetail" msprop:Generator_RowDeletingName="SupplementPlanDetailRowDeleting" msprop:Generator_RowChangingName="SupplementPlanDetailRowChanging" msprop:Generator_RowEvHandlerName="SupplementPlanDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="SupplementPlanDetailRowDeleted" msprop:Generator_RowClassName="SupplementPlanDetailRow" msprop:Generator_UserTableName="SupplementPlanDetail" msprop:Generator_RowEvArgName="SupplementPlanDetailRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PlanPrimaryID" msprop:Generator_ColumnVarNameInTable="columnPlanPrimaryID" msprop:Generator_ColumnPropNameInRow="PlanPrimaryID" msprop:Generator_ColumnPropNameInTable="PlanPrimaryIDColumn" msprop:Generator_UserColumnName="PlanPrimaryID">
@@ -2819,7 +2819,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SupplementPlanPrimary" msprop:Generator_TableClassName="SupplementPlanPrimaryDataTable" msprop:Generator_TableVarName="tableSupplementPlanPrimary" msprop:Generator_TablePropName="SupplementPlanPrimary" msprop:Generator_RowDeletingName="SupplementPlanPrimaryRowDeleting" msprop:Generator_RowChangingName="SupplementPlanPrimaryRowChanging" msprop:Generator_RowEvHandlerName="SupplementPlanPrimaryRowChangeEventHandler" msprop:Generator_RowDeletedName="SupplementPlanPrimaryRowDeleted" msprop:Generator_UserTableName="SupplementPlanPrimary" msprop:Generator_RowChangedName="SupplementPlanPrimaryRowChanged" msprop:Generator_RowEvArgName="SupplementPlanPrimaryRowChangeEvent" msprop:Generator_RowClassName="SupplementPlanPrimaryRow">
+        <xs:element name="SupplementPlanPrimary" msprop:Generator_TableClassName="SupplementPlanPrimaryDataTable" msprop:Generator_TableVarName="tableSupplementPlanPrimary" msprop:Generator_RowChangedName="SupplementPlanPrimaryRowChanged" msprop:Generator_TablePropName="SupplementPlanPrimary" msprop:Generator_RowDeletingName="SupplementPlanPrimaryRowDeleting" msprop:Generator_RowChangingName="SupplementPlanPrimaryRowChanging" msprop:Generator_RowEvHandlerName="SupplementPlanPrimaryRowChangeEventHandler" msprop:Generator_RowDeletedName="SupplementPlanPrimaryRowDeleted" msprop:Generator_RowClassName="SupplementPlanPrimaryRow" msprop:Generator_UserTableName="SupplementPlanPrimary" msprop:Generator_RowEvArgName="SupplementPlanPrimaryRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PlanPrimaryID" msprop:Generator_ColumnVarNameInTable="columnPlanPrimaryID" msprop:Generator_ColumnPropNameInRow="PlanPrimaryID" msprop:Generator_ColumnPropNameInTable="PlanPrimaryIDColumn" msprop:Generator_UserColumnName="PlanPrimaryID">
@@ -2841,7 +2841,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Supplier" msprop:Generator_TableClassName="SupplierDataTable" msprop:Generator_TableVarName="tableSupplier" msprop:Generator_TablePropName="Supplier" msprop:Generator_RowDeletingName="SupplierRowDeleting" msprop:Generator_RowChangingName="SupplierRowChanging" msprop:Generator_RowEvHandlerName="SupplierRowChangeEventHandler" msprop:Generator_RowDeletedName="SupplierRowDeleted" msprop:Generator_UserTableName="Supplier" msprop:Generator_RowChangedName="SupplierRowChanged" msprop:Generator_RowEvArgName="SupplierRowChangeEvent" msprop:Generator_RowClassName="SupplierRow">
+        <xs:element name="Supplier" msprop:Generator_TableClassName="SupplierDataTable" msprop:Generator_TableVarName="tableSupplier" msprop:Generator_RowChangedName="SupplierRowChanged" msprop:Generator_TablePropName="Supplier" msprop:Generator_RowDeletingName="SupplierRowDeleting" msprop:Generator_RowChangingName="SupplierRowChanging" msprop:Generator_RowEvHandlerName="SupplierRowChangeEventHandler" msprop:Generator_RowDeletedName="SupplierRowDeleted" msprop:Generator_RowClassName="SupplierRow" msprop:Generator_UserTableName="Supplier" msprop:Generator_RowEvArgName="SupplierRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SupplierId" msprop:Generator_ColumnVarNameInTable="columnSupplierId" msprop:Generator_ColumnPropNameInRow="SupplierId" msprop:Generator_ColumnPropNameInTable="SupplierIdColumn" msprop:Generator_UserColumnName="SupplierId">
@@ -2896,7 +2896,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SupplyOrderDetail" msprop:Generator_TableClassName="SupplyOrderDetailDataTable" msprop:Generator_TableVarName="tableSupplyOrderDetail" msprop:Generator_TablePropName="SupplyOrderDetail" msprop:Generator_RowDeletingName="SupplyOrderDetailRowDeleting" msprop:Generator_RowChangingName="SupplyOrderDetailRowChanging" msprop:Generator_RowEvHandlerName="SupplyOrderDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="SupplyOrderDetailRowDeleted" msprop:Generator_UserTableName="SupplyOrderDetail" msprop:Generator_RowChangedName="SupplyOrderDetailRowChanged" msprop:Generator_RowEvArgName="SupplyOrderDetailRowChangeEvent" msprop:Generator_RowClassName="SupplyOrderDetailRow">
+        <xs:element name="SupplyOrderDetail" msprop:Generator_TableClassName="SupplyOrderDetailDataTable" msprop:Generator_TableVarName="tableSupplyOrderDetail" msprop:Generator_RowChangedName="SupplyOrderDetailRowChanged" msprop:Generator_TablePropName="SupplyOrderDetail" msprop:Generator_RowDeletingName="SupplyOrderDetailRowDeleting" msprop:Generator_RowChangingName="SupplyOrderDetailRowChanging" msprop:Generator_RowEvHandlerName="SupplyOrderDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="SupplyOrderDetailRowDeleted" msprop:Generator_RowClassName="SupplyOrderDetailRow" msprop:Generator_UserTableName="SupplyOrderDetail" msprop:Generator_RowEvArgName="SupplyOrderDetailRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SupplyOrderPrimaryID" msprop:Generator_ColumnVarNameInTable="columnSupplyOrderPrimaryID" msprop:Generator_ColumnPropNameInRow="SupplyOrderPrimaryID" msprop:Generator_ColumnPropNameInTable="SupplyOrderPrimaryIDColumn" msprop:Generator_UserColumnName="SupplyOrderPrimaryID">
@@ -2917,7 +2917,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SupplyOrderPrimary" msprop:Generator_TableClassName="SupplyOrderPrimaryDataTable" msprop:Generator_TableVarName="tableSupplyOrderPrimary" msprop:Generator_TablePropName="SupplyOrderPrimary" msprop:Generator_RowDeletingName="SupplyOrderPrimaryRowDeleting" msprop:Generator_RowChangingName="SupplyOrderPrimaryRowChanging" msprop:Generator_RowEvHandlerName="SupplyOrderPrimaryRowChangeEventHandler" msprop:Generator_RowDeletedName="SupplyOrderPrimaryRowDeleted" msprop:Generator_UserTableName="SupplyOrderPrimary" msprop:Generator_RowChangedName="SupplyOrderPrimaryRowChanged" msprop:Generator_RowEvArgName="SupplyOrderPrimaryRowChangeEvent" msprop:Generator_RowClassName="SupplyOrderPrimaryRow">
+        <xs:element name="SupplyOrderPrimary" msprop:Generator_TableClassName="SupplyOrderPrimaryDataTable" msprop:Generator_TableVarName="tableSupplyOrderPrimary" msprop:Generator_RowChangedName="SupplyOrderPrimaryRowChanged" msprop:Generator_TablePropName="SupplyOrderPrimary" msprop:Generator_RowDeletingName="SupplyOrderPrimaryRowDeleting" msprop:Generator_RowChangingName="SupplyOrderPrimaryRowChanging" msprop:Generator_RowEvHandlerName="SupplyOrderPrimaryRowChangeEventHandler" msprop:Generator_RowDeletedName="SupplyOrderPrimaryRowDeleted" msprop:Generator_RowClassName="SupplyOrderPrimaryRow" msprop:Generator_UserTableName="SupplyOrderPrimary" msprop:Generator_RowEvArgName="SupplyOrderPrimaryRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SupplyOrderPrimaryID" msprop:Generator_ColumnVarNameInTable="columnSupplyOrderPrimaryID" msprop:Generator_ColumnPropNameInRow="SupplyOrderPrimaryID" msprop:Generator_ColumnPropNameInTable="SupplyOrderPrimaryIDColumn" msprop:Generator_UserColumnName="SupplyOrderPrimaryID">
@@ -2944,7 +2944,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Table" msprop:Generator_TableClassName="TableDataTable" msprop:Generator_TableVarName="tableTable" msprop:Generator_TablePropName="Table" msprop:Generator_RowDeletingName="TableRowDeleting" msprop:Generator_RowChangingName="TableRowChanging" msprop:Generator_RowEvHandlerName="TableRowChangeEventHandler" msprop:Generator_RowDeletedName="TableRowDeleted" msprop:Generator_UserTableName="Table" msprop:Generator_RowChangedName="TableRowChanged" msprop:Generator_RowEvArgName="TableRowChangeEvent" msprop:Generator_RowClassName="TableRow">
+        <xs:element name="Table" msprop:Generator_TableClassName="TableDataTable" msprop:Generator_TableVarName="tableTable" msprop:Generator_RowChangedName="TableRowChanged" msprop:Generator_TablePropName="Table" msprop:Generator_RowDeletingName="TableRowDeleting" msprop:Generator_RowChangingName="TableRowChanging" msprop:Generator_RowEvHandlerName="TableRowChangeEventHandler" msprop:Generator_RowDeletedName="TableRowDeleted" msprop:Generator_RowClassName="TableRow" msprop:Generator_UserTableName="Table" msprop:Generator_RowEvArgName="TableRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TableID" msprop:Generator_ColumnVarNameInTable="columnTableID" msprop:Generator_ColumnPropNameInRow="TableID" msprop:Generator_ColumnPropNameInTable="TableIDColumn" msprop:Generator_UserColumnName="TableID" type="xs:base64Binary" />
@@ -2955,7 +2955,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TakeOut" msprop:Generator_TableClassName="TakeOutDataTable" msprop:Generator_TableVarName="tableTakeOut" msprop:Generator_TablePropName="TakeOut" msprop:Generator_RowDeletingName="TakeOutRowDeleting" msprop:Generator_RowChangingName="TakeOutRowChanging" msprop:Generator_RowEvHandlerName="TakeOutRowChangeEventHandler" msprop:Generator_RowDeletedName="TakeOutRowDeleted" msprop:Generator_UserTableName="TakeOut" msprop:Generator_RowChangedName="TakeOutRowChanged" msprop:Generator_RowEvArgName="TakeOutRowChangeEvent" msprop:Generator_RowClassName="TakeOutRow">
+        <xs:element name="TakeOut" msprop:Generator_TableClassName="TakeOutDataTable" msprop:Generator_TableVarName="tableTakeOut" msprop:Generator_RowChangedName="TakeOutRowChanged" msprop:Generator_TablePropName="TakeOut" msprop:Generator_RowDeletingName="TakeOutRowDeleting" msprop:Generator_RowChangingName="TakeOutRowChanging" msprop:Generator_RowEvHandlerName="TakeOutRowChangeEventHandler" msprop:Generator_RowDeletedName="TakeOutRowDeleted" msprop:Generator_RowClassName="TakeOutRow" msprop:Generator_UserTableName="TakeOut" msprop:Generator_RowEvArgName="TakeOutRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TakeOutID" msprop:Generator_ColumnVarNameInTable="columnTakeOutID" msprop:Generator_ColumnPropNameInRow="TakeOutID" msprop:Generator_ColumnPropNameInTable="TakeOutIDColumn" msprop:Generator_UserColumnName="TakeOutID" type="xs:base64Binary" />
@@ -2969,7 +2969,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TakeOutDetail" msprop:Generator_TableClassName="TakeOutDetailDataTable" msprop:Generator_TableVarName="tableTakeOutDetail" msprop:Generator_TablePropName="TakeOutDetail" msprop:Generator_RowDeletingName="TakeOutDetailRowDeleting" msprop:Generator_RowChangingName="TakeOutDetailRowChanging" msprop:Generator_RowEvHandlerName="TakeOutDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="TakeOutDetailRowDeleted" msprop:Generator_UserTableName="TakeOutDetail" msprop:Generator_RowChangedName="TakeOutDetailRowChanged" msprop:Generator_RowEvArgName="TakeOutDetailRowChangeEvent" msprop:Generator_RowClassName="TakeOutDetailRow">
+        <xs:element name="TakeOutDetail" msprop:Generator_TableClassName="TakeOutDetailDataTable" msprop:Generator_TableVarName="tableTakeOutDetail" msprop:Generator_RowChangedName="TakeOutDetailRowChanged" msprop:Generator_TablePropName="TakeOutDetail" msprop:Generator_RowDeletingName="TakeOutDetailRowDeleting" msprop:Generator_RowChangingName="TakeOutDetailRowChanging" msprop:Generator_RowEvHandlerName="TakeOutDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="TakeOutDetailRowDeleted" msprop:Generator_RowClassName="TakeOutDetailRow" msprop:Generator_UserTableName="TakeOutDetail" msprop:Generator_RowEvArgName="TakeOutDetailRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TakeOutID" msprop:Generator_ColumnVarNameInTable="columnTakeOutID" msprop:Generator_ColumnPropNameInRow="TakeOutID" msprop:Generator_ColumnPropNameInTable="TakeOutIDColumn" msprop:Generator_UserColumnName="TakeOutID" type="xs:base64Binary" />
@@ -2979,7 +2979,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="WareHouse" msprop:Generator_TableClassName="WareHouseDataTable" msprop:Generator_TableVarName="tableWareHouse" msprop:Generator_TablePropName="WareHouse" msprop:Generator_RowDeletingName="WareHouseRowDeleting" msprop:Generator_RowChangingName="WareHouseRowChanging" msprop:Generator_RowEvHandlerName="WareHouseRowChangeEventHandler" msprop:Generator_RowDeletedName="WareHouseRowDeleted" msprop:Generator_UserTableName="WareHouse" msprop:Generator_RowChangedName="WareHouseRowChanged" msprop:Generator_RowEvArgName="WareHouseRowChangeEvent" msprop:Generator_RowClassName="WareHouseRow">
+        <xs:element name="WareHouse" msprop:Generator_TableClassName="WareHouseDataTable" msprop:Generator_TableVarName="tableWareHouse" msprop:Generator_RowChangedName="WareHouseRowChanged" msprop:Generator_TablePropName="WareHouse" msprop:Generator_RowDeletingName="WareHouseRowDeleting" msprop:Generator_RowChangingName="WareHouseRowChanging" msprop:Generator_RowEvHandlerName="WareHouseRowChangeEventHandler" msprop:Generator_RowDeletedName="WareHouseRowDeleted" msprop:Generator_RowClassName="WareHouseRow" msprop:Generator_UserTableName="WareHouse" msprop:Generator_RowEvArgName="WareHouseRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="WareHouseID" msprop:Generator_ColumnVarNameInTable="columnWareHouseID" msprop:Generator_ColumnPropNameInRow="WareHouseID" msprop:Generator_ColumnPropNameInTable="WareHouseIDColumn" msprop:Generator_UserColumnName="WareHouseID">
@@ -3035,7 +3035,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Select_Material" msprop:Generator_TableClassName="Select_MaterialDataTable" msprop:Generator_TableVarName="tableSelect_Material" msprop:Generator_TablePropName="Select_Material" msprop:Generator_RowDeletingName="Select_MaterialRowDeleting" msprop:Generator_RowChangingName="Select_MaterialRowChanging" msprop:Generator_RowEvHandlerName="Select_MaterialRowChangeEventHandler" msprop:Generator_RowDeletedName="Select_MaterialRowDeleted" msprop:Generator_UserTableName="Select_Material" msprop:Generator_RowChangedName="Select_MaterialRowChanged" msprop:Generator_RowEvArgName="Select_MaterialRowChangeEvent" msprop:Generator_RowClassName="Select_MaterialRow">
+        <xs:element name="Select_Material" msprop:Generator_TableClassName="Select_MaterialDataTable" msprop:Generator_TableVarName="tableSelect_Material" msprop:Generator_RowChangedName="Select_MaterialRowChanged" msprop:Generator_TablePropName="Select_Material" msprop:Generator_RowDeletingName="Select_MaterialRowDeleting" msprop:Generator_RowChangingName="Select_MaterialRowChanging" msprop:Generator_RowEvHandlerName="Select_MaterialRowChangeEventHandler" msprop:Generator_RowDeletedName="Select_MaterialRowDeleted" msprop:Generator_RowClassName="Select_MaterialRow" msprop:Generator_UserTableName="Select_Material" msprop:Generator_RowEvArgName="Select_MaterialRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MaterialID" msprop:Generator_ColumnVarNameInTable="columnMaterialID" msprop:Generator_ColumnPropNameInRow="MaterialID" msprop:Generator_ColumnPropNameInTable="MaterialIDColumn" msprop:Generator_UserColumnName="MaterialID">
@@ -3076,7 +3076,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Select_MaterialList" msprop:Generator_TableClassName="Select_MaterialListDataTable" msprop:Generator_TableVarName="tableSelect_MaterialList" msprop:Generator_TablePropName="Select_MaterialList" msprop:Generator_RowDeletingName="Select_MaterialListRowDeleting" msprop:Generator_RowChangingName="Select_MaterialListRowChanging" msprop:Generator_RowEvHandlerName="Select_MaterialListRowChangeEventHandler" msprop:Generator_RowDeletedName="Select_MaterialListRowDeleted" msprop:Generator_UserTableName="Select_MaterialList" msprop:Generator_RowChangedName="Select_MaterialListRowChanged" msprop:Generator_RowEvArgName="Select_MaterialListRowChangeEvent" msprop:Generator_RowClassName="Select_MaterialListRow">
+        <xs:element name="Select_MaterialList" msprop:Generator_TableClassName="Select_MaterialListDataTable" msprop:Generator_TableVarName="tableSelect_MaterialList" msprop:Generator_RowChangedName="Select_MaterialListRowChanged" msprop:Generator_TablePropName="Select_MaterialList" msprop:Generator_RowDeletingName="Select_MaterialListRowDeleting" msprop:Generator_RowChangingName="Select_MaterialListRowChanging" msprop:Generator_RowEvHandlerName="Select_MaterialListRowChangeEventHandler" msprop:Generator_RowDeletedName="Select_MaterialListRowDeleted" msprop:Generator_RowClassName="Select_MaterialListRow" msprop:Generator_UserTableName="Select_MaterialList" msprop:Generator_RowEvArgName="Select_MaterialListRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MaterialID" msprop:Generator_ColumnVarNameInTable="columnMaterialID" msprop:Generator_ColumnPropNameInRow="MaterialID" msprop:Generator_ColumnPropNameInTable="MaterialIDColumn" msprop:Generator_UserColumnName="MaterialID">
@@ -3096,7 +3096,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Select_ProcurePlan" msprop:Generator_TableClassName="Select_ProcurePlanDataTable" msprop:Generator_TableVarName="tableSelect_ProcurePlan" msprop:Generator_TablePropName="Select_ProcurePlan" msprop:Generator_RowDeletingName="Select_ProcurePlanRowDeleting" msprop:Generator_RowChangingName="Select_ProcurePlanRowChanging" msprop:Generator_RowEvHandlerName="Select_ProcurePlanRowChangeEventHandler" msprop:Generator_RowDeletedName="Select_ProcurePlanRowDeleted" msprop:Generator_UserTableName="Select_ProcurePlan" msprop:Generator_RowChangedName="Select_ProcurePlanRowChanged" msprop:Generator_RowEvArgName="Select_ProcurePlanRowChangeEvent" msprop:Generator_RowClassName="Select_ProcurePlanRow">
+        <xs:element name="Select_ProcurePlan" msprop:Generator_TableClassName="Select_ProcurePlanDataTable" msprop:Generator_TableVarName="tableSelect_ProcurePlan" msprop:Generator_RowChangedName="Select_ProcurePlanRowChanged" msprop:Generator_TablePropName="Select_ProcurePlan" msprop:Generator_RowDeletingName="Select_ProcurePlanRowDeleting" msprop:Generator_RowChangingName="Select_ProcurePlanRowChanging" msprop:Generator_RowEvHandlerName="Select_ProcurePlanRowChangeEventHandler" msprop:Generator_RowDeletedName="Select_ProcurePlanRowDeleted" msprop:Generator_RowClassName="Select_ProcurePlanRow" msprop:Generator_UserTableName="Select_ProcurePlan" msprop:Generator_RowEvArgName="Select_ProcurePlanRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ProcurePlanID" msprop:Generator_ColumnVarNameInTable="columnProcurePlanID" msprop:Generator_ColumnPropNameInRow="ProcurePlanID" msprop:Generator_ColumnPropNameInTable="ProcurePlanIDColumn" msprop:Generator_UserColumnName="ProcurePlanID">
@@ -3153,7 +3153,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Select_WareHouseList" msprop:Generator_TableClassName="Select_WareHouseListDataTable" msprop:Generator_TableVarName="tableSelect_WareHouseList" msprop:Generator_TablePropName="Select_WareHouseList" msprop:Generator_RowDeletingName="Select_WareHouseListRowDeleting" msprop:Generator_RowChangingName="Select_WareHouseListRowChanging" msprop:Generator_RowEvHandlerName="Select_WareHouseListRowChangeEventHandler" msprop:Generator_RowDeletedName="Select_WareHouseListRowDeleted" msprop:Generator_UserTableName="Select_WareHouseList" msprop:Generator_RowChangedName="Select_WareHouseListRowChanged" msprop:Generator_RowEvArgName="Select_WareHouseListRowChangeEvent" msprop:Generator_RowClassName="Select_WareHouseListRow">
+        <xs:element name="Select_WareHouseList" msprop:Generator_TableClassName="Select_WareHouseListDataTable" msprop:Generator_TableVarName="tableSelect_WareHouseList" msprop:Generator_RowChangedName="Select_WareHouseListRowChanged" msprop:Generator_TablePropName="Select_WareHouseList" msprop:Generator_RowDeletingName="Select_WareHouseListRowDeleting" msprop:Generator_RowChangingName="Select_WareHouseListRowChanging" msprop:Generator_RowEvHandlerName="Select_WareHouseListRowChangeEventHandler" msprop:Generator_RowDeletedName="Select_WareHouseListRowDeleted" msprop:Generator_RowClassName="Select_WareHouseListRow" msprop:Generator_UserTableName="Select_WareHouseList" msprop:Generator_RowEvArgName="Select_WareHouseListRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="WareHouseID" msprop:Generator_ColumnVarNameInTable="columnWareHouseID" msprop:Generator_ColumnPropNameInRow="WareHouseID" msprop:Generator_ColumnPropNameInTable="WareHouseIDColumn" msprop:Generator_UserColumnName="WareHouseID">
@@ -3205,7 +3205,7 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
     </xs:unique>
     <xs:unique name="OrderDetail_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:OrderDetail" />
-      <xs:field xpath="mstns:OrderID" />
+      <xs:field xpath="mstns:OrderPrimaryID" />
     </xs:unique>
     <xs:unique name="OrderPrimary_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:OrderPrimary" />
@@ -3269,7 +3269,6 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
     <xs:unique name="Table_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Table" />
       <xs:field xpath="mstns:TableID" />
-      <xs:field xpath="mstns:StoreID" />
     </xs:unique>
     <xs:unique name="TakeOut_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:TakeOut" />
@@ -3299,6 +3298,10 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
       <xs:selector xpath=".//mstns:RecipeDetail" />
       <xs:field xpath="mstns:RecipePrimaryID" />
     </xs:keyref>
+    <xs:keyref name="FK_OrderPrimary_OrderDetail" refer="OrderPrimary_Constraint1" msdata:ConstraintOnly="true">
+      <xs:selector xpath=".//mstns:OrderDetail" />
+      <xs:field xpath="mstns:OrderPrimaryID" />
+    </xs:keyref>
     <xs:keyref name="FK_EmercyOrderDetail_Material" refer="Constraint2" msdata:ConstraintOnly="true">
       <xs:selector xpath=".//mstns:Material" />
       <xs:field xpath="mstns:MaterialID" />
@@ -3310,14 +3313,14 @@ SELECT WareHouseID, Name, DistrictID, Address, Tel, Postcode, EstablishDate, Com
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_MaterialListID_Material" msdata:parent="Supplier" msdata:child="MaterialListID" msdata:parentkey="SupplierId" msdata:childkey="SupplierID" msprop:Generator_UserChildTable="MaterialListID" msprop:Generator_ChildPropName="GetMaterialListIDRows" msprop:Generator_UserRelationName="FK_MaterialListID_Material" msprop:Generator_RelationVarName="relationFK_MaterialListID_Material" msprop:Generator_UserParentTable="Supplier" msprop:Generator_ParentPropName="SupplierRow" />
-      <msdata:Relationship name="FK_ProcureOrderDetail_MaterialListID" msdata:parent="MaterialListID" msdata:child="ProcureOrderDetail" msdata:parentkey="MaterialListID" msdata:childkey="MaterialListID" msprop:Generator_UserChildTable="ProcureOrderDetail" msprop:Generator_ChildPropName="GetProcureOrderDetailRows" msprop:Generator_UserRelationName="FK_ProcureOrderDetail_MaterialListID" msprop:Generator_ParentPropName="MaterialListIDRow" msprop:Generator_RelationVarName="relationFK_ProcureOrderDetail_MaterialListID" msprop:Generator_UserParentTable="MaterialListID" />
-      <msdata:Relationship name="FK_ProcureOrderDetail_WareHouseID" msdata:parent="WareHouse" msdata:child="ProcureOrderDetail" msdata:parentkey="WareHouseID" msdata:childkey="WareHouseID" msprop:Generator_UserChildTable="ProcureOrderDetail" msprop:Generator_ChildPropName="GetProcureOrderDetailRows" msprop:Generator_UserRelationName="FK_ProcureOrderDetail_WareHouseID" msprop:Generator_RelationVarName="relationFK_ProcureOrderDetail_WareHouseID" msprop:Generator_UserParentTable="WareHouse" msprop:Generator_ParentPropName="WareHouseRow" />
-      <msdata:Relationship name="FK_ProcureOrderPrimary_District" msdata:parent="District" msdata:child="ProcureOrderPrimary" msdata:parentkey="DistrictId" msdata:childkey="DistrictID" msprop:Generator_UserChildTable="ProcureOrderPrimary" msprop:Generator_ChildPropName="GetProcureOrderPrimaryRows" msprop:Generator_UserRelationName="FK_ProcureOrderPrimary_District" msprop:Generator_ParentPropName="DistrictRow" msprop:Generator_RelationVarName="relationFK_ProcureOrderPrimary_District" msprop:Generator_UserParentTable="District" />
-      <msdata:Relationship name="FK_ProcurePlanDetail_Material1" msdata:parent="Material" msdata:child="ProcurePlanDetail" msdata:parentkey="MaterialID" msdata:childkey="MaterialID" msprop:Generator_UserChildTable="ProcurePlanDetail" msprop:Generator_ChildPropName="GetProcurePlanDetailRows" msprop:Generator_UserRelationName="FK_ProcurePlanDetail_Material1" msprop:Generator_ParentPropName="MaterialRow" msprop:Generator_RelationVarName="relationFK_ProcurePlanDetail_Material1" msprop:Generator_UserParentTable="Material" />
-      <msdata:Relationship name="FK_ProcurePlanDetail_ProcurePlanPrimary" msdata:parent="ProcurePlanPrimary" msdata:child="ProcurePlanDetail" msdata:parentkey="ProcurePlanPrimaryID" msdata:childkey="ProcurePlanPrimaryID" msprop:Generator_UserChildTable="ProcurePlanDetail" msprop:Generator_ChildPropName="GetProcurePlanDetailRows" msprop:Generator_UserRelationName="FK_ProcurePlanDetail_ProcurePlanPrimary" msprop:Generator_RelationVarName="relationFK_ProcurePlanDetail_ProcurePlanPrimary" msprop:Generator_UserParentTable="ProcurePlanPrimary" msprop:Generator_ParentPropName="ProcurePlanPrimaryRow" />
-      <msdata:Relationship name="FK_ProcurePlanDetail_WareHouseID" msdata:parent="WareHouse" msdata:child="ProcurePlanDetail" msdata:parentkey="WareHouseID" msdata:childkey="WareHouseID" msprop:Generator_UserChildTable="ProcurePlanDetail" msprop:Generator_ChildPropName="GetProcurePlanDetailRows" msprop:Generator_UserRelationName="FK_ProcurePlanDetail_WareHouseID" msprop:Generator_RelationVarName="relationFK_ProcurePlanDetail_WareHouseID" msprop:Generator_UserParentTable="WareHouse" msprop:Generator_ParentPropName="WareHouseRow" />
-      <msdata:Relationship name="FK_ProcurePlanPrimary_District" msdata:parent="District" msdata:child="ProcurePlanPrimary" msdata:parentkey="DistrictId" msdata:childkey="DistrictID" msprop:Generator_UserChildTable="ProcurePlanPrimary" msprop:Generator_ChildPropName="GetProcurePlanPrimaryRows" msprop:Generator_UserRelationName="FK_ProcurePlanPrimary_District" msprop:Generator_ParentPropName="DistrictRow" msprop:Generator_RelationVarName="relationFK_ProcurePlanPrimary_District" msprop:Generator_UserParentTable="District" />
+      <msdata:Relationship name="FK_MaterialListID_Material" msdata:parent="Supplier" msdata:child="MaterialListID" msdata:parentkey="SupplierId" msdata:childkey="SupplierID" msprop:Generator_UserChildTable="MaterialListID" msprop:Generator_ChildPropName="GetMaterialListIDRows" msprop:Generator_UserRelationName="FK_MaterialListID_Material" msprop:Generator_ParentPropName="SupplierRow" msprop:Generator_RelationVarName="relationFK_MaterialListID_Material" msprop:Generator_UserParentTable="Supplier" />
+      <msdata:Relationship name="FK_ProcureOrderDetail_MaterialListID" msdata:parent="MaterialListID" msdata:child="ProcureOrderDetail" msdata:parentkey="MaterialListID" msdata:childkey="MaterialListID" msprop:Generator_UserChildTable="ProcureOrderDetail" msprop:Generator_ChildPropName="GetProcureOrderDetailRows" msprop:Generator_UserRelationName="FK_ProcureOrderDetail_MaterialListID" msprop:Generator_RelationVarName="relationFK_ProcureOrderDetail_MaterialListID" msprop:Generator_UserParentTable="MaterialListID" msprop:Generator_ParentPropName="MaterialListIDRow" />
+      <msdata:Relationship name="FK_ProcureOrderDetail_WareHouseID" msdata:parent="WareHouse" msdata:child="ProcureOrderDetail" msdata:parentkey="WareHouseID" msdata:childkey="WareHouseID" msprop:Generator_UserChildTable="ProcureOrderDetail" msprop:Generator_ChildPropName="GetProcureOrderDetailRows" msprop:Generator_UserRelationName="FK_ProcureOrderDetail_WareHouseID" msprop:Generator_ParentPropName="WareHouseRow" msprop:Generator_RelationVarName="relationFK_ProcureOrderDetail_WareHouseID" msprop:Generator_UserParentTable="WareHouse" />
+      <msdata:Relationship name="FK_ProcureOrderPrimary_District" msdata:parent="District" msdata:child="ProcureOrderPrimary" msdata:parentkey="DistrictId" msdata:childkey="DistrictID" msprop:Generator_UserChildTable="ProcureOrderPrimary" msprop:Generator_ChildPropName="GetProcureOrderPrimaryRows" msprop:Generator_UserRelationName="FK_ProcureOrderPrimary_District" msprop:Generator_RelationVarName="relationFK_ProcureOrderPrimary_District" msprop:Generator_UserParentTable="District" msprop:Generator_ParentPropName="DistrictRow" />
+      <msdata:Relationship name="FK_ProcurePlanDetail_Material1" msdata:parent="Material" msdata:child="ProcurePlanDetail" msdata:parentkey="MaterialID" msdata:childkey="MaterialID" msprop:Generator_UserChildTable="ProcurePlanDetail" msprop:Generator_ChildPropName="GetProcurePlanDetailRows" msprop:Generator_UserRelationName="FK_ProcurePlanDetail_Material1" msprop:Generator_RelationVarName="relationFK_ProcurePlanDetail_Material1" msprop:Generator_UserParentTable="Material" msprop:Generator_ParentPropName="MaterialRow" />
+      <msdata:Relationship name="FK_ProcurePlanDetail_ProcurePlanPrimary" msdata:parent="ProcurePlanPrimary" msdata:child="ProcurePlanDetail" msdata:parentkey="ProcurePlanPrimaryID" msdata:childkey="ProcurePlanPrimaryID" msprop:Generator_UserChildTable="ProcurePlanDetail" msprop:Generator_ChildPropName="GetProcurePlanDetailRows" msprop:Generator_UserRelationName="FK_ProcurePlanDetail_ProcurePlanPrimary" msprop:Generator_ParentPropName="ProcurePlanPrimaryRow" msprop:Generator_RelationVarName="relationFK_ProcurePlanDetail_ProcurePlanPrimary" msprop:Generator_UserParentTable="ProcurePlanPrimary" />
+      <msdata:Relationship name="FK_ProcurePlanDetail_WareHouseID" msdata:parent="WareHouse" msdata:child="ProcurePlanDetail" msdata:parentkey="WareHouseID" msdata:childkey="WareHouseID" msprop:Generator_UserChildTable="ProcurePlanDetail" msprop:Generator_ChildPropName="GetProcurePlanDetailRows" msprop:Generator_UserRelationName="FK_ProcurePlanDetail_WareHouseID" msprop:Generator_ParentPropName="WareHouseRow" msprop:Generator_RelationVarName="relationFK_ProcurePlanDetail_WareHouseID" msprop:Generator_UserParentTable="WareHouse" />
+      <msdata:Relationship name="FK_ProcurePlanPrimary_District" msdata:parent="District" msdata:child="ProcurePlanPrimary" msdata:parentkey="DistrictId" msdata:childkey="DistrictID" msprop:Generator_UserChildTable="ProcurePlanPrimary" msprop:Generator_ChildPropName="GetProcurePlanPrimaryRows" msprop:Generator_UserRelationName="FK_ProcurePlanPrimary_District" msprop:Generator_RelationVarName="relationFK_ProcurePlanPrimary_District" msprop:Generator_UserParentTable="District" msprop:Generator_ParentPropName="DistrictRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
