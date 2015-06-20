@@ -30,3 +30,10 @@ D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.OrderFoodNew
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.BillDetail.resources
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.InputMoney.resources
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.InitialTable.resources
+D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.TakeoutDetail.resources
+D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.TakeoutSearch.resources
+D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.TakeoutInput.resources
+D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.webBrowser.resources
+D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.Cook1.resources
+D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.Cook2.resources
+D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.Cook3.resources

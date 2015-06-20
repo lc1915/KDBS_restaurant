@@ -58,6 +58,24 @@
     <Compile Include="BillSearch.Designer.cs">
       <DependentUpon>BillSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cook1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cook1.Designer.cs">
+      <DependentUpon>Cook1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cook2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cook2.Designer.cs">
+      <DependentUpon>Cook2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cook3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cook3.Designer.cs">
+      <DependentUpon>Cook3.cs</DependentUpon>
+    </Compile>
     <Compile Include="InitialMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +201,24 @@
     <Compile Include="TableStatus.Designer.cs">
       <DependentUpon>TableStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="TakeoutDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TakeoutDetail.Designer.cs">
+      <DependentUpon>TakeoutDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TakeoutInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TakeoutInput.Designer.cs">
+      <DependentUpon>TakeoutInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TakeoutSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TakeoutSearch.Designer.cs">
+      <DependentUpon>TakeoutSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="UrgentPurchaseAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,11 +237,26 @@
     <Compile Include="WaitingStatus.Designer.cs">
       <DependentUpon>WaitingStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="webBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="webBrowser.Designer.cs">
+      <DependentUpon>webBrowser.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BillDetail.resx">
       <DependentUpon>BillDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BillSearch.resx">
       <DependentUpon>BillSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cook1.resx">
+      <DependentUpon>Cook1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cook2.resx">
+      <DependentUpon>Cook2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cook3.resx">
+      <DependentUpon>Cook3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InitialMaterial.resx">
       <DependentUpon>InitialMaterial.cs</DependentUpon>
@@ -273,6 +324,15 @@
     <EmbeddedResource Include="TableStatus.resx">
       <DependentUpon>TableStatus.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TakeoutDetail.resx">
+      <DependentUpon>TakeoutDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TakeoutInput.resx">
+      <DependentUpon>TakeoutInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TakeoutSearch.resx">
+      <DependentUpon>TakeoutSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UrgentPurchaseAdd.resx">
       <DependentUpon>UrgentPurchaseAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -281,6 +341,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WaitingStatus.resx">
       <DependentUpon>WaitingStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="webBrowser.resx">
+      <DependentUpon>webBrowser.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="KDBSDataSet.xsc">

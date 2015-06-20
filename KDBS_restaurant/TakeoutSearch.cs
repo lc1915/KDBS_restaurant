@@ -10,44 +10,27 @@ using System.Windows.Forms;
 
 namespace KDBS_restaurant
 {
-    public partial class OrderFoodAdd : Form
+    public partial class TakeoutSearch : Form
     {
         SqlConnection sqlConn;
         DataTable dataTab;
         DataSet ds = new DataSet();
-        static String orderPrimaryID = "";
-        static String tableID = "";
-        static String waiterID = "";
-        static String totalPrice = "";
 
         String databaseConn = "Data Source=A\\B;Initial Catalog=KDBS;Integrated Security=True";
+        String sql = "select * from TakeoutPrimary0";
 
-        public OrderFoodAdd(String str0, String str1, String str2, String str3)
+        public TakeoutSearch()
         {
             InitializeComponent();
-            orderPrimaryID = str0;
-            tableID = str1;
-            waiterID = str2;
-            totalPrice = str3;
-            Console.WriteLine("orderPrimaryID = " + orderPrimaryID);
         }
 
-        private void OrderFoodAdd_Load(object sender, EventArgs e)
+        private void TakeoutSearch_Load(object sender, EventArgs e)
         {
-            textBox1.Text = tableID;
-            textBox2.Text = waiterID;
-            DateTime dt = DateTime.Now;
-            textBox3.Text = dt.ToLongTimeString().ToString();
-
-            String sqlStr = "select * from OrderDetail0 where OrderPrimaryID='" + orderPrimaryID+"'";
-            
             sqlConn = new SqlConnection(databaseConn);
             try
             {
                 //将数据库中的数据绑定到DataGridView控件
-                //SqlDataAdapter sqlAdap = new SqlDataAdapter("select * from OrderDetail", sqlConn); //创建数据适配器对象
-                SqlDataAdapter sqlAdap = new SqlDataAdapter(sqlStr, sqlConn); //创建数据适配器对象
-                
+                SqlDataAdapter sqlAdap = new SqlDataAdapter(sql, sqlConn); //创建数据适配器对象
                 DataSet ds = new DataSet(); //创建数据集对象
                 sqlAdap.Fill(ds); //填充数据集
 
@@ -61,17 +44,14 @@ namespace KDBS_restaurant
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //列宽设为fill
 
                 //改变datagridview标题的文字
-                dataGridView1.Columns[0].HeaderCell.Value = "点菜单编号";
-                dataGridView1.Columns[1].HeaderCell.Value = "菜品编号";
-                //dataGridView1.Columns[1] = new DataGridViewComboBoxCell();
-                //dataGridView1.Columns[2].HeaderCell.Value = "原材料名称";
-                dataGridView1.Columns[2].HeaderCell.Value = "数量";
-                dataGridView1.Columns[3].HeaderCell.Value = "价格";
-
-                /*dataGridView1.Columns[0].DataPropertyName = "OrderPrimaryID";
-                dataGridView1.Columns[1].DataPropertyName = "RecipePrimaryID";
-                dataGridView1.Columns[2].DataPropertyName = "Price";
-                dataGridView1.Columns[3].DataPropertyName = "Number";*/
+                dataGridView1.Columns[1].HeaderCell.Value = "外卖单编号";
+                dataGridView1.Columns[2].HeaderCell.Value = "门店编号";
+                dataGridView1.Columns[3].HeaderCell.Value = "时间";
+                dataGridView1.Columns[4].HeaderCell.Value = "总价";
+                dataGridView1.Columns[5].HeaderCell.Value = "地址";
+                dataGridView1.Columns[6].HeaderCell.Value = "电话";
+                dataGridView1.Columns[7].HeaderCell.Value = "送货员编号";
+                dataGridView1.Columns[8].HeaderCell.Value = "备注";
             }
             catch (SqlException sqlEx)
             {
@@ -89,7 +69,7 @@ namespace KDBS_restaurant
             table = (DataTable)this.dataGridView1.DataSource;
 
             SqlConnection sqlConnection = new SqlConnection(databaseConn);
-            SqlCommand sqlCommand = new SqlCommand("select * from OrderDetail0 where OrderPrimaryID='" + orderPrimaryID + "'", sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand(sql, sqlConnection);
 
             SqlDataAdapter sqlAdap = new SqlDataAdapter(sqlCommand);
             SqlCommandBuilder sqlBuilder = new SqlCommandBuilder(sqlAdap);//必须有  
@@ -114,7 +94,7 @@ namespace KDBS_restaurant
             table.Rows[dataGridView1.CurrentCell.RowIndex].Delete();
 
             SqlConnection sqlConnection = new SqlConnection(databaseConn);
-            SqlCommand sqlCommand = new SqlCommand("select * from OrderDetail0 where OrderPrimaryID='" + orderPrimaryID + "'", sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand(sql, sqlConnection);
 
             SqlDataAdapter sqlAdap = new SqlDataAdapter(sqlCommand);
             SqlCommandBuilder sqlBuilder = new SqlCommandBuilder(sqlAdap);//必须有  
@@ -128,6 +108,29 @@ namespace KDBS_restaurant
 
             sqlConnection.Close();
             MessageBox.Show("删除成功！");
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value = 1;
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value = 0;
+        }
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            MessageBox.Show("点击了" + ((dataGridView1.CurrentCell.RowIndex) + 1) + "行");
+            String takeoutID = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[1].Value.ToString();
+            String address = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[5].Value.ToString();
+            String tel = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[6].Value.ToString();
+            String deliverymanID = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[7].Value.ToString();
+            String totalPrice = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value.ToString();
+            TakeoutDetail takeoutDetail = new TakeoutDetail(takeoutID, address, tel, deliverymanID, totalPrice);
+            takeoutDetail.Show();
+            this.WindowState = FormWindowState.Minimized;
         }
 
         //在datagridview每一行最左端显示行号
@@ -145,13 +148,6 @@ namespace KDBS_restaurant
         {
             MessageBox.Show(e.Exception.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             e.Cancel = true;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            InputMoney inputMoney = new InputMoney(orderPrimaryID, tableID, waiterID, totalPrice);
-            inputMoney.Show();
-            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

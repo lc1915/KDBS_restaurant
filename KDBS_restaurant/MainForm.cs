@@ -111,7 +111,7 @@ namespace KDBS_restaurant
             TreeNode t21 = new TreeNode("外卖"); // 1.新增外卖订单（可生成结账单，配送成功则顾客确认结账） 
                                                  // 2.系统根据地点、配送员等计算生成配送单
             node2.Nodes.Add(t21);
-            TreeNode t210 = new TreeNode("外卖单新增"); //外卖这三个还没写
+            TreeNode t210 = new TreeNode("外卖单导入"); //外卖这三个还没写
             TreeNode t211 = new TreeNode("外卖单查询"); //可生成配送单
             TreeNode t212 = new TreeNode("配送单查询"); //可进行配送单的送达确认
             t21.Nodes.Add(t210);
@@ -128,15 +128,22 @@ namespace KDBS_restaurant
             treeView1.Nodes.Add(node3);
             TreeNode t30 = new TreeNode("店内生产");
             node3.Nodes.Add(t30);
-            TreeNode t300 = new TreeNode("预处理单查询"); //可更改预处理单状态，如已完成预处理 
+            TreeNode t300 = new TreeNode("预处理单查询"); //可更改预处理单状态，如已完成预处理（根据日取货配料计划来）
             t30.Nodes.Add(t300);
-            TreeNode t301 = new TreeNode("主厨处理单查询"); //可更改主厨处理单状态，如已做完菜 
+            TreeNode t301 = new TreeNode("主厨区处理"); //可更改主厨处理单状态，如已做完菜 
             t30.Nodes.Add(t301);
-            TreeNode t302 = new TreeNode("送餐单查询"); //各部分都处理完的点菜单 
+            TreeNode t3011 = new TreeNode("主食"); // 这里可以结账（对一个单或多个单）
+            // 可以更改各个单据的状态，比如已下达（给生产管理），已生产（分出去的几个做菜单都已完成（这个好像有点麻烦））
+            TreeNode t3012 = new TreeNode("辅食");
+            TreeNode t3013 = new TreeNode("饮品"); 
+            t301.Nodes.Add(t3011);
+            t301.Nodes.Add(t3012);
+            t301.Nodes.Add(t3013);
+            TreeNode t302 = new TreeNode("送餐"); 
             t30.Nodes.Add(t302);
             TreeNode t33 = new TreeNode("生产计划查询"); 
             node3.Nodes.Add(t33);
-            TreeNode t330 = new TreeNode("日取货配料计划查询");
+            TreeNode t330 = new TreeNode("日取货配料计划查询"); //不仅是查询，还要做计划
             t33.Nodes.Add(t330);
 
             TreeNode node4 = new TreeNode("综合查询"); // 查各种计划啊报表啊
@@ -243,17 +250,42 @@ namespace KDBS_restaurant
                     billSearch.Show();
                     this.WindowState = FormWindowState.Minimized;
                     break;
+                case "外卖单导入":
+                    TakeoutInput takeoutInput = new TakeoutInput();
+                    takeoutInput.Show();
+                    this.WindowState = FormWindowState.Minimized;
+                    break;
+                case "外卖单查询":
+                    TakeoutSearch takeoutSearch = new TakeoutSearch();
+                    takeoutSearch.Show();
+                    this.WindowState = FormWindowState.Minimized;
+                    break;
                 case "预处理单查询":
                     PreProcessSearch preProcessSearch = new PreProcessSearch();
                     preProcessSearch.Show();
                     this.WindowState = FormWindowState.Minimized;
                     break;
-                case "主厨处理单查询":
+                /*case "主厨处理单查询":
                     MainProcessSearch mainProcessSearch = new MainProcessSearch();
                     mainProcessSearch.Show();
                     this.WindowState = FormWindowState.Minimized;
+                    break;*/
+                case "主食":
+                    Cook1 cook1 = new Cook1();
+                    cook1.Show();
+                    this.WindowState = FormWindowState.Minimized;
                     break;
-                case "送餐单查询":
+                case "辅食":
+                    Cook2 cook2 = new Cook2();
+                    cook2.Show();
+                    this.WindowState = FormWindowState.Minimized;
+                    break;
+                case "饮料":
+                    Cook3 cook3 = new Cook3();
+                    cook3.Show();
+                    this.WindowState = FormWindowState.Minimized;
+                    break;
+                case "送餐":
                     ServeFoodSearch serveFoodSearch = new ServeFoodSearch();
                     serveFoodSearch.Show();
                     this.WindowState = FormWindowState.Minimized;

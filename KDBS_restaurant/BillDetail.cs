@@ -62,7 +62,7 @@ namespace KDBS_restaurant
                 dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //列宽设为fill
 
                 //改变datagridview标题的文字
-                dataGridView2.Columns[0].HeaderCell.Value = "点菜单编号";
+                dataGridView2.Columns[0].HeaderCell.Value = "结账单编号";
                 dataGridView2.Columns[1].HeaderCell.Value = "菜品编号";
                 //dataGridView1.Columns[1] = new DataGridViewComboBoxCell();
                 //dataGridView1.Columns[2].HeaderCell.Value = "原材料名称";

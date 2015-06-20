@@ -17,7 +17,7 @@ namespace KDBS_restaurant
         DataSet ds = new DataSet();
 
         String databaseConn = "Data Source=A\\B;Initial Catalog=KDBS;Integrated Security=True";
-        String sql = "select * from TakeOutDetail";
+        String sql = "select * from TableInitial";
 
         public InitialTable()
         {
@@ -44,11 +44,10 @@ namespace KDBS_restaurant
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //列宽设为fill
 
                 //改变datagridview标题的文字
-                /*dataGridView1.Columns[0].HeaderCell.Value = "桌子编号";
+                dataGridView1.Columns[0].HeaderCell.Value = "桌子编号";
                 dataGridView1.Columns[1].HeaderCell.Value = "门店编号";
                 dataGridView1.Columns[2].HeaderCell.Value = "门店中桌号"; 
                 dataGridView1.Columns[3].HeaderCell.Value = "可容纳人数";
-                dataGridView1.Columns[4].HeaderCell.Value = "是否使用";*/
             }
             catch (SqlException sqlEx)
             {

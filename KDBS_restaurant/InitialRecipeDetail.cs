@@ -105,6 +105,14 @@ namespace KDBS_restaurant
             SqlDataAdapter sqlAdap = new SqlDataAdapter(sqlCommand);
             SqlCommandBuilder sqlBuilder = new SqlCommandBuilder(sqlAdap);//必须有  
 
+
+            /*SqlCommand upCmd = new SqlCommand("update  RecipeDetail set RecipeDetail.Unit=@Unit,RecipeDetail.Number=@Number,RecipeDetail.MaterialID=@MaterialID where RecipePrimaryID=@RecipePrimaryID and MaterialID=@MaterialID", sqlConn);
+            upCmd.Parameters.Add("@RecipePrimaryID", SqlDbType.NVarChar, 50, "RecipePrimaryID");
+            upCmd.Parameters.Add("@MaterialID", SqlDbType.NVarChar, 50, "MaterialID");
+            upCmd.Parameters.Add("@Unit", SqlDbType.NVarChar, 50, "Unit");
+            upCmd.Parameters.Add("@Number", SqlDbType.Float, 16, "Number");
+            sqlAdap.UpdateCommand = upCmd;*/
+
             sqlConnection.Open();
             //sqlAdap.Fill(table);
 
@@ -172,6 +180,8 @@ namespace KDBS_restaurant
             SqlCommand sqlCommand = new SqlCommand("select * from RecipeDetail where RecipePrimaryID=" + recipePrimaryID, sqlConnection);
 
             SqlDataAdapter sqlAdap = new SqlDataAdapter(sqlCommand);
+            //sqlAdap.DeleteCommand = new SqlCommand("DELETE FROM RecipeDetail WHERE MaterialID = @MaterialID", sqlConn);
+            //sqlAdap.DeleteCommand.Parameters.Add("@MaterialID", SqlDbType.NVarChar, 50, "MaterialID").SourceVersion = DataRowVersion.Original;
             SqlCommandBuilder sqlBuilder = new SqlCommandBuilder(sqlAdap);//必须有  
 
             sqlConnection.Open();
