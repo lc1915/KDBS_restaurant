@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -11,37 +10,31 @@ using System.Windows.Forms;
 
 namespace KDBS_restaurant
 {
-    public partial class ReceiveGoodsAdd : Form
+    public partial class SupplymentPlanSearch : Form
     {
         SqlConnection sqlConn;
         DataTable dataTab;
         DataSet ds = new DataSet();
-        String supplyOrderPrimaryID;
 
         String databaseConn = "Data Source=A\\B;Initial Catalog=KDBS;Integrated Security=True";
+        String sql = "select * from SupplementPlanDetail where StoreID = 'C01001'";
 
-        public ReceiveGoodsAdd()
+        public SupplymentPlanSearch()
         {
             InitializeComponent();
-            //supplyOrderPrimaryID = str1;
-            //textBox1.Text = str2;
         }
 
-        private void ReceiveGoodsAdd_Load(object sender, EventArgs e)
+        private void SupplymentPlanSearch_Load(object sender, EventArgs e)
         {
             toolStripStatusLabel3.Text = MainForm.username;
             DateTime dt = DateTime.Now;
             toolStripStatusLabel1.Text = dt.ToLongDateString().ToString();
 
-            String sqlStr = "select * from SupplyOrderDetail where StoreID = 'C01001'";
-
             sqlConn = new SqlConnection(databaseConn);
             try
             {
                 //将数据库中的数据绑定到DataGridView控件
-                //SqlDataAdapter sqlAdap = new SqlDataAdapter("select * from OrderDetail", sqlConn); //创建数据适配器对象
-                SqlDataAdapter sqlAdap = new SqlDataAdapter(sqlStr, sqlConn); //创建数据适配器对象
-
+                SqlDataAdapter sqlAdap = new SqlDataAdapter(sql, sqlConn); //创建数据适配器对象
                 DataSet ds = new DataSet(); //创建数据集对象
                 sqlAdap.Fill(ds); //填充数据集
 
@@ -55,11 +48,12 @@ namespace KDBS_restaurant
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //列宽设为fill
 
                 //改变datagridview标题的文字
-                dataGridView1.Columns[0].HeaderCell.Value = "收货单编号";
-                dataGridView1.Columns[1].HeaderCell.Value = "仓库编号";
-                dataGridView1.Columns[2].HeaderCell.Value = "门店编号";
-                dataGridView1.Columns[3].HeaderCell.Value = "原材料编号";
-                dataGridView1.Columns[4].HeaderCell.Value = "数量";
+                /*dataGridView1.Columns[0].HeaderCell.Value = "菜品编号";
+                dataGridView1.Columns[1].HeaderCell.Value = "菜品名称";
+                dataGridView1.Columns[2].HeaderCell.Value = "单位";
+                dataGridView1.Columns[3].HeaderCell.Value = "类别";
+                dataGridView1.Columns[4].HeaderCell.Value = "标准";
+                dataGridView1.Columns[5].HeaderCell.Value = "价格";*/
             }
             catch (SqlException sqlEx)
             {
@@ -70,11 +64,5 @@ namespace KDBS_restaurant
                 sqlConn.Close();
             }
         }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[6].Value = 1;
-        }
-
     }
 }

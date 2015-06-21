@@ -39,6 +39,7 @@ namespace KDBS_restaurant
             DateTime dt = DateTime.Now;
             textBox3.Text = dt.ToLongTimeString().ToString();
             toolStripStatusLabel1.Text = dt.ToLongDateString().ToString();
+            toolStripStatusLabel3.Text = MainForm.username;
 
             String sqlStr = "select * from OrderDetail0 where OrderPrimaryID='" + orderPrimaryID+"'";
             

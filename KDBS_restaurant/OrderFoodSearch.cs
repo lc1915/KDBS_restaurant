@@ -48,26 +48,18 @@ namespace KDBS_restaurant
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //列宽设为fill
 
                 //改变datagridview标题的文字
-                dataGridView1.Columns[1].HeaderCell.Value = "点菜单编号";
-                dataGridView1.Columns[2].HeaderCell.Value = "门店编号";
-                dataGridView1.Columns[3].HeaderCell.Value = "时间";
-                dataGridView1.Columns[4].HeaderCell.Value = "桌号";
-                dataGridView1.Columns[5].HeaderCell.Value = "服务员编号";
-                dataGridView1.Columns[6].HeaderCell.Value = "总价";
-                dataGridView1.Columns[7].HeaderCell.Value = "备注";
-                /*dataGridView1.Columns[0].DataPropertyName = "OrderPrimaryID";
-                dataGridView1.Columns[1].DataPropertyName = "StoreID";
-                dataGridView1.Columns[2].DataPropertyName = "Time";
-                dataGridView1.Columns[3].DataPropertyName = "TableID";
-                dataGridView1.Columns[4].DataPropertyName = "WaiterID";
-                dataGridView1.Columns[5].DataPropertyName = "TotalPrice";
-                dataGridView1.Columns[6].DataPropertyName = "Comment";
-                dataGridView1.Columns[7].DataPropertyName = "Checked";*/
+                dataGridView1.Columns[0].HeaderCell.Value = "点菜单编号";
+                dataGridView1.Columns[1].HeaderCell.Value = "门店编号";
+                dataGridView1.Columns[2].HeaderCell.Value = "时间";
+                dataGridView1.Columns[3].HeaderCell.Value = "桌号";
+                dataGridView1.Columns[4].HeaderCell.Value = "服务员编号";
+                dataGridView1.Columns[5].HeaderCell.Value = "总价";
+                dataGridView1.Columns[6].HeaderCell.Value = "备注";
 
             }
             catch (SqlException sqlEx)
             {
-                Console.WriteLine("连接数据库失败");
+                Console.WriteLine(sqlEx.Message);
             }
             finally
             {
@@ -124,7 +116,7 @@ namespace KDBS_restaurant
 
 
         //点击审核按钮
-        private void toolStripButton4_Click(object sender, EventArgs e)
+        /*private void toolStripButton4_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value = 1;
         }
@@ -133,15 +125,15 @@ namespace KDBS_restaurant
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value = 0;
-        }
+        }*/
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             MessageBox.Show("点击了" + ((dataGridView1.CurrentCell.RowIndex) + 1) + "行");
-            String orderPrimaryID = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[1].Value.ToString();
-            String tableID = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value.ToString();
-            String waiterID = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[5].Value.ToString();
-            String totalPrice = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[6].Value.ToString();
+            String orderPrimaryID = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString();
+            String tableID = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[3].Value.ToString();
+            String waiterID = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value.ToString();
+            String totalPrice = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[5].Value.ToString();
             OrderFoodAdd orderFoodAdd = new OrderFoodAdd(orderPrimaryID, tableID, waiterID, totalPrice);
             orderFoodAdd.Show();
             this.WindowState = FormWindowState.Minimized;

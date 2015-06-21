@@ -41,3 +41,6 @@ D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.ServeFood.re
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.PermissionSetting0.resources
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.AddDepartment.resources
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.UsernamePassword.resources
+D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.UrgentPurchaseAdd0.resources
+D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.UrgentPurchaseSearch0.resources
+D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.SupplymentPlanSearch.resources

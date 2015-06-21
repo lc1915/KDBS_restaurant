@@ -42,9 +42,9 @@ namespace KDBS_restaurant
             //上面几个没写
             TreeNode t04 = new TreeNode("紧急订货");  // 紧急订货单放采购管理模块还是库存管理模块？
             node0.Nodes.Add(t04);
-            TreeNode t040 = new TreeNode("紧急订货单新增");
-            TreeNode t041 = new TreeNode("紧急订货单查询");
-            t04.Nodes.Add(t040);
+            //TreeNode t040 = new TreeNode("紧急订货单新增");
+            TreeNode t041 = new TreeNode("紧急订货单");
+            //t04.Nodes.Add(t040);
             t04.Nodes.Add(t041);
             node0.Nodes.Add(t01);//node下的两个子节点。  
             node0.Nodes.Add(t02);
@@ -54,9 +54,9 @@ namespace KDBS_restaurant
             treeView1.Nodes.Add(node1);
             TreeNode t10 = new TreeNode("收货");
             node1.Nodes.Add(t10);
-            TreeNode t100 = new TreeNode("收货单新增");
-            TreeNode t101 = new TreeNode("收货单查询");
-            t10.Nodes.Add(t100);
+            //TreeNode t100 = new TreeNode("收货单新增");
+            TreeNode t101 = new TreeNode("收货单");
+            //t10.Nodes.Add(t100);
             t10.Nodes.Add(t101);
             /*TreeNode t11 = new TreeNode("入库单");
             node1.Nodes.Add(t11);
@@ -214,28 +214,30 @@ namespace KDBS_restaurant
 
             switch (treenodeStr)
             {
-                case "紧急订货单新增":
-                    UrgentPurchaseAdd urgentPurchaseAdd = new UrgentPurchaseAdd(null);
-                    urgentPurchaseAdd.Show();
+                case "门店补货预测计划查询":
+                    SupplymentPlanSearch supplymentPlanSearch = new SupplymentPlanSearch();
+                    supplymentPlanSearch.Show();
+                    this.WindowState = FormWindowState.Minimized;
+                    break;
+                /*case "紧急订货单新增":
+                    UrgentPurchaseAdd0 urgentPurchaseAdd0 = new UrgentPurchaseAdd0(null,null);
+                    urgentPurchaseAdd0.Show();
                     this.WindowState = FormWindowState.Minimized;
                     //this.Enabled = false;
-                    break;
-                case "紧急订货单查询":
-                    String a = "a b c";
-                    String[] args_str = a.Split(new char[] { ' ' });
-                    UrgentPurchaseSearch urgentPurchaseSearch = new UrgentPurchaseSearch(args_str);
-                    urgentPurchaseSearch.Show();
+                    break;*/
+                case "紧急订货单":
+                    UrgentPurchaseSearch0 urgentPurchaseSearch0 = new UrgentPurchaseSearch0();
+                    urgentPurchaseSearch0.Show();
                     this.WindowState = FormWindowState.Minimized;
-                    //this.Enabled = false;
                     break;
-                case "收货单新增":
+                /*case "收货单新增":
                     ReceiveGoodsAdd receiveGoodsAdd = new ReceiveGoodsAdd();
                     receiveGoodsAdd.Show();
                     this.WindowState = FormWindowState.Minimized;
-                    break;
-                case "收货单查询":
-                    ReceiveGoodsSearch receiveGoodSearch = new ReceiveGoodsSearch();
-                    receiveGoodSearch.Show();
+                    break;*/
+                case "收货单":
+                    ReceiveGoodsAdd receiveGoodAdd = new ReceiveGoodsAdd();
+                    receiveGoodAdd.Show();
                     this.WindowState = FormWindowState.Minimized;
                     break;
                 case "桌位情况":
@@ -288,12 +290,12 @@ namespace KDBS_restaurant
                     cook1.Show();
                     this.WindowState = FormWindowState.Minimized;
                     break;
-                case "辅食":
+                case "辅食（浓汤）":
                     Cook2 cook2 = new Cook2();
                     cook2.Show();
                     this.WindowState = FormWindowState.Minimized;
                     break;
-                case "饮料":
+                case "辅食（沙拉）":
                     Cook3 cook3 = new Cook3();
                     cook3.Show();
                     this.WindowState = FormWindowState.Minimized;

@@ -213,6 +213,12 @@
     <Compile Include="StorageReport.Designer.cs">
       <DependentUpon>StorageReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="SupplymentPlanSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupplymentPlanSearch.Designer.cs">
+      <DependentUpon>SupplymentPlanSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="TableStatus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,11 +249,23 @@
     <Compile Include="UrgentPurchaseAdd.Designer.cs">
       <DependentUpon>UrgentPurchaseAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="UrgentPurchaseAdd0.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UrgentPurchaseAdd0.Designer.cs">
+      <DependentUpon>UrgentPurchaseAdd0.cs</DependentUpon>
+    </Compile>
     <Compile Include="UrgentPurchaseSearch.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UrgentPurchaseSearch.Designer.cs">
       <DependentUpon>UrgentPurchaseSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UrgentPurchaseSearch0.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UrgentPurchaseSearch0.Designer.cs">
+      <DependentUpon>UrgentPurchaseSearch0.cs</DependentUpon>
     </Compile>
     <Compile Include="UsernamePassword.cs">
       <SubType>Form</SubType>
@@ -354,6 +372,9 @@
     <EmbeddedResource Include="StorageReport.resx">
       <DependentUpon>StorageReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SupplymentPlanSearch.resx">
+      <DependentUpon>SupplymentPlanSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TableStatus.resx">
       <DependentUpon>TableStatus.cs</DependentUpon>
     </EmbeddedResource>
@@ -369,8 +390,14 @@
     <EmbeddedResource Include="UrgentPurchaseAdd.resx">
       <DependentUpon>UrgentPurchaseAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UrgentPurchaseAdd0.resx">
+      <DependentUpon>UrgentPurchaseAdd0.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UrgentPurchaseSearch.resx">
       <DependentUpon>UrgentPurchaseSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UrgentPurchaseSearch0.resx">
+      <DependentUpon>UrgentPurchaseSearch0.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsernamePassword.resx">
       <DependentUpon>UsernamePassword.cs</DependentUpon>

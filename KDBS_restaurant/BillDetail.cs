@@ -41,7 +41,6 @@ namespace KDBS_restaurant
 
             textBox1.Text = tableID;
             textBox2.Text = waiterID;
-            DateTime dt = DateTime.Now;
             textBox3.Text = dt.ToLongTimeString().ToString();
             textBox4.Text = totalPrice;
             //textBox5.Text = inputMoney;
