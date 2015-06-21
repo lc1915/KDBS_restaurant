@@ -35,6 +35,10 @@ namespace KDBS_restaurant
 
         private void UrgentPurchaseSearch_Load(object sender, EventArgs e)
         {
+            toolStripStatusLabel3.Text = MainForm.username;
+            DateTime dt = DateTime.Now;
+            toolStripStatusLabel1.Text = dt.ToLongDateString().ToString();
+            
             conn = new SqlConnection("Data Source=A\\B;Initial Catalog=KDBS;Integrated Security=True");//args[4]
             dataset = new DataSet();
             this.refreshdatagridview();

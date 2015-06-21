@@ -15,5 +15,12 @@ namespace KDBS_restaurant
         {
             InitializeComponent();
         }
+
+        private void PreProcessSearch_Load(object sender, EventArgs e)
+        {
+            toolStripStatusLabel3.Text = MainForm.username;
+            DateTime dt = DateTime.Now;
+            toolStripStatusLabel1.Text = dt.ToLongDateString().ToString();
+        }
     }
 }

@@ -26,6 +26,10 @@ namespace KDBS_restaurant
 
         private void BillSearch_Load(object sender, EventArgs e)
         {
+            toolStripStatusLabel8.Text = MainForm.username;
+            DateTime dt = DateTime.Now;
+            toolStripStatusLabel6.Text = dt.ToLongDateString().ToString();
+
             sqlConn = new SqlConnection(databaseConn);
             try
             {

@@ -49,6 +49,10 @@ namespace KDBS_restaurant
 
         private void UrgentPurchaseAdd_Load(object sender, EventArgs e)
         {
+            toolStripStatusLabel3.Text = MainForm.username;
+            DateTime dt = DateTime.Now;
+            toolStripStatusLabel1.Text = dt.ToLongDateString().ToString();
+            
             /*sqlConn = new SqlConnection(databaseConn);
             try
             {

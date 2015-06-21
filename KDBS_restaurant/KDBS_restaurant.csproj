@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDepartment.Designer.cs">
+      <DependentUpon>AddDepartment.cs</DependentUpon>
+    </Compile>
     <Compile Include="BillDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,12 @@
     <Compile Include="PermissionSetting.Designer.cs">
       <DependentUpon>PermissionSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="PermissionSetting0.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PermissionSetting0.Designer.cs">
+      <DependentUpon>PermissionSetting0.cs</DependentUpon>
+    </Compile>
     <Compile Include="PreProcessSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +194,12 @@
     </Compile>
     <Compile Include="SaleScheduleSearch.Designer.cs">
       <DependentUpon>SaleScheduleSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServeFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServeFood.Designer.cs">
+      <DependentUpon>ServeFood.cs</DependentUpon>
     </Compile>
     <Compile Include="ServeFoodSearch.cs">
       <SubType>Form</SubType>
@@ -231,6 +249,12 @@
     <Compile Include="UrgentPurchaseSearch.Designer.cs">
       <DependentUpon>UrgentPurchaseSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="UsernamePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsernamePassword.Designer.cs">
+      <DependentUpon>UsernamePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="WaitingStatus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +267,9 @@
     <Compile Include="webBrowser.Designer.cs">
       <DependentUpon>webBrowser.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddDepartment.resx">
+      <DependentUpon>AddDepartment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BillDetail.resx">
       <DependentUpon>BillDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -294,6 +321,9 @@
     <EmbeddedResource Include="PermissionSetting.resx">
       <DependentUpon>PermissionSetting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PermissionSetting0.resx">
+      <DependentUpon>PermissionSetting0.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PreProcessSearch.resx">
       <DependentUpon>PreProcessSearch.cs</DependentUpon>
     </EmbeddedResource>
@@ -314,6 +344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SaleScheduleSearch.resx">
       <DependentUpon>SaleScheduleSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServeFood.resx">
+      <DependentUpon>ServeFood.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ServeFoodSearch.resx">
       <DependentUpon>ServeFoodSearch.cs</DependentUpon>
@@ -338,6 +371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UrgentPurchaseSearch.resx">
       <DependentUpon>UrgentPurchaseSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsernamePassword.resx">
+      <DependentUpon>UsernamePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WaitingStatus.resx">
       <DependentUpon>WaitingStatus.cs</DependentUpon>

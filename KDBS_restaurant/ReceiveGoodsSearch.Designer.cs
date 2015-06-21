@@ -179,6 +179,7 @@
             this.Name = "ReceiveGoodsSearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "收货单查询";
+            this.Load += new System.EventHandler(this.ReceiveGoodsSearch_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

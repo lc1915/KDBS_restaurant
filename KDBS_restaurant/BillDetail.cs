@@ -35,6 +35,10 @@ namespace KDBS_restaurant
 
         private void BillDetail_Load(object sender, EventArgs e)
         {
+            toolStripStatusLabel8.Text = MainForm.username;
+            DateTime dt = DateTime.Now;
+            toolStripStatusLabel6.Text = dt.ToLongDateString().ToString();
+
             textBox1.Text = tableID;
             textBox2.Text = waiterID;
             DateTime dt = DateTime.Now;

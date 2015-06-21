@@ -35,6 +35,10 @@ namespace KDBS_restaurant
 
         private void TakeoutDetail_Load(object sender, EventArgs e)
         {
+            toolStripStatusLabel3.Text = MainForm.username;
+            DateTime dt = DateTime.Now;
+            toolStripStatusLabel1.Text = dt.ToLongDateString().ToString();
+            
             textBox1.Text = takeoutID;
             textBox2.Text = deliverymanID;
             textBox3.Text = address;
@@ -145,6 +149,11 @@ namespace KDBS_restaurant
         {
             MessageBox.Show(e.Exception.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             e.Cancel = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("开始配送！");
         }
     }
 }

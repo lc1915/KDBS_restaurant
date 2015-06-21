@@ -27,6 +27,10 @@ namespace KDBS_restaurant
 
         private void ReceiveGoodsAdd_Load(object sender, EventArgs e)
         {
+            toolStripStatusLabel3.Text = MainForm.username;
+            DateTime dt = DateTime.Now;
+            toolStripStatusLabel1.Text = dt.ToLongDateString().ToString();
+            
             SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=B;Integrated Security=True");
         }
 

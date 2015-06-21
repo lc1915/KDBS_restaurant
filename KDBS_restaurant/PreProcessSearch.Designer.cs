@@ -192,6 +192,7 @@
             this.Name = "PreProcessSearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "预处理单查询";
+            this.Load += new System.EventHandler(this.PreProcessSearch_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);

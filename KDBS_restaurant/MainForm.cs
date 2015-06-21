@@ -11,13 +11,19 @@ namespace KDBS_restaurant
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        public static String username;
+
+        public MainForm(String str)
         {
             InitializeComponent();
+            username = str;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            toolStripStatusLabel3.Text = username;
+            DateTime dt = DateTime.Now;
+            toolStripStatusLabel1.Text = dt.ToLongDateString().ToString();
             //全屏
             //this.FormBorderStyle = FormBorderStyle.None; //去掉Form的边框
             //this.WindowState = FormWindowState.Maximized;
@@ -64,12 +70,12 @@ namespace KDBS_restaurant
             TreeNode t121 = new TreeNode("退货单查询");
             t12.Nodes.Add(t120);
             t12.Nodes.Add(t121);*/
-            TreeNode t13 = new TreeNode("紧急订货");
+            TreeNode t13 = new TreeNode("取料");
             node1.Nodes.Add(t13);
-            TreeNode t130 = new TreeNode("紧急订货单新增"); // 根据库存统计报表生成。可进行修改
+            /*TreeNode t130 = new TreeNode("紧急订货单新增");
             TreeNode t131 = new TreeNode("紧急订货单查询");
             t13.Nodes.Add(t130);
-            t13.Nodes.Add(t131);
+            t13.Nodes.Add(t131);*/
             /*TreeNode t14 = new TreeNode("补货单");
             node1.Nodes.Add(t14);
             TreeNode t140 = new TreeNode("补货单新增");
@@ -134,13 +140,18 @@ namespace KDBS_restaurant
             t30.Nodes.Add(t301);
             TreeNode t3011 = new TreeNode("主食"); // 这里可以结账（对一个单或多个单）
             // 可以更改各个单据的状态，比如已下达（给生产管理），已生产（分出去的几个做菜单都已完成（这个好像有点麻烦））
-            TreeNode t3012 = new TreeNode("辅食");
-            TreeNode t3013 = new TreeNode("饮品"); 
+            TreeNode t3012 = new TreeNode("辅食（浓汤）");
+            TreeNode t3013 = new TreeNode("辅食（沙拉）"); 
             t301.Nodes.Add(t3011);
             t301.Nodes.Add(t3012);
             t301.Nodes.Add(t3013);
             TreeNode t302 = new TreeNode("送餐"); 
             t30.Nodes.Add(t302);
+            TreeNode t3021 = new TreeNode("送餐界面"); // 这里可以结账（对一个单或多个单）
+            // 可以更改各个单据的状态，比如已下达（给生产管理），已生产（分出去的几个做菜单都已完成（这个好像有点麻烦））
+            //TreeNode t3022 = new TreeNode("送餐单查询");
+            t302.Nodes.Add(t3021);
+            //t302.Nodes.Add(t3022);
             TreeNode t33 = new TreeNode("生产计划查询"); 
             node3.Nodes.Add(t33);
             TreeNode t330 = new TreeNode("日取货配料计划查询"); //不仅是查询，还要做计划
@@ -189,6 +200,8 @@ namespace KDBS_restaurant
             t51.Nodes.Add(t513);
             TreeNode t52 = new TreeNode("权限设置/用户管理"); //这两个可以在一起吧？对用户组、用户的增删查改
             node5.Nodes.Add(t52);
+            TreeNode t53 = new TreeNode("备份管理"); // 备份
+            node5.Nodes.Add(t53);
             TreeNode t54 = new TreeNode("通知管理"); // 发送各种通知
             node5.Nodes.Add(t54);
 
@@ -285,7 +298,12 @@ namespace KDBS_restaurant
                     cook3.Show();
                     this.WindowState = FormWindowState.Minimized;
                     break;
-                case "送餐":
+                case "送餐界面":
+                    ServeFood serveFood = new ServeFood();
+                    serveFood.Show();
+                    this.WindowState = FormWindowState.Minimized;
+                    break;
+                case "送餐单查询":
                     ServeFoodSearch serveFoodSearch = new ServeFoodSearch();
                     serveFoodSearch.Show();
                     this.WindowState = FormWindowState.Minimized;
@@ -296,8 +314,8 @@ namespace KDBS_restaurant
                     this.WindowState = FormWindowState.Minimized;
                     break;
                 case "权限设置/用户管理":
-                    PermissionSetting permissionSetting = new PermissionSetting();
-                    permissionSetting.Show();
+                    PermissionSetting0 permissionSetting0 = new PermissionSetting0(null);
+                    permissionSetting0.Show();
                     this.WindowState = FormWindowState.Minimized;
                     break;
                 case "菜品信息初始化":
@@ -322,6 +340,14 @@ namespace KDBS_restaurant
                 default:
                     //ccc
                     break;
+            }
+        }
+
+        private void 没啦ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("确定退出系统吗？", "Confirm Message", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                Close();
             }
         }
     }

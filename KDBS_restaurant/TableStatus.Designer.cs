@@ -172,6 +172,7 @@
             this.Name = "TableStatus";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "桌位情况";
+            this.Load += new System.EventHandler(this.TableStatus_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);

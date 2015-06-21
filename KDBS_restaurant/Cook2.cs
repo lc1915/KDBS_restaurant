@@ -25,6 +25,10 @@ namespace KDBS_restaurant
 
         private void Cook2_Load(object sender, EventArgs e)
         {
+            toolStripStatusLabel3.Text = MainForm.username;
+            DateTime dt = DateTime.Now;
+            toolStripStatusLabel1.Text = dt.ToLongDateString().ToString();
+            
             String sqlStr = "select * from OrderDetail0 where status=0 and (RecipePrimaryID='FU0001' or RecipePrimaryID='FU0002' or RecipePrimaryID='FU0003' or RecipePrimaryID='FU0004')";
 
             sqlConn = new SqlConnection(databaseConn);

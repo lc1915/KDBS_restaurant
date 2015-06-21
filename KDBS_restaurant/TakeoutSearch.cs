@@ -26,6 +26,10 @@ namespace KDBS_restaurant
 
         private void TakeoutSearch_Load(object sender, EventArgs e)
         {
+            toolStripStatusLabel3.Text = MainForm.username;
+            DateTime dt = DateTime.Now;
+            toolStripStatusLabel1.Text = dt.ToLongDateString().ToString();
+            
             sqlConn = new SqlConnection(databaseConn);
             try
             {
@@ -44,14 +48,14 @@ namespace KDBS_restaurant
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //列宽设为fill
 
                 //改变datagridview标题的文字
-                dataGridView1.Columns[1].HeaderCell.Value = "外卖单编号";
-                dataGridView1.Columns[2].HeaderCell.Value = "门店编号";
-                dataGridView1.Columns[3].HeaderCell.Value = "时间";
-                dataGridView1.Columns[4].HeaderCell.Value = "总价";
-                dataGridView1.Columns[5].HeaderCell.Value = "地址";
-                dataGridView1.Columns[6].HeaderCell.Value = "电话";
-                dataGridView1.Columns[7].HeaderCell.Value = "送货员编号";
-                dataGridView1.Columns[8].HeaderCell.Value = "备注";
+                dataGridView1.Columns[0].HeaderCell.Value = "外卖单编号";
+                dataGridView1.Columns[1].HeaderCell.Value = "门店编号";
+                dataGridView1.Columns[2].HeaderCell.Value = "时间";
+                dataGridView1.Columns[3].HeaderCell.Value = "总价";
+                dataGridView1.Columns[4].HeaderCell.Value = "地址";
+                dataGridView1.Columns[5].HeaderCell.Value = "电话";
+                dataGridView1.Columns[6].HeaderCell.Value = "送货员编号";
+                dataGridView1.Columns[7].HeaderCell.Value = "备注";
             }
             catch (SqlException sqlEx)
             {
@@ -112,22 +116,22 @@ namespace KDBS_restaurant
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value = 1;
+            //dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value = 1;
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value = 0;
+            //dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value = 0;
         }
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             MessageBox.Show("点击了" + ((dataGridView1.CurrentCell.RowIndex) + 1) + "行");
-            String takeoutID = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[1].Value.ToString();
-            String address = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[5].Value.ToString();
-            String tel = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[6].Value.ToString();
-            String deliverymanID = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[7].Value.ToString();
-            String totalPrice = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value.ToString();
+            String takeoutID = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString();
+            String address = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value.ToString();
+            String tel = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[5].Value.ToString();
+            String deliverymanID = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[6].Value.ToString();
+            String totalPrice = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[3].Value.ToString();
             TakeoutDetail takeoutDetail = new TakeoutDetail(takeoutID, address, tel, deliverymanID, totalPrice);
             takeoutDetail.Show();
             this.WindowState = FormWindowState.Minimized;
