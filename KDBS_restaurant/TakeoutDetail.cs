@@ -47,7 +47,7 @@ namespace KDBS_restaurant
             textBox6.Text = dt.ToLongTimeString().ToString();
 
             Console.Write("takeoutID = " + takeoutID);
-            String sqlStr = "select * from TakeOutDetail0 where TakeOutID='" + takeoutID + "'";
+            String sqlStr = "select * from TakeOutDetail where TakeOutID='" + takeoutID + "'";
 
             sqlConn = new SqlConnection(databaseConn);
             try
@@ -91,7 +91,7 @@ namespace KDBS_restaurant
 
             SqlConnection sqlConnection = new SqlConnection(databaseConn);
             //SqlCommand sqlCommand = new SqlCommand("select * from TakeOutDetail0", sqlConnection);
-            SqlCommand sqlCommand = new SqlCommand("select * from TakeOutDetail0 where TakeOutID='" + takeoutID + "'", sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand("select * from TakeOutDetail where TakeOutID='" + takeoutID + "'", sqlConnection);
 
             SqlDataAdapter sqlAdap = new SqlDataAdapter(sqlCommand);
             SqlCommandBuilder sqlBuilder = new SqlCommandBuilder(sqlAdap);//必须有  
@@ -117,7 +117,7 @@ namespace KDBS_restaurant
             table.Rows[dataGridView1.CurrentCell.RowIndex].Delete();
 
             SqlConnection sqlConnection = new SqlConnection(databaseConn);
-            SqlCommand sqlCommand = new SqlCommand("select * from TakeOutDetail0", sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand("select * from TakeOutDetail", sqlConnection);
 
             SqlDataAdapter sqlAdap = new SqlDataAdapter(sqlCommand);
             SqlCommandBuilder sqlBuilder = new SqlCommandBuilder(sqlAdap);//必须有  

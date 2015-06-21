@@ -55,7 +55,7 @@ namespace KDBS_restaurant
             }
             catch (SqlException sqlEx)
             {
-                Console.WriteLine("连接数据库失败");
+                Console.WriteLine(sqlEx.Message);
             }
             finally
             {

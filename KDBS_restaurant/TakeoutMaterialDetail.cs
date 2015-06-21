@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -11,29 +10,28 @@ using System.Windows.Forms;
 
 namespace KDBS_restaurant
 {
-    public partial class ReceiveGoodsAdd : Form
+    public partial class TakeoutMaterialDetail : Form
     {
         SqlConnection sqlConn;
         DataTable dataTab;
         DataSet ds = new DataSet();
-        String supplyOrderPrimaryID;
+        String outStorageID;
 
         String databaseConn = "Data Source=A\\B;Initial Catalog=KDBS;Integrated Security=True";
 
-        public ReceiveGoodsAdd()
+        public TakeoutMaterialDetail(String str)
         {
             InitializeComponent();
-            //supplyOrderPrimaryID = str1;
-            //textBox1.Text = str2;
+            outStorageID = str;
         }
 
-        private void ReceiveGoodsAdd_Load(object sender, EventArgs e)
+        private void TakeoutMaterialDetail_Load(object sender, EventArgs e)
         {
-            toolStripStatusLabel3.Text = MainForm.username;
             DateTime dt = DateTime.Now;
             toolStripStatusLabel1.Text = dt.ToLongDateString().ToString();
+            toolStripStatusLabel3.Text = MainForm.username;
 
-            String sqlStr = "select * from SupplyOrderDetail where StoreID = 'C01001'";
+            String sqlStr = "select * from StoreOutStorageDetail0 where OutStoragePrimaryID='" + outStorageID + "'";
 
             sqlConn = new SqlConnection(databaseConn);
             try
@@ -55,11 +53,10 @@ namespace KDBS_restaurant
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //列宽设为fill
 
                 //改变datagridview标题的文字
-                dataGridView1.Columns[0].HeaderCell.Value = "收货单编号";
-                dataGridView1.Columns[1].HeaderCell.Value = "仓库编号";
-                dataGridView1.Columns[2].HeaderCell.Value = "门店编号";
-                dataGridView1.Columns[3].HeaderCell.Value = "原材料编号";
-                dataGridView1.Columns[4].HeaderCell.Value = "数量";
+                dataGridView1.Columns[0].HeaderCell.Value = "取料单编号";
+                dataGridView1.Columns[1].HeaderCell.Value = "原材料编号";
+                dataGridView1.Columns[2].HeaderCell.Value = "供应商编号";
+                dataGridView1.Columns[3].HeaderCell.Value = "数量";
             }
             catch (SqlException sqlEx)
             {
@@ -71,18 +68,13 @@ namespace KDBS_restaurant
             }
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[6].Value = 1;
-        }
-
-        private void toolStripButton7_Click(object sender, EventArgs e)
+        private void toolStripButton3_Click(object sender, EventArgs e)
         {
             DataTable table = new DataTable();
             table = (DataTable)this.dataGridView1.DataSource;
 
             SqlConnection sqlConnection = new SqlConnection(databaseConn);
-            SqlCommand sqlCommand = new SqlCommand("select * from SupplyOrderDetail where StoreID = 'C01001'", sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand("select * from StoreOutStorageDetail0", sqlConnection);
 
             SqlDataAdapter sqlAdap = new SqlDataAdapter(sqlCommand);
             SqlCommandBuilder sqlBuilder = new SqlCommandBuilder(sqlAdap);//必须有  
@@ -99,5 +91,28 @@ namespace KDBS_restaurant
             MessageBox.Show("保存成功！");
         }
 
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            DataTable table = new DataTable();
+            table = (DataTable)this.dataGridView1.DataSource;
+
+            table.Rows[dataGridView1.CurrentCell.RowIndex].Delete();
+
+            SqlConnection sqlConnection = new SqlConnection(databaseConn);
+            SqlCommand sqlCommand = new SqlCommand("select * from StoreOutStorageDetail0", sqlConnection);
+
+            SqlDataAdapter sqlAdap = new SqlDataAdapter(sqlCommand);
+            SqlCommandBuilder sqlBuilder = new SqlCommandBuilder(sqlAdap);//必须有  
+
+            sqlConnection.Open();
+            //sqlAdap.Fill(table);
+
+            //表中必须存在主键，否则无法更新  
+            sqlAdap.Update(table);
+            ds.AcceptChanges();
+
+            sqlConnection.Close();
+            MessageBox.Show("删除成功！");
+        }
     }
 }

@@ -119,10 +119,10 @@ namespace KDBS_restaurant
             node2.Nodes.Add(t21);
             TreeNode t210 = new TreeNode("外卖单导入"); //外卖这三个还没写
             TreeNode t211 = new TreeNode("外卖单查询"); //可生成配送单
-            TreeNode t212 = new TreeNode("配送单查询"); //可进行配送单的送达确认
+            //TreeNode t212 = new TreeNode("配送单查询"); //可进行配送单的送达确认
             t21.Nodes.Add(t210);
             t21.Nodes.Add(t211);
-            t21.Nodes.Add(t212);
+            //t21.Nodes.Add(t212);
             TreeNode t22 = new TreeNode("销售计划查询"); 
             node2.Nodes.Add(t22);
             TreeNode t220 = new TreeNode("销售预测计划查询"); //可按周 按月
@@ -171,6 +171,8 @@ namespace KDBS_restaurant
             t41.Nodes.Add(t412);
             TreeNode t42 = new TreeNode("销售查询");
             node4.Nodes.Add(t42);
+            TreeNode t421 = new TreeNode("菜品销售查询");
+            t42.Nodes.Add(t421);
             TreeNode t43 = new TreeNode("生产查询");
             node4.Nodes.Add(t43);
             TreeNode t44 = new TreeNode("财务查询");
@@ -238,6 +240,11 @@ namespace KDBS_restaurant
                 case "收货单":
                     ReceiveGoodsAdd receiveGoodAdd = new ReceiveGoodsAdd();
                     receiveGoodAdd.Show();
+                    this.WindowState = FormWindowState.Minimized;
+                    break;
+                case "取料":
+                    TakeoutMaterial takeoutMaterial = new TakeoutMaterial();
+                    takeoutMaterial.Show();
                     this.WindowState = FormWindowState.Minimized;
                     break;
                 case "桌位情况":
@@ -308,6 +315,11 @@ namespace KDBS_restaurant
                 case "送餐单查询":
                     ServeFoodSearch serveFoodSearch = new ServeFoodSearch();
                     serveFoodSearch.Show();
+                    this.WindowState = FormWindowState.Minimized;
+                    break;
+                case "菜品销售查询":
+                    SellFoodSearch sellFoodSearch = new SellFoodSearch();
+                    sellFoodSearch.Show();
                     this.WindowState = FormWindowState.Minimized;
                     break;
                 case "登录":

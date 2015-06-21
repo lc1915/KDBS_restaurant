@@ -195,6 +195,12 @@
     <Compile Include="SaleScheduleSearch.Designer.cs">
       <DependentUpon>SaleScheduleSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="SellFoodSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SellFoodSearch.Designer.cs">
+      <DependentUpon>SellFoodSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="ServeFood.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +242,18 @@
     </Compile>
     <Compile Include="TakeoutInput.Designer.cs">
       <DependentUpon>TakeoutInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TakeoutMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TakeoutMaterial.Designer.cs">
+      <DependentUpon>TakeoutMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TakeoutMaterialDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TakeoutMaterialDetail.Designer.cs">
+      <DependentUpon>TakeoutMaterialDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="TakeoutSearch.cs">
       <SubType>Form</SubType>
@@ -363,6 +381,9 @@
     <EmbeddedResource Include="SaleScheduleSearch.resx">
       <DependentUpon>SaleScheduleSearch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SellFoodSearch.resx">
+      <DependentUpon>SellFoodSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ServeFood.resx">
       <DependentUpon>ServeFood.cs</DependentUpon>
     </EmbeddedResource>
@@ -383,6 +404,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TakeoutInput.resx">
       <DependentUpon>TakeoutInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TakeoutMaterial.resx">
+      <DependentUpon>TakeoutMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TakeoutMaterialDetail.resx">
+      <DependentUpon>TakeoutMaterialDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TakeoutSearch.resx">
       <DependentUpon>TakeoutSearch.cs</DependentUpon>
