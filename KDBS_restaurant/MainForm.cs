@@ -328,9 +328,16 @@ namespace KDBS_restaurant
                     this.WindowState = FormWindowState.Minimized;
                     break;
                 case "权限设置/用户管理":
-                    PermissionSetting0 permissionSetting0 = new PermissionSetting0(null);
-                    permissionSetting0.Show();
-                    this.WindowState = FormWindowState.Minimized;
+                    if (username == "adminstrator")
+                    {
+                        PermissionSetting0 permissionSetting0 = new PermissionSetting0(null);
+                        permissionSetting0.Show();
+                        this.WindowState = FormWindowState.Minimized;
+                    }
+                    else
+                    {
+                        MessageBox.Show("您没有相应权限！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                     break;
                 case "菜品信息初始化":
                     InitialRecipePrimary initialRecipePrimary = new InitialRecipePrimary();
