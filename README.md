@@ -1,4 +1,4 @@
 # KDBS_restaurant
-MIS design project
+MIS Analysis and Design project
 
 Go on!
