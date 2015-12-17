@@ -206,6 +206,8 @@ namespace KDBS_restaurant
             node5.Nodes.Add(t53);
             TreeNode t54 = new TreeNode("通知管理"); // 发送各种通知
             node5.Nodes.Add(t54);
+            TreeNode t55 = new TreeNode("导入大区总菜单"); // 导入大区总菜单（信息系统课设新增）
+            node5.Nodes.Add(t55);
 
             //treeView1.ExpandAll(); //展开所有节点
         }
@@ -322,13 +324,14 @@ namespace KDBS_restaurant
                     sellFoodSearch.Show();
                     this.WindowState = FormWindowState.Minimized;
                     break;
-                case "登录":
+                case "登录/退出登录":
                     Login login = new Login();
                     login.Show();
                     this.WindowState = FormWindowState.Minimized;
                     break;
                 case "权限设置/用户管理":
-                    if (username == "adminstrator")
+                    Console.WriteLine("username = " + username);
+                    if (username.Equals("administrator"))
                     {
                         PermissionSetting0 permissionSetting0 = new PermissionSetting0(null);
                         permissionSetting0.Show();
@@ -352,6 +355,11 @@ namespace KDBS_restaurant
                 case "原材料信息初始化":
                     InitialMaterial initialMaterial = new InitialMaterial();
                     initialMaterial.Show();
+                    this.WindowState = FormWindowState.Minimized;
+                    break;
+                case "导入大区总菜单":
+                    InputAllRecipe inputAllRecipe = new InputAllRecipe();
+                    inputAllRecipe.Show();
                     this.WindowState = FormWindowState.Minimized;
                     break;
                 /*case "销售管理":

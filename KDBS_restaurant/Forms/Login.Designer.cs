@@ -38,7 +38,7 @@
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Control;
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.Location = new System.Drawing.Point(713, 428);
+            this.button1.Location = new System.Drawing.Point(714, 428);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 30);
             this.button1.TabIndex = 9;
@@ -47,7 +47,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(713, 355);
+            this.textBox2.Location = new System.Drawing.Point(714, 355);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(238, 25);
             this.textBox2.TabIndex = 8;
@@ -55,7 +55,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(713, 304);
+            this.textBox1.Location = new System.Drawing.Point(714, 304);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(238, 25);
             this.textBox1.TabIndex = 7;

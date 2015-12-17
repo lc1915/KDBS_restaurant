@@ -46,70 +46,77 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddDepartment.cs">
+    <Compile Include="Forms\AddDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddDepartment.Designer.cs">
+    <Compile Include="Forms\AddDepartment.Designer.cs">
       <DependentUpon>AddDepartment.cs</DependentUpon>
     </Compile>
-    <Compile Include="BillDetail.cs">
+    <Compile Include="Forms\BillDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BillDetail.Designer.cs">
+    <Compile Include="Forms\BillDetail.Designer.cs">
       <DependentUpon>BillDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="BillSearch.cs">
+    <Compile Include="Forms\BillSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BillSearch.Designer.cs">
+    <Compile Include="Forms\BillSearch.Designer.cs">
       <DependentUpon>BillSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cook1.cs">
+    <Compile Include="Forms\Cook1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cook1.Designer.cs">
+    <Compile Include="Forms\Cook1.Designer.cs">
       <DependentUpon>Cook1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cook2.cs">
+    <Compile Include="Forms\Cook2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cook2.Designer.cs">
+    <Compile Include="Forms\Cook2.Designer.cs">
       <DependentUpon>Cook2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cook3.cs">
+    <Compile Include="Forms\Cook3.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cook3.Designer.cs">
+    <Compile Include="Forms\Cook3.Designer.cs">
       <DependentUpon>Cook3.cs</DependentUpon>
     </Compile>
-    <Compile Include="InitialMaterial.cs">
+    <Compile Include="DBHelper\DBOper.cs" />
+    <Compile Include="Forms\InitialMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InitialMaterial.Designer.cs">
+    <Compile Include="Forms\InitialMaterial.Designer.cs">
       <DependentUpon>InitialMaterial.cs</DependentUpon>
     </Compile>
-    <Compile Include="InitialRecipeDetail.cs">
+    <Compile Include="Forms\InitialRecipeDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InitialRecipeDetail.Designer.cs">
+    <Compile Include="Forms\InitialRecipeDetail.Designer.cs">
       <DependentUpon>InitialRecipeDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="InitialRecipePrimary.cs">
+    <Compile Include="Forms\InitialRecipePrimary.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InitialRecipePrimary.Designer.cs">
+    <Compile Include="Forms\InitialRecipePrimary.Designer.cs">
       <DependentUpon>InitialRecipePrimary.cs</DependentUpon>
     </Compile>
-    <Compile Include="InitialTable.cs">
+    <Compile Include="Forms\InitialTable.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InitialTable.Designer.cs">
+    <Compile Include="Forms\InitialTable.Designer.cs">
       <DependentUpon>InitialTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="InputMoney.cs">
+    <Compile Include="Forms\InputAllRecipe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InputMoney.Designer.cs">
+    <Compile Include="Forms\InputAllRecipe.Designer.cs">
+      <DependentUpon>InputAllRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InputMoney.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InputMoney.Designer.cs">
       <DependentUpon>InputMoney.cs</DependentUpon>
     </Compile>
     <Compile Include="KDBSDataSet.cs">
@@ -121,246 +128,257 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>KDBSDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="Forms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrderFoodAdd.cs">
+    <Compile Include="Forms\OrderFoodAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OrderFoodAdd.Designer.cs">
+    <Compile Include="Forms\OrderFoodAdd.Designer.cs">
       <DependentUpon>OrderFoodAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrderFoodNew.cs">
+    <Compile Include="Forms\OrderFoodNew.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OrderFoodNew.Designer.cs">
+    <Compile Include="Forms\OrderFoodNew.Designer.cs">
       <DependentUpon>OrderFoodNew.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrderFoodSearch.cs">
+    <Compile Include="Forms\OrderFoodSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OrderFoodSearch.Designer.cs">
+    <Compile Include="Forms\OrderFoodSearch.Designer.cs">
       <DependentUpon>OrderFoodSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainProcessSearch.cs">
+    <Compile Include="Forms\MainProcessSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainProcessSearch.Designer.cs">
+    <Compile Include="Forms\MainProcessSearch.Designer.cs">
       <DependentUpon>MainProcessSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="PermissionSetting.cs">
+    <Compile Include="Forms\PermissionSetting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PermissionSetting.Designer.cs">
+    <Compile Include="Forms\PermissionSetting.Designer.cs">
       <DependentUpon>PermissionSetting.cs</DependentUpon>
     </Compile>
-    <Compile Include="PermissionSetting0.cs">
+    <Compile Include="Forms\PermissionSetting0.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PermissionSetting0.Designer.cs">
+    <Compile Include="Forms\PermissionSetting0.Designer.cs">
       <DependentUpon>PermissionSetting0.cs</DependentUpon>
     </Compile>
-    <Compile Include="PreProcessSearch.cs">
+    <Compile Include="Forms\PreProcessSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PreProcessSearch.Designer.cs">
+    <Compile Include="Forms\PreProcessSearch.Designer.cs">
       <DependentUpon>PreProcessSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyNewTools\dataCombobox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyNewTools\DataGridViewDataComboCell.cs" />
+    <Compile Include="MyNewTools\DataGridViewDataComboColumn.cs" />
+    <Compile Include="MyNewTools\DataGridViewDataComboEditingControl.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReceiveGoodsAdd.cs">
+    <Compile Include="Forms\ReceiveGoodsAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReceiveGoodsAdd.Designer.cs">
+    <Compile Include="Forms\ReceiveGoodsAdd.Designer.cs">
       <DependentUpon>ReceiveGoodsAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReceiveGoodsSearch.cs">
+    <Compile Include="Forms\ReceiveGoodsSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReceiveGoodsSearch.Designer.cs">
+    <Compile Include="Forms\ReceiveGoodsSearch.Designer.cs">
       <DependentUpon>ReceiveGoodsSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="SaleScheduleSearch.cs">
+    <Compile Include="Forms\SaleScheduleSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SaleScheduleSearch.Designer.cs">
+    <Compile Include="Forms\SaleScheduleSearch.Designer.cs">
       <DependentUpon>SaleScheduleSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="SellFoodSearch.cs">
+    <Compile Include="Forms\SellFoodSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SellFoodSearch.Designer.cs">
+    <Compile Include="Forms\SellFoodSearch.Designer.cs">
       <DependentUpon>SellFoodSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="ServeFood.cs">
+    <Compile Include="Forms\ServeFood.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServeFood.Designer.cs">
+    <Compile Include="Forms\ServeFood.Designer.cs">
       <DependentUpon>ServeFood.cs</DependentUpon>
     </Compile>
-    <Compile Include="ServeFoodSearch.cs">
+    <Compile Include="Forms\ServeFoodSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ServeFoodSearch.Designer.cs">
+    <Compile Include="Forms\ServeFoodSearch.Designer.cs">
       <DependentUpon>ServeFoodSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="StorageReport.cs">
+    <Compile Include="Forms\StorageReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StorageReport.Designer.cs">
+    <Compile Include="Forms\StorageReport.Designer.cs">
       <DependentUpon>StorageReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="SupplymentPlanSearch.cs">
+    <Compile Include="Forms\SupplymentPlanSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SupplymentPlanSearch.Designer.cs">
+    <Compile Include="Forms\SupplymentPlanSearch.Designer.cs">
       <DependentUpon>SupplymentPlanSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="TableStatus.cs">
+    <Compile Include="Forms\TableStatus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TableStatus.Designer.cs">
+    <Compile Include="Forms\TableStatus.Designer.cs">
       <DependentUpon>TableStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="TakeoutDetail.cs">
+    <Compile Include="Forms\TakeoutDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TakeoutDetail.Designer.cs">
+    <Compile Include="Forms\TakeoutDetail.Designer.cs">
       <DependentUpon>TakeoutDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="TakeoutInput.cs">
+    <Compile Include="Forms\TakeoutInput.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TakeoutInput.Designer.cs">
+    <Compile Include="Forms\TakeoutInput.Designer.cs">
       <DependentUpon>TakeoutInput.cs</DependentUpon>
     </Compile>
-    <Compile Include="TakeoutMaterial.cs">
+    <Compile Include="Forms\TakeoutMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TakeoutMaterial.Designer.cs">
+    <Compile Include="Forms\TakeoutMaterial.Designer.cs">
       <DependentUpon>TakeoutMaterial.cs</DependentUpon>
     </Compile>
-    <Compile Include="TakeoutMaterialDetail.cs">
+    <Compile Include="Forms\TakeoutMaterialDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TakeoutMaterialDetail.Designer.cs">
+    <Compile Include="Forms\TakeoutMaterialDetail.Designer.cs">
       <DependentUpon>TakeoutMaterialDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="TakeoutSearch.cs">
+    <Compile Include="Forms\TakeoutSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TakeoutSearch.Designer.cs">
+    <Compile Include="Forms\TakeoutSearch.Designer.cs">
       <DependentUpon>TakeoutSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="UrgentPurchaseAdd.cs">
+    <Compile Include="Forms\UrgentPurchaseAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UrgentPurchaseAdd.Designer.cs">
+    <Compile Include="Forms\UrgentPurchaseAdd.Designer.cs">
       <DependentUpon>UrgentPurchaseAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="UrgentPurchaseAdd0.cs">
+    <Compile Include="Forms\UrgentPurchaseAdd0.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UrgentPurchaseAdd0.Designer.cs">
+    <Compile Include="Forms\UrgentPurchaseAdd0.Designer.cs">
       <DependentUpon>UrgentPurchaseAdd0.cs</DependentUpon>
     </Compile>
-    <Compile Include="UrgentPurchaseSearch.cs">
+    <Compile Include="Forms\UrgentPurchaseSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UrgentPurchaseSearch.Designer.cs">
+    <Compile Include="Forms\UrgentPurchaseSearch.Designer.cs">
       <DependentUpon>UrgentPurchaseSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="UrgentPurchaseSearch0.cs">
+    <Compile Include="Forms\UrgentPurchaseSearch0.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UrgentPurchaseSearch0.Designer.cs">
+    <Compile Include="Forms\UrgentPurchaseSearch0.Designer.cs">
       <DependentUpon>UrgentPurchaseSearch0.cs</DependentUpon>
     </Compile>
-    <Compile Include="UsernamePassword.cs">
+    <Compile Include="Forms\UsernamePassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UsernamePassword.Designer.cs">
+    <Compile Include="Forms\UsernamePassword.Designer.cs">
       <DependentUpon>UsernamePassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="WaitingStatus.cs">
+    <Compile Include="Forms\WaitingStatus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WaitingStatus.Designer.cs">
+    <Compile Include="Forms\WaitingStatus.Designer.cs">
       <DependentUpon>WaitingStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="webBrowser.cs">
+    <Compile Include="Forms\webBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="webBrowser.Designer.cs">
+    <Compile Include="Forms\webBrowser.Designer.cs">
       <DependentUpon>webBrowser.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddDepartment.resx">
+    <EmbeddedResource Include="Forms\AddDepartment.resx">
       <DependentUpon>AddDepartment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BillDetail.resx">
+    <EmbeddedResource Include="Forms\BillDetail.resx">
       <DependentUpon>BillDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BillSearch.resx">
+    <EmbeddedResource Include="Forms\BillSearch.resx">
       <DependentUpon>BillSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cook1.resx">
+    <EmbeddedResource Include="Forms\Cook1.resx">
       <DependentUpon>Cook1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cook2.resx">
+    <EmbeddedResource Include="Forms\Cook2.resx">
       <DependentUpon>Cook2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cook3.resx">
+    <EmbeddedResource Include="Forms\Cook3.resx">
       <DependentUpon>Cook3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InitialMaterial.resx">
+    <EmbeddedResource Include="Forms\InitialMaterial.resx">
       <DependentUpon>InitialMaterial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InitialRecipeDetail.resx">
+    <EmbeddedResource Include="Forms\InitialRecipeDetail.resx">
       <DependentUpon>InitialRecipeDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InitialRecipePrimary.resx">
+    <EmbeddedResource Include="Forms\InitialRecipePrimary.resx">
       <DependentUpon>InitialRecipePrimary.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InitialTable.resx">
+    <EmbeddedResource Include="Forms\InitialTable.resx">
       <DependentUpon>InitialTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InputMoney.resx">
+    <EmbeddedResource Include="Forms\InputAllRecipe.resx">
+      <DependentUpon>InputAllRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InputMoney.resx">
       <DependentUpon>InputMoney.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OrderFoodAdd.resx">
+    <EmbeddedResource Include="Forms\OrderFoodAdd.resx">
       <DependentUpon>OrderFoodAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OrderFoodNew.resx">
+    <EmbeddedResource Include="Forms\OrderFoodNew.resx">
       <DependentUpon>OrderFoodNew.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OrderFoodSearch.resx">
+    <EmbeddedResource Include="Forms\OrderFoodSearch.resx">
       <DependentUpon>OrderFoodSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainProcessSearch.resx">
+    <EmbeddedResource Include="Forms\MainProcessSearch.resx">
       <DependentUpon>MainProcessSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PermissionSetting.resx">
+    <EmbeddedResource Include="Forms\PermissionSetting.resx">
       <DependentUpon>PermissionSetting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PermissionSetting0.resx">
+    <EmbeddedResource Include="Forms\PermissionSetting0.resx">
       <DependentUpon>PermissionSetting0.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreProcessSearch.resx">
+    <EmbeddedResource Include="Forms\PreProcessSearch.resx">
       <DependentUpon>PreProcessSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -372,67 +390,67 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ReceiveGoodsAdd.resx">
+    <EmbeddedResource Include="Forms\ReceiveGoodsAdd.resx">
       <DependentUpon>ReceiveGoodsAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReceiveGoodsSearch.resx">
+    <EmbeddedResource Include="Forms\ReceiveGoodsSearch.resx">
       <DependentUpon>ReceiveGoodsSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SaleScheduleSearch.resx">
+    <EmbeddedResource Include="Forms\SaleScheduleSearch.resx">
       <DependentUpon>SaleScheduleSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SellFoodSearch.resx">
+    <EmbeddedResource Include="Forms\SellFoodSearch.resx">
       <DependentUpon>SellFoodSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ServeFood.resx">
+    <EmbeddedResource Include="Forms\ServeFood.resx">
       <DependentUpon>ServeFood.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ServeFoodSearch.resx">
+    <EmbeddedResource Include="Forms\ServeFoodSearch.resx">
       <DependentUpon>ServeFoodSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StorageReport.resx">
+    <EmbeddedResource Include="Forms\StorageReport.resx">
       <DependentUpon>StorageReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SupplymentPlanSearch.resx">
+    <EmbeddedResource Include="Forms\SupplymentPlanSearch.resx">
       <DependentUpon>SupplymentPlanSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TableStatus.resx">
+    <EmbeddedResource Include="Forms\TableStatus.resx">
       <DependentUpon>TableStatus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TakeoutDetail.resx">
+    <EmbeddedResource Include="Forms\TakeoutDetail.resx">
       <DependentUpon>TakeoutDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TakeoutInput.resx">
+    <EmbeddedResource Include="Forms\TakeoutInput.resx">
       <DependentUpon>TakeoutInput.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TakeoutMaterial.resx">
+    <EmbeddedResource Include="Forms\TakeoutMaterial.resx">
       <DependentUpon>TakeoutMaterial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TakeoutMaterialDetail.resx">
+    <EmbeddedResource Include="Forms\TakeoutMaterialDetail.resx">
       <DependentUpon>TakeoutMaterialDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TakeoutSearch.resx">
+    <EmbeddedResource Include="Forms\TakeoutSearch.resx">
       <DependentUpon>TakeoutSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UrgentPurchaseAdd.resx">
+    <EmbeddedResource Include="Forms\UrgentPurchaseAdd.resx">
       <DependentUpon>UrgentPurchaseAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UrgentPurchaseAdd0.resx">
+    <EmbeddedResource Include="Forms\UrgentPurchaseAdd0.resx">
       <DependentUpon>UrgentPurchaseAdd0.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UrgentPurchaseSearch.resx">
+    <EmbeddedResource Include="Forms\UrgentPurchaseSearch.resx">
       <DependentUpon>UrgentPurchaseSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UrgentPurchaseSearch0.resx">
+    <EmbeddedResource Include="Forms\UrgentPurchaseSearch0.resx">
       <DependentUpon>UrgentPurchaseSearch0.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UsernamePassword.resx">
+    <EmbeddedResource Include="Forms\UsernamePassword.resx">
       <DependentUpon>UsernamePassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WaitingStatus.resx">
+    <EmbeddedResource Include="Forms\WaitingStatus.resx">
       <DependentUpon>WaitingStatus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="webBrowser.resx">
+    <EmbeddedResource Include="Forms\webBrowser.resx">
       <DependentUpon>webBrowser.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
@@ -457,6 +475,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
