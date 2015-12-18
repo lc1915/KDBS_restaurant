@@ -29,7 +29,7 @@ namespace MyNewTools
         private bool m_blPopupAutoSize =true;
         private int m_SelectedIndex = -1;
 
-        private bool t_show=false;
+        private bool t_xianshi=false;
 
         public event AfterSelectorEventHandler AfterSelector;
 
@@ -147,15 +147,15 @@ namespace MyNewTools
             }
         }
         [Description("下拉输入框是否显示"), Browsable(false), Category("自定义")]
-        public bool show
+        public bool xianshi
         {
             set
             {
-                t_show = false;
+                t_xianshi = false;
             }
             get
             {
-                return t_show;
+                return t_xianshi;
             }
         }
         [Description("数据源"), Browsable(true), Category("自定义")]
@@ -287,7 +287,7 @@ namespace MyNewTools
             dataGridView.AllowUserToDeleteRows = false;
             dataGridView.AllowUserToResizeRows = false;
             dataGridView.Dock = DockStyle.Fill;
-            //dataGridView.MaximumSize = new Size(800, 500); //新增：通过控制datagridview的显示高度，来控制dropdown的高度。
+            dataGridView.MaximumSize = new Size(800, 500); //新增：通过控制datagridview的显示高度，来控制dropdown的高度。
 
             dataGridView.BackgroundColor = SystemColors.Control;
             dataGridView.BorderStyle = BorderStyle.None;
@@ -314,7 +314,7 @@ namespace MyNewTools
     
             dropDown = new ToolStripDropDown();
             dropDown.Items.Add(textBoxHost);
-            dropDown.Items.Add(dataGridViewHost);
+            dropDown.Items.Add(dataGridViewHost);         
         }
         #endregion
         public string GetDataProperty(string sColumn)

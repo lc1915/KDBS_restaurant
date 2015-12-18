@@ -1,12 +1,10 @@
-D:\vs\KDBS_restaurant\KDBS_restaurant\bin\Debug\KDBS_restaurant.exe.config
-D:\vs\KDBS_restaurant\KDBS_restaurant\bin\Debug\KDBS_restaurant.exe
-D:\vs\KDBS_restaurant\KDBS_restaurant\bin\Debug\KDBS_restaurant.pdb
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.AddDepartment.resources
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.BillDetail.resources
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.BillSearch.resources
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.Cook1.resources
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.Cook2.resources
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.Cook3.resources
+D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.Form1.resources
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.InitialMaterial.resources
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.InitialRecipeDetail.resources
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.InitialRecipePrimary.resources
@@ -45,5 +43,8 @@ D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.UsernamePass
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.WaitingStatus.resources
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.webBrowser.resources
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.csproj.GenerateResource.Cache
+D:\vs\KDBS_restaurant\KDBS_restaurant\bin\Debug\KDBS_restaurant.exe.config
+D:\vs\KDBS_restaurant\KDBS_restaurant\bin\Debug\KDBS_restaurant.exe
+D:\vs\KDBS_restaurant\KDBS_restaurant\bin\Debug\KDBS_restaurant.pdb
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.exe
 D:\vs\KDBS_restaurant\KDBS_restaurant\obj\x86\Debug\KDBS_restaurant.pdb

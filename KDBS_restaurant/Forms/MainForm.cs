@@ -188,7 +188,7 @@ namespace KDBS_restaurant
             
             TreeNode node5 = new TreeNode("系统管理");
             treeView1.Nodes.Add(node5);
-            TreeNode t50 = new TreeNode("登录");
+            TreeNode t50 = new TreeNode("登录/退出登录");
             node5.Nodes.Add(t50);
             TreeNode t51 = new TreeNode("系统初始化"); // 在里面输各种基础资料
             node5.Nodes.Add(t51);
@@ -343,7 +343,8 @@ namespace KDBS_restaurant
                     }
                     break;
                 case "菜品信息初始化":
-                    InitialRecipePrimary initialRecipePrimary = new InitialRecipePrimary();
+                    //InitialRecipePrimary initialRecipePrimary = new InitialRecipePrimary();
+                    Form1 initialRecipePrimary = new Form1();
                     initialRecipePrimary.Show();
                     this.WindowState = FormWindowState.Minimized;
                     break;
